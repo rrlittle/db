@@ -1,0 +1,16 @@
+{% extends "db/base_template.html" %}
+{% block content %}
+
+<ul>
+	{% if surveys %}
+		{% for survey in surveys %}
+		<li>
+			<a href="{% url 'db:survey' survey.id %}">{{survey}}</a>
+		</li>
+		{% endfor %}
+	{%else%}
+		<h1>No Surveys Available</h1>
+	{% endif %}
+</ul>
+
+{% endblock content %}

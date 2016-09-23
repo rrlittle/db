@@ -1,0 +1,83 @@
+{% extends "db/base_template.html" %}
+{% block content %}
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+
+
+
+
+{% if survey %}
+  <h1>
+    {{ survey.name }}
+  </h1>
+  <i>
+    Survey ID: {{survey.id}} 
+  </i>  
+  
+  {% if survey_questions %}
+  
+    <table id="survey_table_{{survey.id}}" class="table table-bordered">
+      <thead>
+        <tr>
+          {%for q_title in survey_questions %}
+            <th>{{ q_title }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for response in survey_responses %}
+          <tr>
+            {% for response_item in response %}
+              <td>
+                {% if response_item.textresponse %} 
+                  {{response_item.textresponse}}
+                {% elif response_item.intresponse %} 
+                  {{response_item.intresponse}}
+                {% elif response_item.booleanresponse %} 
+                  {{response_item.booleanresponse}}
+                {% elif response_item.dateresponse %} 
+                  {{response_item.dateresponse}}
+                {% elif response_item.floatresponse %} 
+                  {{response_item.floatresponse}}
+                {% else %}
+                  {{response_item}}
+                {% endif %}
+              </td>
+            {% endfor%}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <script type="text/javascript">
+      $(document).ready(
+        function() {
+          var table = $('#survey_table_{{survey.id}}').DataTable({
+             dom: 'Bfrtip',
+            buttons:['copy', 'csv', 'excel', 'pdf', 'print']
+          });
+        } 
+      );
+    </script>
+
+  {% else %}
+    Survey has not been fully created. No questions could be found! <br>
+    Please contact lab administrator.
+  {% endif %}
+
+{% else %}
+  <h1> 
+    Survey Not found! <br>
+    Please contact the Lab administrator
+  </h1>
+{% endif %}
+
+{% endblock content %}

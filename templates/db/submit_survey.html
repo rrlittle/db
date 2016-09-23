@@ -1,0 +1,95 @@
+{% extends "db/base_template.html" %}
+{% block content %}
+
+<h1 style="text-align:center">
+	{{survey.title}}
+</h1>
+<hr>
+
+<div id="errwrapper">
+</div>
+
+<form id='post_survey'>
+	{% csrf_token %} {#	allow form submission #}
+	<label>date of response</label>
+	<input type="date" name="date_of_response" id='dateofresponse'>
+	
+	{# Who is responding to this #}
+	<select class="respondent form-control" style="width:auto" id="respondent">
+		<option style="display:none" value="-1">select a respondent</option>
+		{% for respondent in respondents %}
+			<option value="{{ respondent.id }}">{{ respondent.display }}</option>
+		{% endfor %}
+	</select>
+
+	{# Display all the questions #}
+	{% for question in survey.questions %}
+		{# the whole question entity #}
+		<div class="question well panel-default" id="{{ question.surveyquestionid }}">
+			{# question prompt #}
+			<div class="questionprompt panel-heading">{{ question.prompt }}</div>
+			{# the choices for this question #}
+			<div class="choiceset panel-body">
+				{% for choice in question.choices %}
+					{# each choice #}
+					<label>{{ choice.description }}</label>
+					<input class="choice" 
+						type="{{ choice.type }}" 
+						name="{{ question.surveyquestionid }}" 
+						id="{{ choice.id }}"
+						value="{{ choice.defaultvalue }}">
+				{% endfor %}
+			</div>
+		</div>
+	{% endfor %}
+	{# allow submisssion of form #}
+	<input type="submit" name="submit">
+</form>
+
+
+<script type="text/javascript">
+	$(document).ready( function() {
+    	$('#dateofresponse')[0].valueAsDate = new Date();
+	});
+
+	$(document).on('submit', '#post_survey', function(e){
+		e.preventDefault();
+		var data = {
+				csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+				respondentid: $('#respondent').val(),
+				dateofresponse: $('#dateofresponse').val()
+		}
+
+		var questionblocks = $('.question')
+		for (i=0; i < questionblocks.length; i++){
+			var questionblock = questionblocks[i]; // the whole question
+			var questionid = questionblock.id; // the survquest id
+			var choices = questionblock.querySelectorAll('.choice'); // choices
+			for (j=0; j<choices.length; j++){
+				var choice = choices[j];	//individual choice
+				var choiceid = choice.id; // choice id
+				var choice_type = choice.type; // type of choice
+				var varname = 'survquest_' + questionid + '_' + choiceid
+				data[varname] = choice.checked 
+				console.log('question #', i, 'choice #', j, choice.checked )
+			}
+		}
+
+
+		console.log('posting data:', data)
+		$.ajax({
+			type: 'POST',
+			url: '{% url "db:post_survey" %}',
+			data: data,
+			success: function(resp, status){
+				console.log(resp);
+			}
+		})
+	});
+</script>
+
+
+{% endblock content %}
+
+
+

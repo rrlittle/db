@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- {% load staticfiles %} -->
+   <title>{% block title %}James Li Lab{% endblock %}</title>
+   <!-- <link rel="shortcut icon" href="{%  static 'favicon.ico' %}"> -->
+</head>
+
+<body>
+  <div class="container">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url "db:index" %}">
+            James Li Lab
+          </a>
+        </div>
+      <div id="navbar" class="navbar">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url "db:surveys" %}">Surveys</a></li>
+          <li><a href="{% url "db:respondents" %}">Respondents</a></li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+  </div>
+  <hr/>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('.contentwrap').css({'margin-top': (($('.navbar-fixed-top').height()) + 1 )+'px'});
+        $(window).resize(function(){
+            $('.contentwrap').css({'margin-top': (($('.navbar-fixed-top').height()) + 1 )+'px'});
+        });
+    });  
+  </script>
+
+  <div class="container contentwrap">
+    {% block content %}
+    {% endblock content %}
+  </div>
+
+  {% block footer %}
+    <style type="text/css">
+      /* Sticky footer styles
+      -------------------------------------------------- */
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+      body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+      }
+      .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        background-color: #f5f5f5;
+      }
+    </style>
+    <footer class="footer hidden-xs">
+      <div class="container text-muted">
+          <p>
+              powered by Django <br> 
+              author- Russell Little 
+          </p>
+      </div>
+    </footer>
+  {% endblock footer %}
+</body>
+</html>

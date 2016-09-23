@@ -1,0 +1,16 @@
+{% extends "db/base_template.html" %}
+{% block content %}
+
+<ul>
+	{%if respondents %}
+		{% for resp in respondents %}
+			<li>
+				<a href="{% url 'db:respondent' resp.id %}">{{resp}}</a>
+			</li>	
+		{% endfor %}
+	{% else %}
+		<h1>No Respondents Available</h1>
+	{% endif %}
+</ul>
+
+{% endblock content %}
