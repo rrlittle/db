@@ -95,14 +95,22 @@ def submit_survey(request, surveyid):  # fill in a specific survey
                 __So far we have radio... just stick to that for now.__
     '''
     context = {}
-    resp_objs = get_list_or_404(models.Person)
+    survey_dict = {}
+    survey = get_object_or_404(models.Survey, pk=surveyid)
+    
+    context['surveytitle'] = survey.name
+    context['surveyid'] = surveyid
+    
+    resp_objs = None
+    try:
+        resp_objs = get_list_or_404(models.Person)
+    except Http404: 
+        context['NoRespondents'] = True
+        return render(request, 'db/submit_survey.html', context)
     context['respondents'] = []
     for resp in resp_objs: 
         context['respondents'].append({'id': resp.id, 'display': str(resp)}) 
         
-    survey_dict = {}
-    survey = get_object_or_404(models.Survey, pk=surveyid)
-    survey_dict['title'] = survey.name
 
     try:
         surv_quest_objs = get_list_or_404(
@@ -116,6 +124,7 @@ def submit_survey(request, surveyid):  # fill in a specific survey
             question_dict['surveyquestionid'] = surv_quest.id
             question_dict['title'] = quest.title
             question_dict['prompt'] = quest.prompt
+            question_dict['handlingflag'] = quest.choice_group.ui
             # get all the choices associated with this question
             choice_group = quest.choice_group
             choices = []
@@ -128,9 +137,12 @@ def submit_survey(request, surveyid):  # fill in a specific survey
                     # get the description and type for each choice
                     choice_dict = {
                         'description': choice.name,
-                        'type': choice_group.ui,
-                        'id': choice.id
+                        'ui': choice_group.ui,
+                        'id': choice.id,
+                        'defaultvalue': choice.get_value(choice_group.datatype)
                     } 
+                    # add the correct default value based on the datatype
+
                     choices.append(choice_dict)
 
             except Http404 as e: 
@@ -147,49 +159,115 @@ def submit_survey(request, surveyid):  # fill in a specific survey
 
 
 def post_survey(request):
-    print 'in post_survey'
+    ''' this handles the submission of a filled survey.
+        that involves creating answers for all the data provided
+        and doing error checking so bad info can't get in. 
+    '''
+    # endure it's a post method.
     if request.method != 'POST': 
         return HttpResponseBadRequest(
             {'error': 'Not a post'}, 
             content_type='application/json')
-    data = {}
-    rdata = request.POST
+    
+    # declare the errors container
+    errors = {
+        'personNotFound':None, # bad personid
+        'invalidSurveyQuestions':[], # list of bad survey Question ids
+        'badSurveyQuestionIdForThisSurvey':[], 
+        # list of surveyquestions not for this survey
+        'badChoices':{}, # survquestid: list of bad choice ids
+        'badAnswerCreation':[], # list of answers that couldn't be created
+    }
+
+    # get the data supplied.
+    rdata = request.POST # request data
+    
+    # get surveyid
+    surveyid = rdata['surveyid']
+
+    
+    # get the respondent
     respondentid = rdata['respondentid']
+    respondent = None
+    try:
+        respondent = get_object_or_404(models.Person, pk=respondentid)
+    except Http404: errors['personNotFound'] = respondentid 
+    
+    # get the date of response
     date_of_response_raw = rdata['dateofresponse']
-    # date_of_response = 
-    respondent = get_object_or_404(models.Person, pk=respondentid)
+
+    answers = [] # container for all answers created. save either all or none. 
+
+    # get the actual questions
+    # they should be supplied with key survquest_{survquestid}_choiceid = ansval
     for k in {k: rdata[k] for k in rdata if k.startswith('survquest_')}:
-        print 'processing key', k
-        k_split = k.split('_')
-        survquestid = k_split[1]
-        surv_quest = get_object_or_404(
-            models.Survey_Question, 
-            pk=survquestid)
+        print 'processing key', k # display the raw
+        k_split = k.split('_') # split up
+        
+        # get the survey_question
+        survquestid = k_split[1] # access surveyquestid
+        survquest = None
+        try:
+            # get the surveyQuestion object
+            surv_quest = get_object_or_404(
+                models.Survey_Question, 
+                pk=survquestid)
 
-        choiceid = k_split[2]
-        choice = get_object_or_404(models.Choice, pk=choiceid)
+            # if this question should not belong to this survey
+            if surv_quest.survey.id != int(surveyid):
+                # flag an error
+                errors['badSurveyQuestionIdForThisSurvey'].append(survquestid)
+                # go to next choice
+                continue
+        except Http404: 
+            if surveyquestid not in errors['invalidSurveyQuestions']:
+                errors['invalidSurveyQuestions'].append(surveyquestid)
+            continue # go to next choice
 
+        choiceid = k_split[2] # access choiceid
+        choice = None
+        try:
+            choice = get_object_or_404(models.Choice, pk=choiceid)
+        except Http404:
+            if surveyquestid not in errors['badChoices']:
+                errors['badChoices'][surveyquestid] = [] 
+            errors['badChoices'][surveyquestid].append(choiceid)
+            continue # go to next choice    
+        
+        # get value provided
         value_raw = rdata[k]
-        boolresponse = None
-        dateresponse = None
-        textreponse = None
-        intresponse = None
-        floatresponse = None
-        dateresponse = None
 
-        if choice.ui in ('radio', 'checkbox'): 
-            boolresponse = value_raw == 'true'
+        # we need to figure out what to save the value as...
+        # that's defined by the type_field in the choice_group
+        datatype = surv_quest.question.choice_group.datatype
+        response_val = {datatype:value_raw}
 
-        new_ans = models.Answer(
-            respondent=respondent, 
-            survey_question=surv_quest,
-            date_of_response=date_of_response_raw,
-            answer=choice,
-            date_response=dateresponse,
-            boolean_response=boolresponse,
-            text_response=textreponse,
-            int_response=intresponse,
-            float_response=floatresponse)
-        new_ans.save()
-        print new_ans
-    return HttpResponse(json.dumps(data), content_type='application/json')
+        # passed all checks make an answer
+        new_ans = None
+        try:
+            new_ans = models.Answer(
+                respondent=respondent, 
+                survey_question=surv_quest,
+                date_of_response=date_of_response_raw,
+                answer=choice,
+                **response_val)
+        except Exception as e: # can't create the answer
+            errors['badAnswerCreation'].append(
+                ('sq',survquestid, 'c',choiceid, e)
+            ) # save the error
+            continue # go to next choice
+        print 'created answer:', new_ans
+    
+    # if errors stay on same page
+    if (errors['personNotFound'] 
+        or len(errors['invalidSurveyQuestions']) > 0
+        or len(errors['badSurveyQuestionIdForThisSurvey']) > 0
+        or len(errors['badChoices'].keys()) > 0
+        or len(errors['badAnswerCreation']) > 0):
+        return HttpResponse(
+            json.dumps(errors), 
+            content_type='application/json'
+        )
+    
+    # for ans in answers: ans.save()
+    return survey(surveyid)

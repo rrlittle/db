@@ -2,13 +2,16 @@
 {% block content %}
 
 <h1 style="text-align:center">
-	{{survey.title}}
+	<input type="hidden" name="surveyid" id="surveyid" value="{{ surveyid }}">
+	{{surveytitle}}
 </h1>
 <hr>
 
-<div id="errwrapper">
-</div>
+{% if NoRespondents %}
+	<h1>Cannot Submit answers when no respondents available</h1>
+	<button onclick="alert('Work In Progress')"> add a respondent </button>
 
+{% else %}
 <form id='post_survey'>
 	{% csrf_token %} {#	allow form submission #}
 	<label>date of response</label>
@@ -25,19 +28,29 @@
 	{# Display all the questions #}
 	{% for question in survey.questions %}
 		{# the whole question entity #}
-		<div class="question well panel-default" id="{{ question.surveyquestionid }}">
+		<div class="question well panel-default" 
+			handlingflag="{{question.handlingflag}}" 
+			id="{{ question.surveyquestionid }}">
 			{# question prompt #}
-			<div class="questionprompt panel-heading">{{ question.prompt }}</div>
+			<div class="questionprompt panel-heading">
+				{{ question.prompt }}
+			</div>
 			{# the choices for this question #}
 			<div class="choiceset panel-body">
 				{% for choice in question.choices %}
 					{# each choice #}
 					<label>{{ choice.description }}</label>
 					<input class="choice" 
-						type="{{ choice.type }}" 
+						type="{{ choice.ui }}" 
 						name="{{ question.surveyquestionid }}" 
 						id="{{ choice.id }}"
 						value="{{ choice.defaultvalue }}">
+					{# this means that radio/text/checkbox are the #}
+					{# most likely scenarios.  #}
+					{# if it's a radio. you should only create one answer on the server #}
+					{# if it's a checkbox. you should create one answer for each selected choice #}
+					{# if it's a textbox. you should create one answer for each choice. #}
+					{# they will by default be filled with the default answers #}
 				{% endfor %}
 			</div>
 		</div>
@@ -54,24 +67,34 @@
 
 	$(document).on('submit', '#post_survey', function(e){
 		e.preventDefault();
+
+		function handle_checkbox(questionid){
+			var ret = {}
+			var selected_choices = $('.question#' + questionid +'>>.choice:checked')
+			return ret
+		}
+
 		var data = {
 				csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
 				respondentid: $('#respondent').val(),
-				dateofresponse: $('#dateofresponse').val()
+				dateofresponse: $('#dateofresponse').val(),
+				surveyid: $('input[name=surveyid]').val(),
 		}
 
 		var questionblocks = $('.question')
 		for (i=0; i < questionblocks.length; i++){
-			var questionblock = questionblocks[i]; // the whole question
-			var questionid = questionblock.id; // the survquest id
-			var choices = questionblock.querySelectorAll('.choice'); // choices
-			for (j=0; j<choices.length; j++){
-				var choice = choices[j];	//individual choice
-				var choiceid = choice.id; // choice id
-				var choice_type = choice.type; // type of choice
-				var varname = 'survquest_' + questionid + '_' + choiceid
-				data[varname] = choice.checked 
-				console.log('question #', i, 'choice #', j, choice.checked )
+			var question = questionblocks[i]
+			var questionid = question.id
+			var question_handling = question.getAttribute('handlingflag')
+			
+			if (question_handling == "checkbox"){
+				$.extend(data, handle_checkbox(questionid))
+			}
+
+			var choices = $('.question#' + questionid + '>>.choice:checked')
+			for (var j = choices.length - 1; j >= 0; j--) {
+				var choice = choices[j]
+				console.log(choice, question_handling)
 			}
 		}
 
@@ -82,11 +105,12 @@
 			url: '{% url "db:post_survey" %}',
 			data: data,
 			success: function(resp, status){
-				console.log(resp);
+				console.log('recieved',resp);
 			}
 		})
 	});
 </script>
+{% endif %}
 
 
 {% endblock content %}

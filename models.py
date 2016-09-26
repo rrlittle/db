@@ -4,6 +4,14 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from datetime import datetime
 
+datatypes = [
+	'int',
+	'float',
+	'date',
+	'bool',
+	'text',
+]
+
 
 class Person(models.Model):
 	''' a list of all the people participating in the study
@@ -30,8 +38,18 @@ class Choice_Group(models.Model):
 	'''
 	name = models.CharField(max_length=60) # what is this group called? 
 	# 	# e.g. yes-no. strongly agree to disagree
-	ui = models.CharField(max_length=20)  # how does the choices appear
-	
+
+	ui = models.CharField(max_length=20)  # how does the choices appear	
+	# this determines how all the chocices will appear
+	#	# radio - the default value will be used. user cannot overwrite
+	#	# text - they will be able to enter characters in any fields
+	#	# checkbox - they will be able to enter a number of options
+	# if this is checkbox a column for each option will be created when
+	# viewing the data
+
+	datatype = models.CharField(max_length=20) # bool/int/phone/id/email/etc
+	# this is used to validate the data passed along
+
 	def __str__(self): return self.name
 
 
@@ -56,6 +74,13 @@ class Choice(models.Model):
 	
 	def __str__(self): return self.name
 
+	def get_value(self, datatype):
+		if datatype == 'int': return self.default_int_resp
+		elif datatype == 'float': return self.default_float_resp
+		elif datatype == 'bool': return self.default_boolean_resp
+		elif datatype == 'date': return self.default_date_resp
+		elif datatype == 'text': return self.default_text_resp
+		else: raise LookupError('%s not a recognised datatype' % datatype)
 
 class Question(models.Model):
 	''' this is the actual question including the prompt and possible 
@@ -82,7 +107,8 @@ class Survey_Question(models.Model):
 	survey = models.ForeignKey(Survey)
 	question = models.ForeignKey(Question)
 	question_order = models.PositiveIntegerField()
-	unit_of_measure = models.ForeignKey(Measure)  # what this answer measures
+	unit_of_measure = models.ForeignKey(Measure, blank=True, null=True)  
+	# what this answer measures
 
 	def __str__(self): 
 		return '%s[%s]=>%s' % (
