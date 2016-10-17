@@ -68,9 +68,26 @@
 	$(document).on('submit', '#post_survey', function(e){
 		e.preventDefault();
 
+		function handle_radio(questionid){
+			var ret = {};
+			var selected_choice = $('.question#' + questionid + '>>.choice:checked')[0];
+			var choiceid = selected_choice.id;
+			var choice_val = selected_choice.value;
+			ret['survquest_' + questionid + '_' + choiceid] = choice_val;
+			return ret;
+		}
+
 		function handle_checkbox(questionid){
+			// console.log('entering handle_checkbox for question ', questionid);
 			var ret = {}
 			var selected_choices = $('.question#' + questionid +'>>.choice:checked')
+			for (var i = selected_choices.length - 1; i >= 0; i--) {
+				var choice = selected_choices[i] // need to get selected answers
+				var choiceid = choice.id
+				// console.log('processing choice ', i, choice);
+				// console.log(choice.value, choice.id)
+				ret['survquest_' + questionid + '_' + choiceid] = choice.value;
+			}
 			return ret
 		}
 
@@ -88,13 +105,13 @@
 			var question_handling = question.getAttribute('handlingflag')
 			
 			if (question_handling == "checkbox"){
-				$.extend(data, handle_checkbox(questionid))
+				$.extend(data, handle_checkbox(questionid));
 			}
-
-			var choices = $('.question#' + questionid + '>>.choice:checked')
-			for (var j = choices.length - 1; j >= 0; j--) {
-				var choice = choices[j]
-				console.log(choice, question_handling)
+			else if (question_handling == "radio"){
+				$.extend(data, handle_radio(questionid));
+			}
+			else{
+				console.log('Question ', questionid, ' has unrecognized handler', question_handling, 'skipping')
 			}
 		}
 
@@ -106,6 +123,10 @@
 			data: data,
 			success: function(resp, status){
 				console.log('recieved',resp);
+				console.log(resp['status'])
+				if (resp['status'] == 'success'){
+					location.href = resp['surveypage'];
+				}
 			}
 		})
 	});

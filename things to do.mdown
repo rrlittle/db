@@ -1,0 +1,32 @@
+__move radioboxes below things__
+__auomate scripts__
+missing items
+require questions
+reepondent missing item for sureveys. 
+think bout storing actual files.... save them on 
+
+checking radiobox output... fix it. 
+
+think about saving cohort info... every person has one cohort 
+
+
+999 pglobal missiing
+777 NA
+
+come in monday 4pm to install stuff. hannah will be there computer 3
+come in tuesday 8am to teachng karly to use it. 
+parent questionnaires - create 
+
+1. set up parent questionnaires 
+    - CBCL parent asking about child 
+    - TRF teachers about child
+    - ASR parent about themselves
+2. work on import metric wire. 
+3. doit hosting for django service.  
+
+
+developer
+d3v0P5!
+
+
+

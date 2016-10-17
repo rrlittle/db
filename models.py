@@ -4,13 +4,6 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from datetime import datetime
 
-datatypes = [
-	'int',
-	'float',
-	'date',
-	'bool',
-	'text',
-]
 
 
 class Person(models.Model):
@@ -82,6 +75,7 @@ class Choice(models.Model):
 		elif datatype == 'text': return self.default_text_resp
 		else: raise LookupError('%s not a recognised datatype' % datatype)
 
+
 class Question(models.Model):
 	''' this is the actual question including the prompt and possible 
 		answers people are allowed to provide
@@ -89,8 +83,25 @@ class Question(models.Model):
 	title = models.CharField(max_length=60)
 	prompt = models.CharField(max_length=200)
 	choice_group = models.ForeignKey(Choice_Group)
+	allow_multiple_responses = models.BooleanField()
 	
+	# if you are missing an answer to this question display it like so
+	missing_value_int = models.IntegerField(blank=True, null=True)
+	missing_value_float = models.FloatField(blank=True, null=True)
+	missing_value_boolean = models.NullBooleanField(blank=True, null=True)
+	missing_value_date = models.DateField(blank=True, null=True)
+	missing_value_text = models.CharField(max_length=60, blank=True, null=True)
+
 	def __str__(self): return self.prompt
+
+	def get_missing_value(self):
+		datatype = self.choice_group.datatype
+		if datatype == 'int': return self.missing_value_int
+		elif datatype == 'float': return self.missing_value_float
+		elif datatype == 'bool': return self.missing_value_boolean
+		elif datatype == 'date': return self.missing_value_date
+		elif datatype == 'text': return self.missing_value_text
+		else: raise LookupError('%s not a recognised datatype' % datatype)
 
 
 class Survey(models.Model):
@@ -137,11 +148,11 @@ class Answer(models.Model):
 	# #	all, none, or anywhere in between may be filled. depending on what
 	# #	type of question this is.  
 	
-	boolean_response = models.NullBooleanField(blank=True, null=True)
-	date_response = models.DateField(blank=True, null=True)
-	text_response = models.CharField(max_length=60, blank=True, null=True)
 	int_response = models.IntegerField(blank=True, null=True)
 	float_response = models.FloatField(blank=True, null=True)
+	date_response = models.DateField(blank=True, null=True)
+	boolean_response = models.NullBooleanField(blank=True, null=True)
+	text_response = models.CharField(max_length=60, blank=True, null=True)
 	
 	def __str__(self): return '%s [%s=%s]' % (
 		self.respondent, 
@@ -151,6 +162,9 @@ class Answer(models.Model):
 		''' used to validate Answer entries. 
 			self.answer must belong to the the choice_group
 			in the self.survey_question.question.choice_group
+
+			also not allowed to save duplicate entries
+			duplicate meaning same 
 		'''
 		question = Survey_Question.objects.get(pk=self.survey_question_id)
 		question_id = question.question_id
@@ -164,13 +178,44 @@ class Answer(models.Model):
 			raise ValidationError(('Selected choice is not part of'
 			  		' proper group for this question.'))
 
-		if self.booleanresponse is None: 
-			self.booleanresponse = self.answer.default_boolean_resp
-		if self.dateresponse is None: 
-			self.dateresponse = self.answer.default_date_resp
-		if self.textresponse is '': 
-			self.textresponse = self.answer.default_text_resp
-		if self.intresponse is None: 
-			self.intresponse = self.answer.default_int_resp
-		if self.floatresponse is None: 
-			self.floatresponse = self.answer.default_float_resp
+		if self.boolean_response is None: 
+			self.boolean_response = self.answer.default_boolean_resp
+		if self.date_response is None: 
+			self.date_response = self.answer.default_date_resp
+		if self.text_response is '': 
+			self.text_response = self.answer.default_text_resp
+		if self.int_response is None: 
+			self.int_response = self.answer.default_int_resp
+		if self.float_response is None: 
+			self.float_response = self.answer.default_float_resp
+
+		# get any duplicates for this answer i.e.
+		# same respondent, 
+		# same survey question
+		# same choice
+		duplicates = Answer.objects.filter(
+			respondent_id=self.respondent.id,
+			survey_question_id = self.survey_question.id,
+			answer_id=self.answer.id,
+			)
+		print 'cleaning answer %s'%self
+		print 'foud duplicates %s'%duplicates
+		if len(duplicates) > 0: 
+			raise ValidationError('this is a duplicate to these %s'%duplicates)
+
+
+
+	def get_value(self):
+		'''
+			depending on the choice_group this choice is a part of
+			the value of this answer will be stored in one of several fields. 
+			so we need to retrieve the value from the correct field.
+		'''
+
+		datatype = self.answer.group.datatype # get the datatype of ths answer
+		if datatype == 'int': return self.int_response
+		elif datatype == 'float': return self.float_response
+		elif datatype == 'date': return self.date_response
+		elif datatype == 'bool': return self.boolean_response
+		elif datatype == 'text': return self.text_response
+		else: raise LookupError('%s not a recognised datatype' % datatype)

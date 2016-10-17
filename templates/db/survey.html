@@ -12,44 +12,32 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
 
 
-
-
 {% if survey %}
   <h1>
     {{ survey.name }}
   </h1>
+  <a href="{% url "db:submit" survey.id %}">
+    <button class="btn btn-default">submit an entry</button>
+  </a>
   <i>
     Survey ID: {{survey.id}} 
   </i>  
-  
-  {% if survey_questions %}
+  {% if headers %}
   
     <table id="survey_table_{{survey.id}}" class="table table-bordered">
       <thead>
         <tr>
-          {%for q_title in survey_questions %}
+          {%for q_title in headers %}
             <th>{{ q_title }}</th>
           {% endfor %}
         </tr>
       </thead>
       <tbody>
-        {% for response in survey_responses %}
+        {% for row in rows %}
           <tr>
-            {% for response_item in response %}
+            {% for row_cell in row %}
               <td>
-                {% if response_item.textresponse %} 
-                  {{response_item.textresponse}}
-                {% elif response_item.intresponse %} 
-                  {{response_item.intresponse}}
-                {% elif response_item.booleanresponse %} 
-                  {{response_item.booleanresponse}}
-                {% elif response_item.dateresponse %} 
-                  {{response_item.dateresponse}}
-                {% elif response_item.floatresponse %} 
-                  {{response_item.floatresponse}}
-                {% else %}
-                  {{response_item}}
-                {% endif %}
+                {{row_cell}}
               </td>
             {% endfor%}
           </tr>
@@ -69,7 +57,9 @@
     </script>
 
   {% else %}
-    Survey has not been fully created. No questions could be found! <br>
+    <br>
+    Survey has not been fully created. No questions could be found! 
+    <br>
     Please contact lab administrator.
   {% endif %}
 
