@@ -1,6 +1,10 @@
 {% extends "db/base_template.html" %}
 {% block content %}
 
+<style type="text/css">
+	label{display: block;}
+</style>
+
 <h1 style="text-align:center">
 	<input type="hidden" name="surveyid" id="surveyid" value="{{ surveyid }}">
 	{{surveytitle}}
@@ -39,18 +43,20 @@
 			<div class="choiceset panel-body">
 				{% for choice in question.choices %}
 					{# each choice #}
-					<label>{{ choice.description }}</label>
-					<input class="choice" 
-						type="{{ choice.ui }}" 
-						name="{{ question.surveyquestionid }}" 
-						id="{{ choice.id }}"
-						value="{{ choice.defaultvalue }}">
-					{# this means that radio/text/checkbox are the #}
-					{# most likely scenarios.  #}
-					{# if it's a radio. you should only create one answer on the server #}
-					{# if it's a checkbox. you should create one answer for each selected choice #}
-					{# if it's a textbox. you should create one answer for each choice. #}
-					{# they will by default be filled with the default answers #}
+					<div style="float:left;margin-right:20px;">
+						<label for="{{choice.id}}">{{ choice.description }}</label>
+						<input class="choice" 
+							type="{{ choice.ui }}" 
+							name="{{ question.surveyquestionid }}" 
+							id="{{ choice.id }}"
+							value="{{ choice.defaultvalue }}">
+						{# this means that radio/text/checkbox are the #}
+						{# most likely scenarios.  #}
+						{# if it's a radio. you should only create one answer on the server #}
+						{# if it's a checkbox. you should create one answer for each selected choice #}
+						{# if it's a textbox. you should create one answer for each choice. #}
+						{# they will by default be filled with the default answers #}
+					</div>
 				{% endfor %}
 			</div>
 		</div>

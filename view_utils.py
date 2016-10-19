@@ -76,10 +76,10 @@ def handle_quest_for_survey_view(survquest):
             print '\thandling this answer %s'%ans
             if ans.respondent not in rows:
                 print ('\t\t new respondent found. '
-                    'initializing their row to %s')%([q_missing_val])
-                rows[ans.respondent] = [q_missing_val]
-            else:
-                rows[ans.respondent].append(ans.get_value())
+                    'initializing their row to %s')%([])
+                rows[ans.respondent] = [] 
+            
+            rows[ans.respondent].append(ans.get_value())
                 
 
     return headers, rows
@@ -138,26 +138,26 @@ def get_data_and_header_for_survey(survey):
     return headers, rows
 
 def dict_rows_to_list_of_lists_for_survey(rows):
-        ''' get_data_and_header_for_survey returns a list of headers and 
-            a dictionary of rows using the respondent as a key. 
-            like so:
-            {
-                r1: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-                r2: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-                r3: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-                r4: [ans1, ans2, ans3.1, ans3.2, ans3.3],
+    ''' get_data_and_header_for_survey returns a list of headers and 
+        a dictionary of rows using the respondent as a key. 
+        like so:
+        {
+            r1: [ans1, ans2, ans3.1, ans3.2, ans3.3],
+            r2: [ans1, ans2, ans3.1, ans3.2, ans3.3],
+            r3: [ans1, ans2, ans3.1, ans3.2, ans3.3],
+            r4: [ans1, ans2, ans3.1, ans3.2, ans3.3],
 
-            }
+        }
 
-            the template wants this a list of lists like so:
-            [[r1, ans1, ans2, ans3.1, ans3.2, ans3.3],
-             [r2, ans1, ans2, ans3.1, ans3.2, ans3.3],
-             [r3, ans1, ans2, ans3.1, ans3.2, ans3.3],
-             [r4, ans1, ans2, ans3.1, ans3.2, ans3.3],
-            ]
-            this function does that
-        '''
-        ret_rows = []
-        for r in rows:
-            ret_rows.append([r] + rows[r])
-        return ret_rows
+        the template wants this a list of lists like so:
+        [[r1, ans1, ans2, ans3.1, ans3.2, ans3.3],
+         [r2, ans1, ans2, ans3.1, ans3.2, ans3.3],
+         [r3, ans1, ans2, ans3.1, ans3.2, ans3.3],
+         [r4, ans1, ans2, ans3.1, ans3.2, ans3.3],
+        ]
+        this function does that
+    '''
+    ret_rows = []
+    for r in rows:
+        ret_rows.append([r] + rows[r])
+    return ret_rows
