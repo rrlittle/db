@@ -4,8 +4,6 @@ require questions
 reepondent missing item for sureveys. 
 think bout storing actual files.... save them on 
 
-checking radiobox output... fix it. 
-
 think about saving cohort info... every person has one cohort 
 
 

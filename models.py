@@ -13,6 +13,8 @@ class Person(models.Model):
 	firstName = models.CharField(max_length=60)
 	lastName = models.CharField(max_length=60)
 	birthdate = models.DateField()
+	role = models.CharField(max_length=20)
+	studyid = models.IntegerField()
 	def __str__(self): return self.firstName + ' ' + self.lastName
 
 
