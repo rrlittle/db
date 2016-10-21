@@ -10,20 +10,35 @@ think about saving cohort info... every person has one cohort
 999 pglobal missiing
 777 NA
 
-come in monday 4pm to install stuff. hannah will be there computer 3
-come in tuesday 8am to teachng karly to use it. 
 parent questionnaires - create 
 
-1. set up parent questionnaires 
+1. work on import metric wire. 
+2. set up parent questionnaires 
     - CBCL parent asking about child 
     - TRF teachers about child
     - ASR parent about themselves
-2. work on import metric wire. 
 3. doit hosting for django service.  
+    - follow up with them
 
 
+computer
+------------
 developer
 d3v0P5!
 
 
+-----------------------------------
+adding ICU notes
 
+who this question is referring to should be a saved.
+    e.g. this survey was completed by X and is about Y.
+    this could maybe be decided by the type of survey. 
+
+also completed by fields include mother/father/other
+about child & birthdate. we should fix that...
+
+
+enable editing of past submissions by updating fields when user is selected... 
+
+
+set default missing int value for questions to 999
