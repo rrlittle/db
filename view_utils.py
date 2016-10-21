@@ -2,6 +2,10 @@ import models
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.core.exceptions import MultipleObjectsReturned
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 def handle_quest_for_survey_view(survquest):
     ''' handles getting all the responses to a single survey question
         if this question allows multiple responses then it will
@@ -13,7 +17,7 @@ def handle_quest_for_survey_view(survquest):
         throws 404 if there are no choices available  
             if question allows muslitple
     '''
-    print 'in handle_quest_for_survey_view for survquest %s'%survquest
+    logger.info('in handle_quest_for_survey_view for survquest %s'%survquest)
     headers = [] # to hold header strings
     rows = {} # to hold respomses 
     # using people as keys with header aligned lists as value
@@ -21,8 +25,8 @@ def handle_quest_for_survey_view(survquest):
     q_missing_val = question.get_missing_value() # save question missing value
 
     if question.allow_multiple_responses: # one column per possible responses
-        print ('this question allows multiple responses, '
-            'making a column for each choice')
+        logger.info(('this question allows multiple responses, '
+            'making a column for each choice'))
         # then we need to create headers for each viable option
         choice_grp = question.choice_group
         # get all the choices for this question
@@ -30,9 +34,9 @@ def handle_quest_for_survey_view(survquest):
             models.Choice.objects.order_by('order'),
             group_id=choice_grp.id
         )
-        print 'found these choices %s'%choices
+        logger.info( 'found these choices %s'%choices)
         for choice_num, choice in enumerate(choices):
-            print '\thandling choice %s'%choice
+            logger.info('\thandling choice %s'%choice)
             # save the header for this choice
             headers.append('%s (%s)'%(question.title, choice.name))
             # get all the answers to this responses 
@@ -41,21 +45,21 @@ def handle_quest_for_survey_view(survquest):
                 answer_id=choice.id,
                 survey_question_id = survquest.id
             )
-            print '\tfound these answers %s'%answers_for_this_choice
+            logger.info('\tfound these answers %s'%answers_for_this_choice)
             # BUG: multiple responses from the same person for the same person 
             # will break this. they will add more than one column to this row
             # hopefully the database will be kept clean
             people_responded = []
             for ans in answers_for_this_choice:
-                print '\t\thandling this answer %s'%ans
+                logger.info( '\t\thandling this answer %s'%ans)
                 # save everyone that responded
                 people_responded.append(ans.respondent) 
                 
                 # if they aren't already in rows, add them, 
                 # be sure to pad with missing vals
                 if ans.respondent not in rows:
-                    print ('\t\tnew respondent found. initializing '
-                        'their row to %s')%([q_missing_val] * (choice_num))
+                    logger.info (('\t\tnew respondent found. initializing '
+                              'their row to %s')%([q_missing_val] * (choice_num)))
                     rows[ans.respondent] = [q_missing_val] * (choice_num)
                 # put the value of their response in the data output
                 rows[ans.respondent].append(
@@ -63,20 +67,20 @@ def handle_quest_for_survey_view(survquest):
                 )
             # if people didn't respond we need to pad with missing values
             for no_response in [r for r in rows if r not in people_responded]:
-                print '\t\tperson %s did not respond. adding %s to row'%(no_response, q_missing_val)
+                logger.info ('\t\tperson %s did not respond. adding %s to row'%(no_response, q_missing_val))
                 rows[r].append(q_missing_val)
     else: # only one column 
         headers.append(question.title)
-        print ('this question does not allow multiple responses',
-            'making only one column')
+        logger.info( ('this question does not allow multiple responses',
+                    'making only one column'))
         answers_to_this_quest = models.Answer.objects.filter(
             survey_question_id=survquest.id
         )
         for ans in answers_to_this_quest:
-            print '\thandling this answer %s'%ans
+            logger.info( '\thandling this answer %s'%ans)
             if ans.respondent not in rows:
-                print ('\t\t new respondent found. '
-                    'initializing their row to %s')%([])
+                logger.info (('\t\t new respondent found. '
+                            'initializing their row to %s')%([]))
                 rows[ans.respondent] = [] 
             
             rows[ans.respondent].append(ans.get_value())
@@ -91,7 +95,7 @@ def get_data_and_header_for_survey(survey):
 
         returns 404 is no Questions found for the survey
     '''
-    print 'in get_data_and_header_for_survey'
+    logger.info( 'in get_data_and_header_for_survey')
     headers = ['Respondent'] # first col will always be for people
     rows = {} # keys will be individuals, each respondent gets their own row
     
@@ -100,16 +104,16 @@ def get_data_and_header_for_survey(survey):
         models.Survey_Question.objects.order_by('question_order'),
         survey_id=survey.id,
     )    
-    print 'going through survquests %s'%survquests
+    logger.info('going through survquests %s'%survquests)
 
     # go through all the questions in the survey
     for survquest in survquests:
         question = survquest.question # get the actual question
         # get the headers and data columns for this question
-        print 'handling %s'%survquest
+        logger.info( 'handling %s'%survquest)
         headers_for_quest, \
         responses = handle_quest_for_survey_view(survquest)
-        print 'got back %s %s'%(headers_for_quest, responses)
+        logger.info('got back %s %s'%(headers_for_quest, responses))
         # headers_for_quest = the headers for the table associated with question
         # columns_for_quest = the columns aligned with the headers
 
@@ -134,7 +138,7 @@ def get_data_and_header_for_survey(survey):
 
     # after we've totally filled rows. we need to reformat it to a list of lists
     # so that it's easier for the template
-    print 'returning from get_data_and_header_for_survey with %s %s'%(headers, rows)
+    logger.info('returning from get_data_and_header_for_survey with %s %s'%(headers, rows))
     return headers, rows
 
 def dict_rows_to_list_of_lists_for_survey(rows):

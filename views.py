@@ -4,7 +4,10 @@ from django.http import Http404, HttpResponse, HttpResponseBadRequest
 import json
 from django.core.urlresolvers import reverse
 import view_utils
+import logging
 
+logger = logging.getLogger(__name__)
+logger.warning('kasdflsjlfsjlfsdfjaslfsdjflj################')
 
 def index(request):  # lab main page
     ''' main lab page. we can decide what we want people to see'''
@@ -20,13 +23,14 @@ def respondents(request):  # list of all people
 def respondent(request, respondentid):  # person details
     ''' veiw a single person'''
     respondent = get_object_or_404(models.Person, pk=respondentid)
-    print respondent.firstName
+    logger.info(respondent.firstName)
     context = {'respondent': respondent}
     return render(request, 'db/respondent.html', context)
 
 
 def surveys(request):  # list of all surveys
     '''view list of all surveys'''
+    logger.info('salfjsdlfjaslfjdla')
     surveys = models.Survey.objects.all()
     context = {'surveys': surveys}
     return render(request, 'db/surveys.html', context)
@@ -138,13 +142,13 @@ def submit_survey(request, surveyid):  # fill in a specific survey
                     choices.append(choice_dict)
 
             except Http404 as e: 
-                print 'No choices found for question %s: %s' % (quest, e)
+                logger.info( 'No choices found for question %s: %s' % (quest, e))
 
             question_dict['choices'] = choices
             questions.append(question_dict)
         survey_dict['questions'] = questions
     except Http404 as e:
-        print 'No Questions associated with survey %s: %s' % (survey, e)
+        logger.info( 'No Questions associated with survey %s: %s' % (survey, e))
 
     context['survey'] = survey_dict 
     return render(request, 'db/submit_survey.html', context)
@@ -193,15 +197,15 @@ def post_survey(request):
 
     answers = [] # container for all answers created. save either all or none. 
 
-    print rdata
-    print 'about to try creating answers'
-    print 'going through these'
-    print {k: rdata[k] for k in rdata if k.startswith('survquest_')} 
+    logger.info(rdata)
+    logger.info('about to try creating answers')
+    logger.info('going through these')
+    logger.info({k: rdata[k] for k in rdata if k.startswith('survquest_')}) 
 
     # get the actual questions
     # they should be supplied with key survquest_{survquestid}_choiceid = ansval
     for k in {k: rdata[k] for k in rdata if k.startswith('survquest_')}:
-        print 'processing key', k # display the raw
+        logger.info('processing key', k) # display the raw
         k_split = k.split('_') # split up
         
         # get the survey_question
@@ -224,7 +228,7 @@ def post_survey(request):
                 respdat['invalidSurveyQuestions'].append(surveyquestid)
             continue # go to next choice
 
-        choiceid = k_split[2] # access choiceid
+        choiceid = k_split[3] # access choiceid
         choice = None
         try:
             choice = get_object_or_404(models.Choice, pk=choiceid)
@@ -253,12 +257,12 @@ def post_survey(request):
                 ('survquestid', survquestid, 'choice', choiceid, 
                     'Datatype [%s] unrecognised'%datatype)
             )
-            print 'unrecognised datatype %s'%datatype
+            logger.info('unrecognised datatype %s'%datatype)
             continue
         savefield = recognised_datatypes[datatype] 
         response_val = {savefield:value_raw}
 
-        print response_val
+        logger.info(response_val)
         # passed all checks make an answer
         new_ans = None
         try:
@@ -275,7 +279,7 @@ def post_survey(request):
             ) # save the error
 
             continue # go to next choice
-        print 'created answer:', new_ans
+        logger.info('created answer:' + str(new_ans))
         answers.append(new_ans)
     
     # if respdat stay on same page
@@ -285,15 +289,15 @@ def post_survey(request):
         or len(respdat['badChoices'].keys()) > 0
         or len(respdat['badAnswerCreation']) > 0):
         respdat['status'] = 'error'
-        print 'responding error'
-        print 'respdat', respdat
+        logger.info('responding error')
+        logger.info('respdat' + str(respdat))
         return HttpResponse(
             json.dumps(respdat), 
             content_type='application/json'
         )
     
     for ans in answers: 
-        print 'saving answer %s'%ans 
+        logger.info('saving answer %s'%ans) 
         respdat['answers'].append(str(ans))
         ans.save()
 
@@ -302,7 +306,7 @@ def post_survey(request):
         'db:survey', 
         kwargs={'surveyid':surveyid}
     )
-    print 'responding successful going to page %s'%respdat['surveypage']
+    logger.info('responding successful going to page %s'%respdat['surveypage'])
     return HttpResponse(
         json.dumps(respdat),
         content_type='application/json')
