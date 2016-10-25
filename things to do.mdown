@@ -40,5 +40,15 @@ about child & birthdate. we should fix that...
 
 enable editing of past submissions by updating fields when user is selected... 
 
+batch importing of csv files....
 
-set default missing int value for questions to 999
+
+> family roles built into data collection. 401 = family... 
+> twinA = 401, twinB = 402
+> 401 parent = 402 parent
+
+
+FIX THE RADIOBUTTTONS EASIER TO PRESS!!!!
+show the numbers! 
+
+add question number to each question

@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 
-class Person(models.Model):
+class Person(models.Model): # all people
 	''' a list of all the people participating in the study
 		some of them 
 	'''
@@ -18,7 +18,20 @@ class Person(models.Model):
 	def __str__(self): return self.firstName + ' ' + self.lastName
 
 
-class Measure(models.Model):
+class Relation(models.Model): # relationships between people
+	''' this maps the relationships between subjects and the other people 
+		in the People table.  
+	'''
+	subject = models.ForeignKey(Person, related_name='subject')
+	relation = models.CharField(max_length=20)
+	to = models.ForeignKey(Person, related_name='to')
+
+	def __str__(self): return '%s %s to %s'%(self.subject, 
+		self.relation,
+		self.to) 
+
+
+class Measure(models.Model): # what a question covers
 	''' a type of measurement. each answer will be a measurement of something
 		this is it's name. e.g. feet, miles, general anxiety etc
 	'''
@@ -26,7 +39,7 @@ class Measure(models.Model):
 	def __str__(self): return self.name
 
 
-class Choice_Group(models.Model):
+class Choice_Group(models.Model): # 
 	''' questions often have multiple possible responses. yes/no, 1-5 etc
 		this allows multiple questions to point to one group, which contains 
 		multiple allowable choices.
@@ -88,7 +101,7 @@ class Question(models.Model):
 	allow_multiple_responses = models.BooleanField()
 	
 	# if you are missing an answer to this question display it like so
-	missing_value_int = models.IntegerField(blank=True, null=True)
+	missing_value_int = models.IntegerField(blank=True, null=True, default=999)
 	missing_value_float = models.FloatField(blank=True, null=True)
 	missing_value_boolean = models.NullBooleanField(blank=True, null=True)
 	missing_value_date = models.DateField(blank=True, null=True)

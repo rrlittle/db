@@ -7,7 +7,6 @@ import view_utils
 import logging
 
 logger = logging.getLogger(__name__)
-logger.warning('kasdflsjlfsjlfsdfjaslfsdjflj################')
 
 def index(request):  # lab main page
     ''' main lab page. we can decide what we want people to see'''

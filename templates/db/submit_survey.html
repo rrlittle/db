@@ -1,159 +1,28 @@
 {% extends "db/base_template.html" %}
 {% block content %}
 
-<!-- <style type="text/css">
-	label{display: block;}
-</style>
- -->
-<h1 style="text-align:center">
-	<input type="hidden" name="surveyid" id="surveyid" value="{{ surveyid }}">
-	{{surveytitle}}
-</h1>
-<hr>
+{% include "db/submit_subtempls/header.html" %}
 
-{% if NoRespondents %}
-	<h1>Cannot Submit answers when no respondents available</h1>
-	<button onclick="alert('Work In Progress')"> add a respondent </button>
+{% include "db/submit_subtempls/errors.html" %}
 
-{% else %}
 <form id='post_survey'>
-	{% csrf_token %} {#	allow form submission #}
-	<label>date of response</label>
-	<input type="date" name="date_of_response" id='dateofresponse'>
-	
-	{# Who is responding to this #}
-	<select class="respondent form-control" style="width:auto" id="respondent">
-		<option style="display:none" value="-1">select a respondent</option>
-		{% for respondent in respondents %}
-			<option value="{{ respondent.id }}">{{ respondent.display }}</option>
-		{% endfor %}
-	</select>
-	<button onclick="alert('Work In Progress')"> add a respondent </button>
+	{% csrf_token %}
+	<input type="hidden" name="surveyid" value="{{ surveyid }}">
+	{% include "db/submit_subtempls/date_submission.html" %}
 
+	{% include "db/submit_subtempls/respondent.html" %}
 
-	{# Display all the questions #}
 	{% for question in survey.questions %}
-		{# the whole question entity #}
-		<div class="question well panel-default" 
-			handlingflag="{{question.handlingflag}}" 
-			id="question_{{ question.surveyquestionid }}">
-			{# question prompt #}
-			<div class="questionprompt panel-heading">
-				{{ question.prompt }}
-			</div>
-			{# the choices for this question #}
-			<div class="choiceset panel-body">
-				{% for choice in question.choices %}
-					{# each choice #}
-					<!-- <div style="float:left;margin-right:20px;"> -->
-						<label for="{{choice.id}}">{{ choice.description }}</label>
-						<input class="choice" 
-							type="{{ choice.ui }}" 
-							name="{{ question.surveyquestionid }}" 
-							id="choice_{{ choice.id }}"
-							value="{{ choice.defaultvalue }}">
-						{# this means that radio/text/checkbox are the #}
-						{# most likely scenarios.  #}
-						{# if it's a radio. you should only create one answer on the server #}
-						{# if it's a checkbox. you should create one answer for each selected choice #}
-						{# if it's a textbox. you should create one answer for each choice. #}
-						{# they will by default be filled with the default answers #}
-					<!-- </div> -->
-				{% endfor %}
-			</div>
-		</div>
+		{% include "db/submit_subtempls/question.html" %}
 	{% endfor %}
-	{# allow submisssion of form #}
-	<input type="submit" name="submit">
+
+	<button class=' submit btn btn-primary center-block' style="width:80%">
+		Submit
+	</button>
 </form>
 
-
 <script type="text/javascript">
-	$(document).ready( function() {
-    	$('#dateofresponse')[0].valueAsDate = new Date();
-	});
-
-	$(document).on('submit', '#post_survey', function(e){
-		e.preventDefault();
-
-		function handle_radio(questionid){
-			var questid_num = questionid.split('_')[1];
-			console.log('handling radio question ', questionid);
-			var ret = {};
-			console.log("selecting $('.question#"+ questionid + ">>.choice:checked')");
-			var selected_choice = $('.question#' + questionid + '>>.choice:checked')
-			console.log('found ', selected_choice)
-			if (selected_choice.length == 0){
-				// if none selected don't create an entry for this one... 
-				console.log('done return ',ret);
-				return ret;
-			}
-			var choiceid = selected_choice[0].id;
-			choiceid_num = choiceid.split('_')[1];
-			var choice_val = selected_choice[0].value;
-			ret['survquest_' + questid_num + '_' + choiceid] = choice_val;
-			console.log('done return ', ret);
-			return ret;
-		}
-
-		function handle_checkbox(questionid){
-			// console.log('entering handle_checkbox for question ', questionid);
-			var ret = {}
-			var selected_choices = $('.question#' + questionid +'>>.choice:checked')
-			for (var i = selected_choices.length - 1; i >= 0; i--) {
-				var choice = selected_choices[i] // need to get selected answers
-				var choiceid = choice.id
-				// console.log('processing choice ', i, choice);
-				// console.log(choice.value, choice.id)
-				ret['survquest_' + questionid + '_' + choiceid] = choice.value;
-			}
-			return ret
-		}
-
-		var data = {
-				csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-				respondentid: $('#respondent').val(),
-				dateofresponse: $('#dateofresponse').val(),
-				surveyid: $('input[name=surveyid]').val(),
-		}
-
-		var questionblocks = $('.question')
-		for (i=0; i < questionblocks.length; i++){
-			var question = questionblocks[i]
-			var questionid = question.id
-			var question_handling = question.getAttribute('handlingflag')
-			
-			if (question_handling == "checkbox"){
-				$.extend(data, handle_checkbox(questionid));
-			}
-			else if (question_handling == "radio"){
-				$.extend(data, handle_radio(questionid));
-			}
-			else{
-				console.log('Question ', questionid, ' has unrecognized handler', question_handling, 'skipping')
-			}
-		}
-
-
-		console.log('posting data:', data)
-		$.ajax({
-			type: 'POST',
-			url: '{% url "db:post_survey" %}',
-			data: data,
-			success: function(resp, status){
-				console.log('recieved',resp);
-				console.log(resp['status'])
-				if (resp['status'] == 'success'){
-					location.href = resp['surveypage'];
-				}
-			}
-		})
-	});
+{% include "db/submit_subtempls/submit_survey.js" %}
 </script>
-{% endif %}
-
 
 {% endblock content %}
-
-
-
