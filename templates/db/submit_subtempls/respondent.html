@@ -1,7 +1,9 @@
+{# respondents should be a list of People objects #}
+
 <select class="respondent form-control" style="width:auto" id="respondent">
 	<option style="display:none" value="-1">select a respondent</option>
 	{% for respondent in respondents %}
-		<option value="{{ respondent.id }}">{{ respondent.display }}</option>
+		<option value="{{ respondent.id }}">{{ respondent }}</option>
 	{% endfor %}
 </select>
 <button onclick="alert('Work In Progress')"> add a respondent </button>

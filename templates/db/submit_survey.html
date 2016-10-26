@@ -1,6 +1,11 @@
 {% extends "db/base_template.html" %}
 {% block content %}
 
+{{ survey }}
+{{ questions }}
+{{ respondents }}
+{{ errors }}
+
 {% include "db/submit_subtempls/header.html" %}
 
 {% include "db/submit_subtempls/errors.html" %}
@@ -12,7 +17,7 @@
 
 	{% include "db/submit_subtempls/respondent.html" %}
 
-	{% for question in survey.questions %}
+	{% for surveyquestion in questions %}
 		{% include "db/submit_subtempls/question.html" %}
 	{% endfor %}
 

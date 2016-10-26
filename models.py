@@ -5,20 +5,19 @@ from django.db import models
 from datetime import datetime
 
 
-
-class Person(models.Model): # all people
+class Person(models.Model):  # all people
 	''' a list of all the people participating in the study
 		some of them 
 	'''
 	firstName = models.CharField(max_length=60)
 	lastName = models.CharField(max_length=60)
 	birthdate = models.DateField()
-	role = models.CharField(max_length=20)
-	studyid = models.IntegerField()
-	def __str__(self): return self.firstName + ' ' + self.lastName
+	studyid = models.IntegerField(unique=True)
+	
+	def __str__(self): return str(self.studyid)
 
 
-class Relation(models.Model): # relationships between people
+class Relation(models.Model):  # relationships between people
 	''' this maps the relationships between subjects and the other people 
 		in the People table.  
 	'''
@@ -26,38 +25,18 @@ class Relation(models.Model): # relationships between people
 	relation = models.CharField(max_length=20)
 	to = models.ForeignKey(Person, related_name='to')
 
-	def __str__(self): return '%s %s to %s'%(self.subject, 
-		self.relation,
-		self.to) 
+	def __str__(self): 
+		return '%s %s to %s' % (self.subject, 
+			self.relation,
+			self.to) 
 
 
-class Measure(models.Model): # what a question covers
+class Measure(models.Model):  # what a question covers
 	''' a type of measurement. each answer will be a measurement of something
 		this is it's name. e.g. feet, miles, general anxiety etc
 	'''
 	name = models.CharField(max_length=60)
-	def __str__(self): return self.name
-
-
-class Choice_Group(models.Model): # 
-	''' questions often have multiple possible responses. yes/no, 1-5 etc
-		this allows multiple questions to point to one group, which contains 
-		multiple allowable choices.
-	'''
-	name = models.CharField(max_length=60) # what is this group called? 
-	# 	# e.g. yes-no. strongly agree to disagree
-
-	ui = models.CharField(max_length=20)  # how does the choices appear	
-	# this determines how all the chocices will appear
-	#	# radio - the default value will be used. user cannot overwrite
-	#	# text - they will be able to enter characters in any fields
-	#	# checkbox - they will be able to enter a number of options
-	# if this is checkbox a column for each option will be created when
-	# viewing the data
-
-	datatype = models.CharField(max_length=20) # bool/int/phone/id/email/etc
-	# this is used to validate the data passed along
-
+	
 	def __str__(self): return self.name
 
 
@@ -70,7 +49,6 @@ class Choice(models.Model):
 	'''
 	name = models.CharField(max_length=60)  # what is this choice called?
 	# e.g. Yes / No / Strongly Agree / Ambivalent / Disagree etc
-	group = models.ForeignKey(Choice_Group)  # each choice belongs to a group 
 	order = models.IntegerField(blank=True, null=True) 
 	# if it matters what order the choices appear in
 
@@ -79,7 +57,7 @@ class Choice(models.Model):
 	default_text_resp = models.CharField(max_length=60, blank=True, null=True)
 	default_int_resp = models.IntegerField(blank=True, null=True)
 	default_float_resp = models.FloatField(blank=True, null=True)
-	
+
 	def __str__(self): return self.name
 
 	def get_value(self, datatype):
@@ -89,6 +67,38 @@ class Choice(models.Model):
 		elif datatype == 'date': return self.default_date_resp
 		elif datatype == 'text': return self.default_text_resp
 		else: raise LookupError('%s not a recognised datatype' % datatype)
+
+
+class Choice_Group(models.Model):  # 
+	''' questions often have multiple possible responses. yes/no, 1-5 etc
+		this allows multiple questions to point to one group, which contains 
+		multiple allowable choices.
+	'''
+	name = models.CharField(max_length=60)  # what is this group called? 
+	# 	# e.g. yes-no. strongly agree to disagree
+
+	ui = models.CharField(max_length=20, 
+		choices=[('radio', 'radio'), 
+			('check', 'check'), 
+			('box', 'box'), 
+			('bigbox', 'bigbox')]
+	)
+	# this determines how all the chocices will appear
+	# radio - the default value will be used. user cannot overwrite
+	# check - they will be able to select a number of options
+	# box - small textbox
+	# bigbox - multiline resizable textbox
+	# if this is checkbox a column for each option will be created when
+	# viewing the data
+
+	datatype = models.CharField(max_length=20, 
+		choices=([('int', 'int'), 
+			('text', 'text')])
+	)
+
+	choices = models.ManyToManyField(Choice, related_name='choice_groups')
+	
+	def __str__(self): return self.name
 
 
 class Question(models.Model):
@@ -122,7 +132,8 @@ class Question(models.Model):
 class Survey(models.Model):
 	''' surveys are questionaires
 	'''
-	name = models.CharField(max_length=60) # the name of the survey
+	name = models.CharField(max_length=60)  # the name of the survey
+	
 	def __str__(self): return self.name
 
 
@@ -191,7 +202,7 @@ class Answer(models.Model):
 
 		if proper_choice_group_id != selected_choice_group_id:
 			raise ValidationError(('Selected choice is not part of'
-			  		' proper group for this question.'))
+				' proper group for this question.'))
 
 		if self.boolean_response is None: 
 			self.boolean_response = self.answer.default_boolean_resp
@@ -210,15 +221,13 @@ class Answer(models.Model):
 		# same choice
 		duplicates = Answer.objects.filter(
 			respondent_id=self.respondent.id,
-			survey_question_id = self.survey_question.id,
-			answer_id=self.answer.id,
-			)
-		print 'cleaning answer %s'%self
-		print 'foud duplicates %s'%duplicates
+			survey_question_id=self.survey_question.id,
+			answer_id=self.answer.id)
+		print 'cleaning answer %s' % self
+		print 'foud duplicates %s' % duplicates
 		if len(duplicates) > 0: 
-			raise ValidationError('this is a duplicate to these %s'%duplicates)
-
-
+			raise ValidationError(('this is a duplicate '
+				'to these %s') % duplicates)
 
 	def get_value(self):
 		'''
@@ -226,8 +235,8 @@ class Answer(models.Model):
 			the value of this answer will be stored in one of several fields. 
 			so we need to retrieve the value from the correct field.
 		'''
-
-		datatype = self.answer.group.datatype # get the datatype of ths answer
+		
+		datatype = self.answer.group.datatype  # get the datatype of ths answer
 		if datatype == 'int': return self.int_response
 		elif datatype == 'float': return self.float_response
 		elif datatype == 'date': return self.date_response

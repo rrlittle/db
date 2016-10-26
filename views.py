@@ -8,6 +8,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 def index(request):  # lab main page
     ''' main lab page. we can decide what we want people to see'''
     return render(request, 'db/index.html')
@@ -15,12 +16,14 @@ def index(request):  # lab main page
 
 def respondents(request):  # list of all people
     ''' list of all respondents with some associated info'''
+    if not request.user.is_authenticated(): return index(request)
     context = {'respondents': models.Person.objects.all()}
     return render(request, 'db/respondents.html', context)
 
 
 def respondent(request, respondentid):  # person details
     ''' veiw a single person'''
+    if not request.user.is_authenticated(): return index(request)
     respondent = get_object_or_404(models.Person, pk=respondentid)
     logger.info(respondent.firstName)
     context = {'respondent': respondent}
@@ -29,6 +32,7 @@ def respondent(request, respondentid):  # person details
 
 def surveys(request):  # list of all surveys
     '''view list of all surveys'''
+    if not request.user.is_authenticated(): return index(request)
     logger.info('salfjsdlfjaslfjdla')
     surveys = models.Survey.objects.all()
     context = {'surveys': surveys}
@@ -51,8 +55,9 @@ def survey(request, surveyid):  # details of a single survey
             if the survey is not represented properly in the database
             just sort of fails
     '''
+    if not request.user.is_authenticated(): return index(request)
     survey = get_object_or_404(models.Survey, pk=surveyid)
-    context = {'survey':survey}
+    context = {'survey': survey}
     headers, rows = view_utils.get_data_and_header_for_survey(survey)
     # before: rows = {
     #     r1: [ans1, ans2, ans3.1, ans3.2, ans3.3],
@@ -76,80 +81,36 @@ def survey(request, surveyid):  # details of a single survey
 
 
 def submit_survey(request, surveyid):  # fill in a specific survey
-    '''view of a single survey that allows you to add answers for a single
-        respondent. for the whole survey at once.
+    ''' pospulates a form to submit a survey.
+        requires that:
+        - you be logged in
+        - provide a valid surveyid
+        - survey is properly formed in the database
 
-        use the surveyid to get the survey_questions for the specific survey
-        - add the title of the survey to the context.
-        - create a list of questions that make up the survey.
-            each question needs to be defined.  
-            with a title (what the header is in the data table)
-            with a prompt (what does the choice look like, can be empty.)
-            with a type (what is ui should be used?)
-                the types that are allowed will be... UNDEFINED
-                __So far we have radio... just stick to that for now.__
     '''
-    context = {}
-    survey_dict = {}
+    if not request.user.is_authenticated(): return index(request)
+    context = {
+        'survey': None,  # give the survey to the template for title and id
+        'questions': [],  # to pass all the question objects to the template
+        'respondents': [],  # to pass all the respondents to the template
+        'errors': [],  # any errors that occur. this is also used during submit
+    }
+
+    # get the survey. if it can't be found 404
     survey = get_object_or_404(models.Survey, pk=surveyid)
-    
-    context['surveytitle'] = survey.name
-    context['surveyid'] = surveyid
-    
-    resp_objs = None
-    try:
-        resp_objs = get_list_or_404(models.Person)
-    except Http404: 
-        context['NoRespondents'] = True
-        return render(request, 'db/submit_survey.html', context)
-    context['respondents'] = []
-    for resp in resp_objs: 
-        context['respondents'].append({'id': resp.id, 'display': str(resp)}) 
-        
+    context['survey'] = survey  # save for the templates to use
 
-    try:
-        surv_quest_objs = get_list_or_404(
-            models.Survey_Question.objects.order_by('question_order'),
-            survey_id=surveyid)  # in order by appearance in the survey
+    # get all the respondents for filling the respondents section
+    context['respondents'] = models.Person.objects.all()
+    # if it's empty. they can add a respondent through the 
+    # respondents section of template
 
-        questions = []
-        for surv_quest in surv_quest_objs:
-            quest = surv_quest.question
-            question_dict = {}
-            question_dict['surveyquestionid'] = surv_quest.id
-            question_dict['title'] = quest.title
-            question_dict['prompt'] = quest.prompt
-            question_dict['handlingflag'] = quest.choice_group.ui
-            # get all the choices associated with this question
-            choice_group = quest.choice_group
-            choices = []
-            try:
-                # get all the choices for this question
-                choice_objs = get_list_or_404(
-                    models.Choice.objects.order_by('order'), 
-                    group_id=choice_group.id)
-                for choice in choice_objs:
-                    # get the description and type for each choice
-                    choice_dict = {
-                        'description': choice.name,
-                        'ui': choice_group.ui,
-                        'id': choice.id,
-                        'defaultvalue': choice.get_value(choice_group.datatype)
-                    } 
-                    # add the correct default value based on the datatype
+    # get the questions in this survey. by ordering the questions
+    surv_quests = models.Survey_Question.objects.order_by('question_order')
+    # then filtering out ones not related to this survey
+    surv_quests = surv_quests.filter(survey_id=surveyid)
+    context['questions'] = surv_quests
 
-                    choices.append(choice_dict)
-
-            except Http404 as e: 
-                logger.info( 'No choices found for question %s: %s' % (quest, e))
-
-            question_dict['choices'] = choices
-            questions.append(question_dict)
-        survey_dict['questions'] = questions
-    except Http404 as e:
-        logger.info( 'No Questions associated with survey %s: %s' % (survey, e))
-
-    context['survey'] = survey_dict 
     return render(request, 'db/submit_survey.html', context)
 
 
@@ -158,7 +119,12 @@ def post_survey(request):
         that involves creating answers for all the data provided
         and doing error checking so bad info can't get in. 
     '''
-    # endure it's a post method.
+    if not request.user.is_authenticated(): 
+        return HttpResponseBadRequest(
+            {'error': 'Not Logged in!'}, 
+            content_type='application/json')
+
+    # ensure it's a post method.
     if request.method != 'POST': 
         return HttpResponseBadRequest(
             {'error': 'Not a post'}, 

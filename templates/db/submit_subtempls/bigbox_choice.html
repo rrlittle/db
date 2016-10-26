@@ -1,0 +1,11 @@
+<div style="display:inline-block">
+	<label style="display:block" 
+		for="{{choice.id}}_{{surveyquestion.id}}">
+		{{choice.name}}
+	</label> 
+	<textarea rows="4" cols="30" 
+		name="{{choice.id}}_{{surveyquestion.id}}" 
+		id="{{choice.id}}_{{surveyquestion.id}}"
+		style="display:block"> {{ choice.get_value }}
+	</textarea> 
+</div>

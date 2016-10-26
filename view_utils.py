@@ -165,3 +165,80 @@ def dict_rows_to_list_of_lists_for_survey(rows):
     for r in rows:
         ret_rows.append([r] + rows[r])
     return ret_rows
+
+
+def submit_survey(request, surveyid):  # fill in a specific survey
+    '''view of a single survey that allows you to add answers for a single
+        respondent. for the whole survey at once.
+
+        use the surveyid to get the survey_questions for the specific survey
+        - add the title of the survey to the context.
+        - create a list of questions that make up the survey.
+            each question needs to be defined.  
+            with a title (what the header is in the data table)
+            with a prompt (what does the choice look like, can be empty.)
+            with a type (what is ui should be used?)
+                the types that are allowed will be... UNDEFINED
+                __So far we have radio... just stick to that for now.__
+    '''
+    context = {}
+    survey_dict = {}
+    survey = get_object_or_404(models.Survey, pk=surveyid)
+    
+    context['surveytitle'] = survey.name
+    context['surveyid'] = surveyid
+    
+    resp_objs = None
+    try:
+        resp_objs = get_list_or_404(models.Person)
+    except Http404: 
+        context['NoRespondents'] = True
+        return render(request, 'db/submit_survey.html', context)
+    context['respondents'] = []
+    for resp in resp_objs: 
+        context['respondents'].append({'id': resp.id, 'display': str(resp)}) 
+        
+    try:
+        surv_quest_objs = get_list_or_404(
+            models.Survey_Question.objects.order_by('question_order'),
+            survey_id=surveyid)  # in order by appearance in the survey
+
+        questions = []
+        for surv_quest in surv_quest_objs:
+            quest = surv_quest.question
+            question_dict = {}
+            question_dict['surveyquestionid'] = surv_quest.id
+            question_dict['title'] = quest.title
+            question_dict['prompt'] = quest.prompt
+            question_dict['handlingflag'] = quest.choice_group.ui
+            # get all the choices associated with this question
+            choice_group = quest.choice_group
+            choices = []
+            try:
+                # get all the choices for this question
+                choice_objs = get_list_or_404(
+                    models.Choice.objects.order_by('order'), 
+                    group_id=choice_group.id)
+                for choice in choice_objs:
+                    # get the description and type for each choice
+                    choice_dict = {
+                        'description': choice.name,
+                        'ui': choice_group.ui,
+                        'id': choice.id,
+                        'defaultvalue': choice.get_value(choice_group.datatype)
+                    } 
+                    # add the correct default value based on the datatype
+
+                    choices.append(choice_dict)
+
+            except Http404 as e: 
+                logger.info( 'No choices found for question %s: %s' % (quest, e))
+
+            question_dict['choices'] = choices
+            questions.append(question_dict)
+        survey_dict['questions'] = questions
+    except Http404 as e:
+        logger.info( 'No Questions associated with survey %s: %s' % (survey, e))
+
+    context['survey'] = survey_dict 
+    return render(request, 'db/submit_survey.html', context)
