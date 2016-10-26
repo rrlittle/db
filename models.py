@@ -61,6 +61,7 @@ class Choice(models.Model):
 	def __str__(self): return self.name
 
 	def get_value(self, datatype):
+
 		if datatype == 'int': return self.default_int_resp
 		elif datatype == 'float': return self.default_float_resp
 		elif datatype == 'bool': return self.default_boolean_resp
@@ -100,6 +101,26 @@ class Choice_Group(models.Model):  #
 	
 	def __str__(self): return self.name
 
+	def choice_defs(self):
+		''' to populate the choice template we need to get the
+			default values from the choice for this group. 
+			that's complicated because each choice can belong to multiple 
+			groups.
+			so each choice can have multiple default values depending on which 
+			group they are a part of. 
+
+			this function will create a more useful list of of choices
+			with their default values and associated stuffs available in 
+			templates 
+		''' 
+		choices = []
+		for choice in self.choices.order_by('order').all():
+			choices.append({
+				'def_value': choice.get_value(self.datatype),
+				'name': choice.name,
+				'id': choice.id,
+				})
+		return choices
 
 class Question(models.Model):
 	''' this is the actual question including the prompt and possible 

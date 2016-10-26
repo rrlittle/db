@@ -10,21 +10,35 @@
 		data-datatype="{{surveyquestion.question.choice_group.datatype}}"
 		data-ui="{{surveyquestion.question.choice_group.ui}}">
 
-		{# choice group enforces a single data type and ui for every choice #}
-		{% for choice in surveyquestion.question.choice_group.choices.all %}
+		<div class="btn-group"  
+			data-toggle="button"
+			role="group"
+			style="display:inline-block">
 			
-			{# use the template apropriate for a choice of this uiand datatype #}
-			{# ui can be: boxs, radios, checks #}
+			{# choice group enforces a single data type and ui for every choice #}
+			{% for choice in surveyquestion.question.choice_group.choice_defs %}
+				
+				{# use the template apropriate for a choice of this uiand datatype #}
+				{# ui can be: boxs, radios, checks #}
+				{% if surveyquestion.question.choice_group.ui == "box" %}
+					{% include "db/submit_subtempls/box_choice.html" %}
+				{% elif surveyquestion.question.choice_group.ui == "bigbox" %}
+					{% include "db/submit_subtempls/bigbox_choice.html" %}
+				{% elif surveyquestion.question.choice_group.ui == "radio" %}
+					{% include "db/submit_subtempls/radio_choice.html" %}
+				{% elif surveyquestion.question.choice_group.ui == "check" %}
+					{% include "db/submit_subtempls/check_choice.html" %}
+				{% endif %}
+			{% endfor %}
 
-			{% if surveyquestion.question.choice_group.ui == "box" %}
-				{% include "db/submit_subtempls/box_choice.html" %}
-			{% elif surveyquestion.question.choice_group.ui == "bigbox" %}
-				{% include "db/submit_subtempls/bigbox_choice.html" %}
-			{% elif surveyquestion.question.choice_group.ui == "radio" %}
-				{% include "db/submit_subtempls/radio_choice.html" %}
-			{% elif surveyquestion.question.choice_group.ui == "check" %}
-				{% include "db/submit_subtempls/check_choice.html" %}
-			{% endif %}
-		{% endfor %}
+			<div class="btn-toolbar" role="toolbar">
+				<div class="btn-group" role="group">
+				  <button type="button" class="btn btn-secondary">1</button>
+				  <button type="button" class="btn btn-secondary">2</button>
+				  <button type="button" class="btn btn-secondary">3</button>
+				  <button type="button" class="btn btn-secondary">4</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
