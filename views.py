@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 import models
 from django.http import Http404, HttpResponse, HttpResponseBadRequest
@@ -14,31 +15,32 @@ def index(request):  # lab main page
     return render(request, 'db/index.html')
 
 
+@login_required
 def respondents(request):  # list of all people
     ''' list of all respondents with some associated info'''
-    if not request.user.is_authenticated(): return index(request)
     context = {'respondents': models.Person.objects.all()}
     return render(request, 'db/respondents.html', context)
 
 
+@login_required
 def respondent(request, respondentid):  # person details
     ''' veiw a single person'''
-    if not request.user.is_authenticated(): return index(request)
     respondent = get_object_or_404(models.Person, pk=respondentid)
     logger.info(respondent.firstName)
     context = {'respondent': respondent}
     return render(request, 'db/respondent.html', context)
 
 
+@login_required
 def surveys(request):  # list of all surveys
     '''view list of all surveys'''
-    if not request.user.is_authenticated(): return index(request)
     logger.info('salfjsdlfjaslfjdla')
     surveys = models.Survey.objects.all()
     context = {'surveys': surveys}
     return render(request, 'db/surveys.html', context)
 
 
+@login_required
 def survey(request, surveyid):  # details of a single survey
     ''' view a sigle survey
         a table of all the data respondents have given
@@ -55,7 +57,6 @@ def survey(request, surveyid):  # details of a single survey
             if the survey is not represented properly in the database
             just sort of fails
     '''
-    if not request.user.is_authenticated(): return index(request)
     survey = get_object_or_404(models.Survey, pk=surveyid)
     context = {'survey': survey}
     headers, rows = view_utils.get_data_and_header_for_survey(survey)
@@ -80,6 +81,7 @@ def survey(request, surveyid):  # details of a single survey
     return render(request, 'db/survey.html', context)
 
 
+@login_required
 def submit_survey(request, surveyid):  # fill in a specific survey
     ''' pospulates a form to submit a survey.
         requires that:
@@ -88,7 +90,6 @@ def submit_survey(request, surveyid):  # fill in a specific survey
         - survey is properly formed in the database
 
     '''
-    if not request.user.is_authenticated(): return index(request)
     context = {
         'survey': None,  # give the survey to the template for title and id
         'questions': [],  # to pass all the question objects to the template
@@ -114,15 +115,16 @@ def submit_survey(request, surveyid):  # fill in a specific survey
     return render(request, 'db/submit_survey.html', context)
 
 
+@login_required
 def post_survey(request):
     ''' this handles the submission of a filled survey.
         that involves creating answers for all the data provided
         and doing error checking so bad info can't get in. 
     '''
-    if not request.user.is_authenticated(): 
-        return HttpResponseBadRequest(
-            {'error': 'Not Logged in!'}, 
-            content_type='application/json')
+    # if not request.user.is_authenticated(): 
+    #     return HttpResponseBadRequest(
+    #         {'error': 'Not Logged in!'}, 
+    #         content_type='application/json')
 
     # ensure it's a post method.
     if request.method != 'POST': 
