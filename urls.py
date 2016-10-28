@@ -1,5 +1,4 @@
 from django.conf.urls import url
-
 from . import views
 
 urlpatterns = [
@@ -13,4 +12,5 @@ urlpatterns = [
     url(r'^surveys/post$', views.post_survey,
         name='post_survey'),
     url(r'^$', views.index, name='index'),
+    url(r'^index$', views.index),
 ]

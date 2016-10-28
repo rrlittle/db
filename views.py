@@ -15,14 +15,14 @@ def index(request):  # lab main page
     return render(request, 'db/index.html')
 
 
-@login_required
+@login_required(login_url='/index')
 def respondents(request):  # list of all people
     ''' list of all respondents with some associated info'''
     context = {'respondents': models.Person.objects.all()}
     return render(request, 'db/respondents.html', context)
 
 
-@login_required
+@login_required(login_url='/index')
 def respondent(request, respondentid):  # person details
     ''' veiw a single person'''
     respondent = get_object_or_404(models.Person, pk=respondentid)
@@ -31,7 +31,7 @@ def respondent(request, respondentid):  # person details
     return render(request, 'db/respondent.html', context)
 
 
-@login_required
+@login_required(login_url='/index')
 def surveys(request):  # list of all surveys
     '''view list of all surveys'''
     logger.info('salfjsdlfjaslfjdla')
@@ -40,7 +40,7 @@ def surveys(request):  # list of all surveys
     return render(request, 'db/surveys.html', context)
 
 
-@login_required
+@login_required(login_url='/index')
 def survey(request, surveyid):  # details of a single survey
     ''' view a sigle survey
         a table of all the data respondents have given
@@ -81,7 +81,7 @@ def survey(request, surveyid):  # details of a single survey
     return render(request, 'db/survey.html', context)
 
 
-@login_required
+@login_required(login_url='/index')
 def submit_survey(request, surveyid):  # fill in a specific survey
     ''' pospulates a form to submit a survey.
         requires that:
@@ -115,7 +115,7 @@ def submit_survey(request, surveyid):  # fill in a specific survey
     return render(request, 'db/submit_survey.html', context)
 
 
-@login_required
+@login_required(login_url='/index')
 def post_survey(request):
     ''' this handles the submission of a filled survey.
         that involves creating answers for all the data provided

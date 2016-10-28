@@ -10,10 +10,7 @@
 		data-datatype="{{surveyquestion.question.choice_group.datatype}}"
 		data-ui="{{surveyquestion.question.choice_group.ui}}">
 
-		<div class="btn-group"  
-			data-toggle="button"
-			role="group"
-			style="display:inline-block">
+		<div>
 			
 			{# choice group enforces a single data type and ui for every choice #}
 			{% for choice in surveyquestion.question.choice_group.choice_defs %}
@@ -31,14 +28,7 @@
 				{% endif %}
 			{% endfor %}
 
-			<div class="btn-toolbar" role="toolbar">
-				<div class="btn-group" role="group">
-				  <button type="button" class="btn btn-secondary">1</button>
-				  <button type="button" class="btn btn-secondary">2</button>
-				  <button type="button" class="btn btn-secondary">3</button>
-				  <button type="button" class="btn btn-secondary">4</button>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </div>

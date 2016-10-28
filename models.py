@@ -122,6 +122,7 @@ class Choice_Group(models.Model):  #
 				})
 		return choices
 
+
 class Question(models.Model):
 	''' this is the actual question including the prompt and possible 
 		answers people are allowed to provide

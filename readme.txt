@@ -165,6 +165,13 @@ DATABASES = {
 }
 ```
 
+also add the following to control where you will be redirected after a successful login
+```pyhton
+LOGIN_REDIRECT_URL = '/'
+```
+
+back in the terminal 
+
 To set up the database run:
 ```bash
 python manage.py makemigrations # to prepare changes to the database
