@@ -6,6 +6,7 @@ import json
 from django.core.urlresolvers import reverse
 import view_utils
 import logging
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -117,163 +118,89 @@ def submit_survey(request, surveyid):  # fill in a specific survey
 
 @login_required(login_url='/index')
 def post_survey(request):
-    ''' this handles the submission of a filled survey.
-        that involves creating answers for all the data provided
-        and doing error checking so bad info can't get in. 
-    '''
-    # if not request.user.is_authenticated(): 
-    #     return HttpResponseBadRequest(
-    #         {'error': 'Not Logged in!'}, 
-    #         content_type='application/json')
+    ''' this is the point that recieves the data for a single respondent
+        i.e. it creates one record for a given survey. 
+        this should be the entry point for all survey data either from the
+        submit_survey view or an import
 
-    # ensure it's a post method.
-    if request.method != 'POST': 
-        return HttpResponseBadRequest(
-            {'error': 'Not a post'}, 
+        data comes in a flat dictionary that looks like this:
+        {   surveyid:#,
+            csrfmiddlewaretoken: key,
+            dateofresponse: "yyyy-mm-dd",
+            respondentid:#,
+            subjectid:#,
+            choice_choiceid_surveyquestion_id:value
+        }   
+
+        if the choice_id allows custom values the value provided should be 
+        saved otherwise the default should be used. 
+        
+        if any errors occur they will appear in the response json. 
+        this is primarily designed for ajax interaction. and returns json data
+
+    '''
+    date_format = '%Y-%m-%d'  # define a local standard date format. 
+    # this should actually go somewhere else. so that it's global 
+
+    # check the request has all the required stuff. 
+    #  this does not check that the id's passed in are valid or anything
+    status = view_utils.check_post_survey_request(request, 
+        DATE_FORMAT=date_format)
+    if status is not None:
+        return HttpResponseBadRequest(json.dumps(status), 
             content_type='application/json')
     
-    # declare the return container
-    respdat = {
-        'status':None, # error/success if the request is erroneous or 
-        # if theres an error, if we successfully process the survey is success  
-        'personNotFound':None, # bad personid
-        'invalidSurveyQuestions':[], # list of bad survey Question ids
-        'badSurveyQuestionIdForThisSurvey':[], 
-        # list of surveyquestions not for this survey
-        'badChoices':{}, # survquestid: list of bad choice ids
-        'badAnswerCreation':[], # list of answers that couldn't be created
-        'answers':[]
-    }
+    errors = {}  # prepare a container for any critical errors that arise
+    data = request.POST  # get the data supplied
 
-    # get the data supplied.
-    rdata = request.POST # request data
-
-    # get surveyid
-    surveyid = rdata['surveyid']
-
-    
-    # get the respondent
-    respondentid = rdata['respondentid']
-    respondent = None
-    try:
-        respondent = get_object_or_404(models.Person, pk=respondentid)
-    except Http404: respdat['personNotFound'] = respondentid 
-    
-    # get the date of response
-    date_of_response_raw = rdata['dateofresponse']
-
-    answers = [] # container for all answers created. save either all or none. 
-
-    logger.info(rdata)
-    logger.info('about to try creating answers')
-    logger.info('going through these')
-    logger.info({k: rdata[k] for k in rdata if k.startswith('survquest_')}) 
-
-    # get the actual questions
-    # they should be supplied with key survquest_{survquestid}_choiceid = ansval
-    for k in {k: rdata[k] for k in rdata if k.startswith('survquest_')}:
-        logger.info('processing key', k) # display the raw
-        k_split = k.split('_') # split up
-        
-        # get the survey_question
-        survquestid = k_split[1] # access surveyquestid
-        survquest = None
+    def try_to_get_obj_or_save_to_err(model, pk, errkey):
+        obj = None
         try:
-            # get the surveyQuestion object
-            surv_quest = get_object_or_404(
-                models.Survey_Question, 
-                pk=survquestid)
+            obj = get_object_or_404(model, pk=pk)
+        except Http404 as e:    
+            errors[errkey] = e
+        return obj
 
-            # if this question should not belong to this survey
-            if surv_quest.survey.id != int(surveyid):
-                # flag an error
-                respdat['badSurveyQuestionIdForThisSurvey'].append(survquestid)
-                # go to next choice
-                continue
-        except Http404: 
-            if surveyquestid not in respdat['invalidSurveyQuestions']:
-                respdat['invalidSurveyQuestions'].append(surveyquestid)
-            continue # go to next choice
+    # strip all the infor passed from request. 
+    # this has all been checked
+    respondent = try_to_get_obj_or_save_to_err(models.Person, 
+        data['respondentid'], 'err_bad_respondentid')    
+    subject = try_to_get_obj_or_save_to_err(models.Person, 
+        data['subjectid'], 'err_bad_subjectid')    
+    survey = try_to_get_obj_or_save_to_err(models.Survey, 
+        data['surveyid'], 'err_bad_surveyid')
+    dateofresponse = datetime.strptime(data['dateofresponse'], date_format)
 
-        choiceid = k_split[3] # access choiceid
-        choice = None
+    # get the choices selected from the request
+    choices = {c: data[c] for c in data if c.startswith('choice_')}
+
+    # create the answers to save
+    answers_to_save = []
+    for choice, value in choices.items():
         try:
-            choice = get_object_or_404(models.Choice, pk=choiceid)
-        except Http404:
-            if surveyquestid not in respdat['badChoices']:
-                respdat['badChoices'][surveyquestid] = [] 
-            respdat['badChoices'][surveyquestid].append(choiceid)
-            continue # go to next choice    
-        
-        # get value provided
-        value_raw = rdata[k]
+            new_ans = view_utils.create_answer_from_post(choice, value,
+                date=dateofresponse, 
+                respondent=respondent,
+                subject=subject,
+                survey=survey)
+            answers_to_save.append(new_ans)
+        except Exception as e: 
+            logger.info('answer not created because %s' % e)
+            errors['err_bad_answer_creation_' + choice] = str(e)
 
-        # we need to figure out what to save the value as...
-        # that's defined by the type_field in the choice_group
-        recognised_datatypes = {
-            'int': 'int_response',
-            'float': 'float_response',
-            'date': 'date_response',
-            'bool': 'boolean_response',
-            'text': 'text_response',
-        }
+    if len(errors) > 0:
+        logger.warning('Errs creating answers returning Http500: %s' % errors)
+        return HttpResponseBadRequest(json.dumps(errors), 
+            content_type='application/json')
 
-        datatype = surv_quest.question.choice_group.datatype
-        if datatype not in recognised_datatypes:
-            respdat['badAnswerCreation'].append(
-                ('survquestid', survquestid, 'choice', choiceid, 
-                    'Datatype [%s] unrecognised'%datatype)
-            )
-            logger.info('unrecognised datatype %s'%datatype)
-            continue
-        savefield = recognised_datatypes[datatype] 
-        response_val = {savefield:value_raw}
-
-        logger.info(response_val)
-        # passed all checks make an answer
-        new_ans = None
-        try:
-            new_ans = models.Answer(
-                respondent=respondent, 
-                survey_question=surv_quest,
-                date_of_response=date_of_response_raw,
-                answer=choice,
-                **response_val)
-            new_ans.clean()
-        except Exception as e: # can't create the answer
-            respdat['badAnswerCreation'].append(
-                ('surveyquestid',survquestid, 'choice',choiceid, str(e))
-            ) # save the error
-
-            continue # go to next choice
-        logger.info('created answer:' + str(new_ans))
-        answers.append(new_ans)
-    
-    # if respdat stay on same page
-    if (respdat['personNotFound'] 
-        or len(respdat['invalidSurveyQuestions']) > 0
-        or len(respdat['badSurveyQuestionIdForThisSurvey']) > 0
-        or len(respdat['badChoices'].keys()) > 0
-        or len(respdat['badAnswerCreation']) > 0):
-        respdat['status'] = 'error'
-        logger.info('responding error')
-        logger.info('respdat' + str(respdat))
-        return HttpResponse(
-            json.dumps(respdat), 
-            content_type='application/json'
-        )
-    
-    for ans in answers: 
-        logger.info('saving answer %s'%ans) 
-        respdat['answers'].append(str(ans))
+    for ans in answers_to_save:
+        logger.info(ans)
+        logger.info('saving ans %s'%ans)
         ans.save()
 
-    respdat['status'] = 'success'
-    respdat['surveypage'] = reverse(
-        'db:survey', 
-        kwargs={'surveyid':surveyid}
-    )
-    logger.info('responding successful going to page %s'%respdat['surveypage'])
-    return HttpResponse(
-        json.dumps(respdat),
+    ans_created = {i : str(ans) for i, ans in enumerate(answers_to_save)}
+    return HttpResponse(json.dumps(ans_created), 
         content_type='application/json')
+
+
+

@@ -1,5 +1,12 @@
-<label>
-  <input type="radio" name="{{surveyquestion.id}}">
-  <span>{{choice.name}}</span>
-  <span>{{choice.value}}</span>
+<label class="well">
+	<input type="radio" style="display:block" class="choice"
+		data-choice-id="{{chocie.id}}" 
+		id="choice_{{choice.id}}_{{surveyquestion.id}}"
+		name="{{surveyquestion.id}}"
+		value="{{choice.def_value}}"
+		/>
+ 		{% if choice.object.show_name %}
+  			<span >{{choice.name}}</span>
+  		{% endif %} 
+  	<span class="badge" style="display:block">{{choice.def_value}}</span>
 </label>

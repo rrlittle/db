@@ -1,10 +1,13 @@
 import models
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.core.exceptions import MultipleObjectsReturned
+from datetime import datetime
+
 
 import logging
 
 logger = logging.getLogger(__name__)
+
 
 def handle_quest_for_survey_view(survquest):
     ''' handles getting all the responses to a single survey question
@@ -88,16 +91,20 @@ def handle_quest_for_survey_view(survquest):
 
     return headers, rows
 
+
 def get_data_and_header_for_survey(survey):
     ''' turns the database representation of a survey into two lists
-        the first is a list of header strings for the survey temlate
+        the first is a list of header strings for the survey template
         the second is a list of data elements to fill the data table
 
-        returns 404 is no Questions found for the survey
+        returns 404 if no Questions found for the survey
     '''
-    logger.info( 'in get_data_and_header_for_survey')
-    headers = ['Respondent'] # first col will always be for people
-    rows = {} # keys will be individuals, each respondent gets their own row
+    logger.info('in get_data_and_header_for_survey')
+    headers = ['Resp']  # define keys for all tables
+    if survey.type == 'observational': headers.append('Subj')
+    headers.append('Date Completed')
+    
+    rows = {}  # keys will be individuals, each respondent gets their own row
     
     # get all the questions in this survey in the correct order
     survquests = get_list_or_404(
@@ -140,6 +147,7 @@ def get_data_and_header_for_survey(survey):
     # so that it's easier for the template
     logger.info('returning from get_data_and_header_for_survey with %s %s'%(headers, rows))
     return headers, rows
+
 
 def dict_rows_to_list_of_lists_for_survey(rows):
     ''' get_data_and_header_for_survey returns a list of headers and 
@@ -242,3 +250,84 @@ def submit_survey(request, surveyid):  # fill in a specific survey
 
     context['survey'] = survey_dict 
     return render(request, 'db/submit_survey.html', context)
+
+
+def check_post_survey_request(request, DATE_FORMAT='%Y-%m-%d'):
+    ''' this ensures that the request sent to post_survey is filled 
+        appropriately. 
+        if it is: return None
+        if there are errors, return a dictionary appropriate to be sent back 
+        in JSON.
+    '''
+
+    if request.method != 'POST':
+        return {'err_bad_method': 'must be a post'}
+
+    errors = {}  # container for any errors that arise. 
+    data = request.POST  # get the data from the request
+
+    # these must be in the data
+    required_keys = [
+        'respondentid',
+        'subjectid',
+        'dateofresponse',
+        'surveyid',
+    ]
+    
+    for k in required_keys:
+        if k not in data:
+            errors['err_%s_not_present' % k] = '%s is a required key' % k 
+
+    try:
+        datetime.strptime(data['dateofresponse'], DATE_FORMAT)
+    except ValueError as e: 
+        errors['err_bad_dateofresponse_format'] = e
+
+    for c_id in [c_id for c_id in data if c_id.startswith('choice_')]:
+        try:
+            assert len(c_id.split('_')) == 3
+        except AssertionError:
+            errors['err_badchoicekey_%s'] = ('malformed choice key should '
+                'be choice_<choiceid>_<surveyquestionid>')
+
+    if len(errors) > 0: return errors
+    else: return None
+
+
+def create_answer_from_post(html_choiceid, value, 
+        date=None, respondent=None, subject=None,
+        survey=None):
+    ''' html_choiceid is the string from the template:
+            choice_choiceid_surveyquestionid
+        value is the string passed in. if allow custom value is True, then use 
+        that. else use the default value of the choice.
+        this should return an unsaved answer object or raise an error
+    '''
+    html_choiceid_split = html_choiceid.split('_')
+    choiceid = html_choiceid_split[1]
+    surveyquestid = html_choiceid_split[2]
+
+    choice = get_object_or_404(models.Choice, pk=choiceid)
+    surveyquestion = get_object_or_404(models.Survey_Question, 
+        pk=surveyquestid)
+    datatype = surveyquestion.question.choice_group.datatype
+
+    val_to_save = None
+    if choice.allow_custom_responses: val_to_save = value
+    else: 
+        val_to_save = choice.get_value(datatype)
+
+    # create the answer
+    ans = models.Answer(
+        respondent=respondent, 
+        subject=subject,
+        date_of_response=date,
+        survey_question=surveyquestion,
+        answer=choice,
+        **{datatype + '_response': val_to_save}
+    )
+    ans.clean()
+    return ans
+    
+
+

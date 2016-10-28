@@ -3,6 +3,9 @@ from __future__ import unicode_literals
 from django.core.exceptions import ValidationError
 from django.db import models
 from datetime import datetime
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Person(models.Model):  # all people
@@ -21,7 +24,7 @@ class Relation(models.Model):  # relationships between people
 	''' this maps the relationships between subjects and the other people 
 		in the People table.  
 	'''
-	subject = models.ForeignKey(Person, related_name='subject')
+	subject = models.ForeignKey(Person, related_name='person')
 	relation = models.CharField(max_length=20)
 	to = models.ForeignKey(Person, related_name='to')
 
@@ -51,6 +54,10 @@ class Choice(models.Model):
 	# e.g. Yes / No / Strongly Agree / Ambivalent / Disagree etc
 	order = models.IntegerField(blank=True, null=True) 
 	# if it matters what order the choices appear in
+	show_name = models.BooleanField(default=True)
+	# if you would like to show the name of this in the submit_survey view
+	allow_custom_responses = models.BooleanField(default=False)
+	# if you would like to allow values besides the deafult to be saved
 
 	default_boolean_resp = models.NullBooleanField(blank=True, null=True)
 	default_date_resp = models.DateField(blank=True, null=True)
@@ -116,11 +123,27 @@ class Choice_Group(models.Model):  #
 		choices = []
 		for choice in self.choices.order_by('order').all():
 			choices.append({
+				'object': choice,
 				'def_value': choice.get_value(self.datatype),
 				'name': choice.name,
 				'id': choice.id,
-				})
+			})
 		return choices
+
+	def clean(self):
+		''' this is called before save. raise validationError if there is a
+			problem.
+
+			you should not be allowed to have multiple choices if the ui is not 
+			radio or check
+		'''
+		ui_allowed_to_have_multiple = ('radio', 'check') 
+		if self.ui not in ui_allowed_to_have_multiple:
+			if len(self.choices.all()) > 1: 
+				errstr = ('Only groups with ui in %s '
+					'can have multiple choices') % ui_allowed_to_have_multiple
+				logger.warn(errstr)
+				raise ValidationError(errstr)
 
 
 class Question(models.Model):
@@ -155,7 +178,10 @@ class Survey(models.Model):
 	''' surveys are questionaires
 	'''
 	name = models.CharField(max_length=60)  # the name of the survey
-	
+	surveytype = models.CharField(max_length=20, choices=[
+		('observational', 'observational'),
+		('self report', 'self report')])
+
 	def __str__(self): return self.name
 
 
@@ -184,7 +210,11 @@ class Answer(models.Model):
 		the values suppled might be either, string, int, float, bool, or date
 	'''
 
-	respondent = models.ForeignKey(Person)  # person providing this answer
+	respondent = models.ForeignKey(Person, related_name='respondent')  
+	# person providing this answer
+	subject = models.ForeignKey(Person, related_name='subject')  
+	# person this is about
+
 	answer = models.ForeignKey(Choice) 
 	# one of the possible choices they went with 
 	survey_question = models.ForeignKey(Survey_Question) 
@@ -203,8 +233,7 @@ class Answer(models.Model):
 	text_response = models.CharField(max_length=60, blank=True, null=True)
 	
 	def __str__(self): return '%s [%s=%s]' % (
-		self.respondent, 
-		self.survey_question, self.answer)
+		self.respondent, self.survey_question, self.answer)
 
 	def clean(self):
 		''' used to validate Answer entries. 
@@ -212,44 +241,41 @@ class Answer(models.Model):
 			in the self.survey_question.question.choice_group
 
 			also not allowed to save duplicate entries
-			duplicate meaning same 
+			duplicate meaning same
+			respondent, subject, survey_question
+			if question.allow_multiple_responses is False:
+				date_of_response also must be unique 
 		'''
-		question = Survey_Question.objects.get(pk=self.survey_question_id)
-		question_id = question.question_id
-		choice_group = Question.objects.get(pk=question_id)
-		proper_choice_group_id = choice_group.choice_group_id
 
-		selected_choice = Choice.objects.get(pk=self.answer_id)
-		selected_choice_group_id = selected_choice.group_id
+		logger.info('cleaning answer %s' % self)
+		logger.info('checking answer uniqueness')
+		# check uniqueness
+		matching_answers = Answer.objects.filter(
+			respondent=self.respondent,
+			subject=self.subject,
+			survey_question=self.survey_question,
+		)
+		if self.survey_question.question.allow_multiple_responses:
+			matching_answers = matching_answers.filter(
+				date_of_response=self.date_of_response)
 
-		if proper_choice_group_id != selected_choice_group_id:
-			raise ValidationError(('Selected choice is not part of'
-				' proper group for this question.'))
+		logger.info('looking fro matches in %s' % matching_answers)
+		if len(matching_answers) > 0: 
+			logger.info('duplicates found')
+			raise ValidationError(('these answers match %s. '
+				'this does not allow duplicates') % matching_answers)
 
-		if self.boolean_response is None: 
-			self.boolean_response = self.answer.default_boolean_resp
-		if self.date_response is None: 
-			self.date_response = self.answer.default_date_resp
-		if self.text_response is '': 
-			self.text_response = self.answer.default_text_resp
-		if self.int_response is None: 
-			self.int_response = self.answer.default_int_resp
-		if self.float_response is None: 
-			self.float_response = self.answer.default_float_resp
+		logger.info('checking answer validity')
+		# check answer is valid. i.e. it is in the questions choice_group
+		choice_group = self.survey_question.question.choice_group
+		possible_choices = choice_group.choices.all()
+		if self.answer not in possible_choices:
+			logger.info('bad choice selected')
+			raise ValidationError('%s not in %s. bad choice selected' % (
+				self.answer, possible_choices))
 
-		# get any duplicates for this answer i.e.
-		# same respondent, 
-		# same survey question
-		# same choice
-		duplicates = Answer.objects.filter(
-			respondent_id=self.respondent.id,
-			survey_question_id=self.survey_question.id,
-			answer_id=self.answer.id)
-		print 'cleaning answer %s' % self
-		print 'foud duplicates %s' % duplicates
-		if len(duplicates) > 0: 
-			raise ValidationError(('this is a duplicate '
-				'to these %s') % duplicates)
+		# pass peacefully into the night
+		logger.info('answer is clean')
 
 	def get_value(self):
 		'''

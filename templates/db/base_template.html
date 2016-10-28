@@ -11,6 +11,9 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+    {% block head %}
+      {# allow people to extend the head if they so choose #}
+    {% endblock head %}
     <!-- {% load staticfiles %} -->
    <title>{% block title %}James Li Lab{% endblock %}</title>
    <!-- <link rel="shortcut icon" href="{%  static 'favicon.ico' %}"> -->
@@ -34,7 +37,8 @@
         <div class="navbar-right">
           <ul class="nav navbar-nav">
             {% if user.is_authenticated %}
-              <li style="padding-top:15px;padding-bottom:15px;"> Welcome {{user.username}}</li>
+              <li class="navbar-text"> 
+                Welcome {{user.username.capitalize}}</li>
               <li>
                 <a href="{% url "db:logout" %}">logout </a>
               </li>

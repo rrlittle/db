@@ -1,0 +1,804 @@
+<QueryDict: {u'3_1': [u'blah'], u'respondentid': [u'1'], u'dateofresponse': [u'2016-10-28'], u'subjectid': [u'1'], u'surveyid': [u'1'], u'csrfmiddlewaretoken': [u'0KlbTotyLbfHUBXmz88X1XOccWJMnExcdllrB4tEAcvLD1FzwQLEHVEdSZ4SXWOm'], u'4_4': [u'blaaaaaaaaaahhhhhh']}>
+<QueryDict: {u'3_1': [u'blah'], u'respondentid': [u'1'], u'dateofresponse': [u'2016-10-28'], u'subjectid': [u'1'], u'surveyid': [u'1'], u'csrfmiddlewaretoken': [u'0KlbTotyLbfHUBXmz88X1XOccWJMnExcdllrB4tEAcvLD1FzwQLEHVEdSZ4SXWOm'], u'4_4': [u'blaaaaaaaaaahhhhhh']}>
+<QueryDict: {u'3_1': [u'blah'], u'respondentid': [u'1'], u'dateofresponse': [u'2016-10-28'], u'subjectid': [u'1'], u'surveyid': [u'1'], u'csrfmiddlewaretoken': [u'0KlbTotyLbfHUBXmz88X1XOccWJMnExcdllrB4tEAcvLD1FzwQLEHVEdSZ4SXWOm'], u'4_4': [u'blaaaaaaaaaahhhhhh']}>
+<QueryDict: {u'3_1': [u'blah'], u'respondentid': [u'1'], u'dateofresponse': [u'2016-10-28'], u'subjectid': [u'1'], u'surveyid': [u'1'], u'csrfmiddlewaretoken': [u'0KlbTotyLbfHUBXmz88X1XOccWJMnExcdllrB4tEAcvLD1FzwQLEHVEdSZ4SXWOm'], u'4_4': [u'blaaaaaaaaaahhhhhh']}>
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': AttributeError("'Choice' object has no attribute 'allow_custom_responses'",), u'bad_answer_creation_choice_3_1': AttributeError("'Choice' object has no attribute 'allow_custom_responses'",)}
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': AttributeError("'Choice' object has no attribute 'choice_group'",), u'bad_answer_creation_choice_3_1': AttributeError("'Choice' object has no attribute 'choice_group'",)}
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': LookupError(u'bigbox not a recognised datatype',), u'bad_answer_creation_choice_3_1': LookupError(u'box not a recognised datatype',)}
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': NameError("global name 'survey_question' is not defined",), u'bad_answer_creation_choice_3_1': NameError("global name 'survey_question' is not defined",)}
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': AttributeError("'Choice' object has no attribute 'choice_group'",), u'bad_answer_creation_choice_3_1': AttributeError("'Choice' object has no attribute 'choice_group'",)}
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': AttributeError("'Choice' object has no attribute 'group_id'",), u'bad_answer_creation_choice_3_1': AttributeError("'Choice' object has no attribute 'group_id'",)}
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': AttributeError("'Choice' object has no attribute 'group_id'",), u'bad_answer_creation_choice_3_1': AttributeError("'Choice' object has no attribute 'group_id'",)}
+11111
+22222
+11111
+22222
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': AttributeError("'Choice' object has no attribute 'group_id'",), u'bad_answer_creation_choice_3_1': AttributeError("'Choice' object has no attribute 'group_id'",)}
+11111
+22222
+cleaning answer 1 [test[4]=>describe your day=big text]
+11111
+22222
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': TypeError("argument of type 'ManyRelatedManager' is not iterable",), u'bad_answer_creation_choice_3_1': TypeError("argument of type 'ManyRelatedManager' is not iterable",)}
+cleaning answer 1 [test[4]=>describe your day=big text]
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': TypeError("argument of type 'ManyRelatedManager' is not iterable",), u'bad_answer_creation_choice_3_1': TypeError("argument of type 'ManyRelatedManager' is not iterable",)}
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches
+checking answer validity
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches
+checking answer validity
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': TypeError("argument of type 'ManyRelatedManager' is not iterable",), u'bad_answer_creation_choice_3_1': TypeError("argument of type 'ManyRelatedManager' is not iterable",)}
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches
+checking answer validity
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches
+checking answer validity
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': TypeError("argument of type 'ManyRelatedManager' is not iterable",), u'bad_answer_creation_choice_3_1': TypeError("argument of type 'ManyRelatedManager' is not iterable",)}
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+Errs creating answers returning Http500: {u'bad_answer_creation_choice_4_4': TypeError("argument of type 'ManyRelatedManager' is not iterable",), u'bad_answer_creation_choice_3_1': TypeError("argument of type 'ManyRelatedManager' is not iterable",)}
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+saving ans 1 [test[4]=>describe your day=big text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+saving ans 1 [test[4]=>describe your day=big text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+saving ans 1 [test[4]=>describe your day=big text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: test[1]=>what did you last dream about?>, <Survey_Question: test[2]=>how is your day>, <Survey_Question: test[3]=>favourite foods>, <Survey_Question: test[4]=>describe your day>]
+handling test[1]=>what did you last dream about?
+in handle_quest_for_survey_view for survquest test[1]=>what did you last dream about?
+('this question does not allow multiple responses', 'making only one column')
+got back [u'dr'] {}
+handling test[2]=>how is your day
+in handle_quest_for_survey_view for survquest test[2]=>how is your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'how is your day'] {}
+handling test[3]=>favourite foods
+in handle_quest_for_survey_view for survquest test[3]=>favourite foods
+('this question does not allow multiple responses', 'making only one column')
+got back [u'favourite foods'] {}
+handling test[4]=>describe your day
+in handle_quest_for_survey_view for survquest test[4]=>describe your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'describe your day'] {}
+returning from get_data_and_header_for_survey with ['Respondent', u'dr', u'how is your day', u'favourite foods', u'describe your day'] {}
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: test[1]=>what did you last dream about?>, <Survey_Question: test[2]=>how is your day>, <Survey_Question: test[3]=>favourite foods>, <Survey_Question: test[4]=>describe your day>]
+handling test[1]=>what did you last dream about?
+in handle_quest_for_survey_view for survquest test[1]=>what did you last dream about?
+('this question does not allow multiple responses', 'making only one column')
+got back [u'what did you last dream about?'] {}
+handling test[2]=>how is your day
+in handle_quest_for_survey_view for survquest test[2]=>how is your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'how is your day'] {}
+handling test[3]=>favourite foods
+in handle_quest_for_survey_view for survquest test[3]=>favourite foods
+('this question does not allow multiple responses', 'making only one column')
+got back [u'favourite foods'] {}
+handling test[4]=>describe your day
+in handle_quest_for_survey_view for survquest test[4]=>describe your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'describe your day'] {}
+returning from get_data_and_header_for_survey with ['Respondent', u'what did you last dream about?', u'how is your day', u'favourite foods', u'describe your day'] {}
+cleaning answer 1 [test[3]=>favourite foods=boogers]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[3]=>favourite foods=boogers]
+saving ans 1 [test[3]=>favourite foods=boogers]
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[3]=>favourite foods=fruit]
+saving ans 1 [test[3]=>favourite foods=fruit]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: test[1]=>what did you last dream about?>, <Survey_Question: test[2]=>how is your day>, <Survey_Question: test[3]=>favourite foods>, <Survey_Question: test[4]=>describe your day>]
+handling test[1]=>what did you last dream about?
+in handle_quest_for_survey_view for survquest test[1]=>what did you last dream about?
+('this question does not allow multiple responses', 'making only one column')
+	handling this answer 1 [test[1]=>what did you last dream about?=freeform text]
+		 new respondent found. initializing their row to []
+cleaning answer 1 [test[3]=>favourite foods=boogers]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[3]=>favourite foods=boogers]
+saving ans 1 [test[3]=>favourite foods=boogers]
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[3]=>favourite foods=fruit]
+saving ans 1 [test[3]=>favourite foods=fruit]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: test[1]=>what did you last dream about?>, <Survey_Question: test[2]=>how is your day>, <Survey_Question: test[3]=>favourite foods>, <Survey_Question: test[4]=>describe your day>]
+handling test[1]=>what did you last dream about?
+in handle_quest_for_survey_view for survquest test[1]=>what did you last dream about?
+('this question does not allow multiple responses', 'making only one column')
+got back [u'what did you last dream about?'] {}
+handling test[2]=>how is your day
+in handle_quest_for_survey_view for survquest test[2]=>how is your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'how is your day'] {}
+handling test[3]=>favourite foods
+in handle_quest_for_survey_view for survquest test[3]=>favourite foods
+('this question does not allow multiple responses', 'making only one column')
+got back [u'favourite foods'] {}
+handling test[4]=>describe your day
+in handle_quest_for_survey_view for survquest test[4]=>describe your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'describe your day'] {}
+returning from get_data_and_header_for_survey with ['Respondent', u'what did you last dream about?', u'how is your day', u'favourite foods', u'describe your day'] {}
+cleaning answer 1 [test[3]=>favourite foods=boogers]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[3]=>favourite foods=boogers]
+saving ans 1 [test[3]=>favourite foods=boogers]
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[3]=>favourite foods=fruit]
+saving ans 1 [test[3]=>favourite foods=fruit]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: test[1]=>what did you last dream about?>, <Survey_Question: test[2]=>how is your day>, <Survey_Question: test[3]=>favourite foods>, <Survey_Question: test[4]=>describe your day>]
+handling test[1]=>what did you last dream about?
+in handle_quest_for_survey_view for survquest test[1]=>what did you last dream about?
+('this question does not allow multiple responses', 'making only one column')
+got back [u'what did you last dream about?'] {}
+handling test[2]=>how is your day
+in handle_quest_for_survey_view for survquest test[2]=>how is your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'how is your day'] {}
+handling test[3]=>favourite foods
+in handle_quest_for_survey_view for survquest test[3]=>favourite foods
+('this question does not allow multiple responses', 'making only one column')
+got back [u'favourite foods'] {}
+handling test[4]=>describe your day
+in handle_quest_for_survey_view for survquest test[4]=>describe your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'describe your day'] {}
+returning from get_data_and_header_for_survey with ['Respondent', u'what did you last dream about?', u'how is your day', u'favourite foods', u'describe your day'] {}
+cleaning answer 1 [test[3]=>favourite foods=boogers]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[3]=>favourite foods=boogers]
+saving ans 1 [test[3]=>favourite foods=boogers]
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[3]=>favourite foods=fruit]
+saving ans 1 [test[3]=>favourite foods=fruit]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: test[1]=>what did you last dream about?>, <Survey_Question: test[2]=>how is your day>, <Survey_Question: test[3]=>favourite foods>, <Survey_Question: test[4]=>describe your day>]
+handling test[1]=>what did you last dream about?
+in handle_quest_for_survey_view for survquest test[1]=>what did you last dream about?
+('this question does not allow multiple responses', 'making only one column')
+got back [u'what did you last dream about?'] {}
+handling test[2]=>how is your day
+in handle_quest_for_survey_view for survquest test[2]=>how is your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'how is your day'] {}
+handling test[3]=>favourite foods
+in handle_quest_for_survey_view for survquest test[3]=>favourite foods
+('this question does not allow multiple responses', 'making only one column')
+got back [u'favourite foods'] {}
+handling test[4]=>describe your day
+in handle_quest_for_survey_view for survquest test[4]=>describe your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'describe your day'] {}
+returning from get_data_and_header_for_survey with ['Respondent', u'what did you last dream about?', u'how is your day', u'favourite foods', u'describe your day'] {}
+cleaning answer 1 [test[3]=>favourite foods=boogers]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[3]=>favourite foods=boogers]
+saving ans 1 [test[3]=>favourite foods=boogers]
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[3]=>favourite foods=fruit]
+saving ans 1 [test[3]=>favourite foods=fruit]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: test[1]=>what did you last dream about?>, <Survey_Question: test[2]=>how is your day>, <Survey_Question: test[3]=>favourite foods>, <Survey_Question: test[4]=>describe your day>]
+handling test[1]=>what did you last dream about?
+in handle_quest_for_survey_view for survquest test[1]=>what did you last dream about?
+('this question does not allow multiple responses', 'making only one column')
+got back [u'what did you last dream about?'] {}
+handling test[2]=>how is your day
+in handle_quest_for_survey_view for survquest test[2]=>how is your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'how is your day'] {}
+handling test[3]=>favourite foods
+in handle_quest_for_survey_view for survquest test[3]=>favourite foods
+('this question does not allow multiple responses', 'making only one column')
+got back [u'favourite foods'] {}
+handling test[4]=>describe your day
+in handle_quest_for_survey_view for survquest test[4]=>describe your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'describe your day'] {}
+returning from get_data_and_header_for_survey with ['Respondent', u'what did you last dream about?', u'how is your day', u'favourite foods', u'describe your day'] {}
+cleaning answer 1 [test[3]=>favourite foods=boogers]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[3]=>favourite foods=boogers]
+saving ans 1 [test[3]=>favourite foods=boogers]
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[3]=>favourite foods=fruit]
+saving ans 1 [test[3]=>favourite foods=fruit]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: test[1]=>what did you last dream about?>, <Survey_Question: test[2]=>how is your day>, <Survey_Question: test[3]=>favourite foods>, <Survey_Question: test[4]=>describe your day>]
+handling test[1]=>what did you last dream about?
+in handle_quest_for_survey_view for survquest test[1]=>what did you last dream about?
+('this question does not allow multiple responses', 'making only one column')
+got back [u'what did you last dream about?'] {}
+handling test[2]=>how is your day
+in handle_quest_for_survey_view for survquest test[2]=>how is your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'how is your day'] {}
+handling test[3]=>favourite foods
+in handle_quest_for_survey_view for survquest test[3]=>favourite foods
+('this question does not allow multiple responses', 'making only one column')
+got back [u'favourite foods'] {}
+handling test[4]=>describe your day
+in handle_quest_for_survey_view for survquest test[4]=>describe your day
+('this question does not allow multiple responses', 'making only one column')
+got back [u'describe your day'] {}
+returning from get_data_and_header_for_survey with ['Respondent', u'what did you last dream about?', u'how is your day', u'favourite foods', u'describe your day'] {}
+cleaning answer 1 [test[2]=>how is your day=well]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[2]=>how is your day=well]
+saving ans 1 [test[2]=>how is your day=well]
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[3]=>favourite foods=fruit]
+saving ans 1 [test[3]=>favourite foods=fruit]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[2]=>how is your day=well]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [test[2]=>how is your day=well]
+saving ans 1 [test[2]=>how is your day=well]
+1 [test[4]=>describe your day=big text]
+saving ans 1 [test[4]=>describe your day=big text]
+1 [test[3]=>favourite foods=fruit]
+saving ans 1 [test[3]=>favourite foods=fruit]
+1 [test[1]=>what did you last dream about?=freeform text]
+saving ans 1 [test[1]=>what did you last dream about?=freeform text]
+cleaning answer 1 [test[2]=>how is your day=well]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[2]=>how is your day=well]>]>
+duplicates found
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[4]=>describe your day=big text]>]>
+duplicates found
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[3]=>favourite foods=fruit]>]>
+duplicates found
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[1]=>what did you last dream about?=freeform text]>]>
+duplicates found
+Errs creating answers returning Http500: {u'err_bad_answer_creation_choice_5_3': ValidationError([u'these answers match <QuerySet [<Answer: 1 [test[3]=>favourite foods=fruit]>]>. this does not allow duplicates']), u'err_bad_answer_creation_choice_3_1': ValidationError([u'these answers match <QuerySet [<Answer: 1 [test[1]=>what did you last dream about?=freeform text]>]>. this does not allow duplicates']), u'err_bad_answer_creation_choice_1_2': ValidationError([u'these answers match <QuerySet [<Answer: 1 [test[2]=>how is your day=well]>]>. this does not allow duplicates']), u'err_bad_answer_creation_choice_4_4': ValidationError([u'these answers match <QuerySet [<Answer: 1 [test[4]=>describe your day=big text]>]>. this does not allow duplicates'])}
+cleaning answer 1 [test[2]=>how is your day=well]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[2]=>how is your day=well]>]>
+duplicates found
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[4]=>describe your day=big text]>]>
+duplicates found
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[3]=>favourite foods=fruit]>]>
+duplicates found
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[1]=>what did you last dream about?=freeform text]>]>
+duplicates found
+Errs creating answers returning Http500: {u'err_bad_answer_creation_choice_5_3': ValidationError([u'these answers match <QuerySet [<Answer: 1 [test[3]=>favourite foods=fruit]>]>. this does not allow duplicates']), u'err_bad_answer_creation_choice_3_1': ValidationError([u'these answers match <QuerySet [<Answer: 1 [test[1]=>what did you last dream about?=freeform text]>]>. this does not allow duplicates']), u'err_bad_answer_creation_choice_1_2': ValidationError([u'these answers match <QuerySet [<Answer: 1 [test[2]=>how is your day=well]>]>. this does not allow duplicates']), u'err_bad_answer_creation_choice_4_4': ValidationError([u'these answers match <QuerySet [<Answer: 1 [test[4]=>describe your day=big text]>]>. this does not allow duplicates'])}
+cleaning answer 1 [test[2]=>how is your day=well]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[2]=>how is your day=well]>]>
+duplicates found
+answer not created because [u'these answers match <QuerySet [<Answer: 1 [test[2]=>how is your day=well]>]>. this does not allow duplicates']
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[4]=>describe your day=big text]>]>
+duplicates found
+answer not created because [u'these answers match <QuerySet [<Answer: 1 [test[4]=>describe your day=big text]>]>. this does not allow duplicates']
+cleaning answer 1 [test[3]=>favourite foods=fruit]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[3]=>favourite foods=fruit]>]>
+duplicates found
+answer not created because [u'these answers match <QuerySet [<Answer: 1 [test[3]=>favourite foods=fruit]>]>. this does not allow duplicates']
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[1]=>what did you last dream about?=freeform text]>]>
+duplicates found
+answer not created because [u'these answers match <QuerySet [<Answer: 1 [test[1]=>what did you last dream about?=freeform text]>]>. this does not allow duplicates']
+Errs creating answers returning Http500: {u'err_bad_answer_creation_choice_5_3': "[u'these answers match <QuerySet [<Answer: 1 [test[3]=>favourite foods=fruit]>]>. this does not allow duplicates']", u'err_bad_answer_creation_choice_3_1': "[u'these answers match <QuerySet [<Answer: 1 [test[1]=>what did you last dream about?=freeform text]>]>. this does not allow duplicates']", u'err_bad_answer_creation_choice_1_2': "[u'these answers match <QuerySet [<Answer: 1 [test[2]=>how is your day=well]>]>. this does not allow duplicates']", u'err_bad_answer_creation_choice_4_4': "[u'these answers match <QuerySet [<Answer: 1 [test[4]=>describe your day=big text]>]>. this does not allow duplicates']"}
+cleaning answer 1 [test[3]=>favourite foods=boogers]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[3]=>favourite foods=fruit]>]>
+duplicates found
+answer not created because [u'these answers match <QuerySet [<Answer: 1 [test[3]=>favourite foods=fruit]>]>. this does not allow duplicates']
+cleaning answer 1 [test[4]=>describe your day=big text]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[4]=>describe your day=big text]>]>
+duplicates found
+answer not created because [u'these answers match <QuerySet [<Answer: 1 [test[4]=>describe your day=big text]>]>. this does not allow duplicates']
+cleaning answer 1 [test[1]=>what did you last dream about?=freeform text]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[1]=>what did you last dream about?=freeform text]>]>
+duplicates found
+answer not created because [u'these answers match <QuerySet [<Answer: 1 [test[1]=>what did you last dream about?=freeform text]>]>. this does not allow duplicates']
+cleaning answer 1 [test[2]=>how is your day=not well]
+checking answer uniqueness
+looking fro matches in <QuerySet [<Answer: 1 [test[2]=>how is your day=well]>]>
+duplicates found
+answer not created because [u'these answers match <QuerySet [<Answer: 1 [test[2]=>how is your day=well]>]>. this does not allow duplicates']
+Errs creating answers returning Http500: {u'err_bad_answer_creation_choice_3_1': "[u'these answers match <QuerySet [<Answer: 1 [test[1]=>what did you last dream about?=freeform text]>]>. this does not allow duplicates']", u'err_bad_answer_creation_choice_2_2': "[u'these answers match <QuerySet [<Answer: 1 [test[2]=>how is your day=well]>]>. this does not allow duplicates']", u'err_bad_answer_creation_choice_4_4': "[u'these answers match <QuerySet [<Answer: 1 [test[4]=>describe your day=big text]>]>. this does not allow duplicates']", u'err_bad_answer_creation_choice_6_3': "[u'these answers match <QuerySet [<Answer: 1 [test[3]=>favourite foods=fruit]>]>. this does not allow duplicates']"}
+salfjsdlfjaslfjdla
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: how hungry am I[1]=>are you hungry>, <Survey_Question: how hungry am I[2]=>favourite foods>]
+handling how hungry am I[1]=>are you hungry
+in handle_quest_for_survey_view for survquest how hungry am I[1]=>are you hungry
+('this question does not allow multiple responses', 'making only one column')
+got back [u'are you hungry'] {}
+handling how hungry am I[2]=>favourite foods
+in handle_quest_for_survey_view for survquest how hungry am I[2]=>favourite foods
+('this question does not allow multiple responses', 'making only one column')
+got back [u'favourite foods'] {}
+returning from get_data_and_header_for_survey with ['Respondent', u'are you hungry', u'favourite foods'] {}
+cleaning answer 1 [how hungry am I[2]=>favourite foods=boogers]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 1 [how hungry am I[1]=>are you hungry=yes]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1 [how hungry am I[2]=>favourite foods=boogers]
+saving ans 1 [how hungry am I[2]=>favourite foods=boogers]
+1 [how hungry am I[1]=>are you hungry=yes]
+saving ans 1 [how hungry am I[1]=>are you hungry=yes]
+salfjsdlfjaslfjdla
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: how hungry am I[1]=>are you hungry>, <Survey_Question: how hungry am I[2]=>favourite foods>]
+handling how hungry am I[1]=>are you hungry
+in handle_quest_for_survey_view for survquest how hungry am I[1]=>are you hungry
+('this question does not allow multiple responses', 'making only one column')
+	handling this answer 1 [how hungry am I[1]=>are you hungry=yes]
+		 new respondent found. initializing their row to []
+in get_data_and_header_for_survey
+going through survquests [<Survey_Question: how hungry am I[1]=>are you hungry>, <Survey_Question: how hungry am I[2]=>favourite foods>]
+handling how hungry am I[1]=>are you hungry
+in handle_quest_for_survey_view for survquest how hungry am I[1]=>are you hungry
+('this question does not allow multiple responses', 'making only one column')
+got back [u'are you hungry'] {}
+handling how hungry am I[2]=>favourite foods
+in handle_quest_for_survey_view for survquest how hungry am I[2]=>favourite foods
+('this question does not allow multiple responses', 'making only one column')
+got back [u'favourite foods'] {}
+returning from get_data_and_header_for_survey with ['Respondent', u'are you hungry', u'favourite foods'] {}

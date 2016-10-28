@@ -1,0 +1,12 @@
+<label class="well">
+	<input type="checkbox" style="display:block" class="choice"
+		data-choice-id="{{choice.id}}" 
+  		name="{{surveyquestion.id}}"
+  		value="{{choice.def_value}}"
+  		id="choice_{{choice.id}}_{{surveyquestion.id}}"
+  		/>
+		{% if choice.object.show_name %}		
+			<span >{{choice.name}}</span>
+  		{% endif %}
+  		<span class="badge" style="display:block">{{choice.def_value}}</span>
+</label>

@@ -3,32 +3,29 @@
 <div class="survquestion well panel-default">
 	{# question prompt #}
 	<div class="questionprompt panel-heading">
+		<span class="badge">{{ forloop.counter}}</span> 
 		{{ surveyquestion.question.prompt }}
 	</div>
 	{# the choices for this question #}
 	<div class="choiceset panel-body" 
 		data-datatype="{{surveyquestion.question.choice_group.datatype}}"
-		data-ui="{{surveyquestion.question.choice_group.ui}}">
-
-		<div>
+		data-ui="{{surveyquestion.question.choice_group.ui}}"
+		id="{{surveyquestion.id}}">
 			
-			{# choice group enforces a single data type and ui for every choice #}
-			{% for choice in surveyquestion.question.choice_group.choice_defs %}
-				
-				{# use the template apropriate for a choice of this uiand datatype #}
-				{# ui can be: boxs, radios, checks #}
-				{% if surveyquestion.question.choice_group.ui == "box" %}
-					{% include "db/submit_subtempls/box_choice.html" %}
-				{% elif surveyquestion.question.choice_group.ui == "bigbox" %}
-					{% include "db/submit_subtempls/bigbox_choice.html" %}
-				{% elif surveyquestion.question.choice_group.ui == "radio" %}
-					{% include "db/submit_subtempls/radio_choice.html" %}
-				{% elif surveyquestion.question.choice_group.ui == "check" %}
-					{% include "db/submit_subtempls/check_choice.html" %}
-				{% endif %}
-			{% endfor %}
-
+		{# choice group enforces a single data type and ui for every choice #}
+		{% for choice in surveyquestion.question.choice_group.choice_defs %}
 			
-		</div>
+			{# use the template apropriate for a choice of this uiand datatype #}
+			{# ui can be: boxs, radios, checks #}
+			{% if surveyquestion.question.choice_group.ui == "box" %}
+				{% include "db/submit_subtempls/box_choice.html" %}
+			{% elif surveyquestion.question.choice_group.ui == "bigbox" %}
+				{% include "db/submit_subtempls/bigbox_choice.html" %}
+			{% elif surveyquestion.question.choice_group.ui == "radio" %}
+				{% include "db/submit_subtempls/radio_choice.html" %}
+			{% elif surveyquestion.question.choice_group.ui == "check" %}
+				{% include "db/submit_subtempls/check_choice.html" %}
+			{% endif %}
+		{% endfor %}
 	</div>
 </div>

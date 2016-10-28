@@ -1,10 +1,11 @@
-{# question.surveyquestionid - a number representing the surveyquestionid #}
-{# uses choice - a flattened dict with the chioce definition #}
-
 <label>
-	{{choice.name}}
+	{% if choice.object.show_name %}
+		{{choice.name}}
+	{% endif %}
+	<input type="text" class="choice"
+		data-choice-id="{{chocie.id}}" 
+		name="{{choice.id}}_{{surveyquestion.id}}" 
+		id="choice_{{choice.id}}_{{surveyquestion.id}}"
+		value="{{ choice.def_value }}"
+		/> 
 </label> 
-<input type="text" 
-	name="{{choice.id}}_{{surveyquestion.id}}" 
-	id="{{choice.id}}_{{surveyquestion.id}}"
-	value="{{ choice.get_value }}"> 

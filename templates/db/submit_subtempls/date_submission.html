@@ -1,4 +1,17 @@
-	<label>date of response</label>
-<input type="date" name="date_of_response" id='dateofresponse'>
 
+<label class="well" style="display:inline-block">
+	<input 
+		type="date" 
+		style="display:block" 
+		name="date_of_response" 
+		id='dateofresponse'>
+	<span style="display:block">
+		Date of Response	
+	</span> 
+</label>
 
+<script type="text/javascript">
+	$(document).ready( function() {
+    	$('#dateofresponse')[0].valueAsDate = new Date();
+	});
+</script>

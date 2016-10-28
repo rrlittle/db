@@ -1,13 +1,18 @@
 {% extends "db/base_template.html" %}
+{% block title %}
+	submit {{survey.name}}
+{% endblock title %}
 {% block content %}
 
 {% include "db/submit_subtempls/header.html" %}
 
 {% include "db/submit_subtempls/errors.html" %}
 
+<div class="well" style="display:none" id="errs"></div>
 <form id='post_survey'>
 	{% csrf_token %}
-	<input type="hidden" name="surveyid" value="{{ surveyid }}">
+	<input type="hidden" name="surveyid" value="{{ survey.id }}">
+	<input type="hidden" name="surveytype" value="{{survey.type}}">
 	{% include "db/submit_subtempls/date_submission.html" %}
 
 	{% include "db/submit_subtempls/respondent.html" %}
@@ -24,5 +29,6 @@
 <script type="text/javascript">
 {% include "db/submit_subtempls/submit_survey.js" %}
 </script>
+
 
 {% endblock content %}
