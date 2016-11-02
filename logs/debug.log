@@ -802,3 +802,2049 @@ in handle_quest_for_survey_view for survquest how hungry am I[2]=>favourite food
 ('this question does not allow multiple responses', 'making only one column')
 got back [u'favourite foods'] {}
 returning from get_data_and_header_for_survey with ['Respondent', u'are you hungry', u'favourite foods'] {}
+salfjsdlfjaslfjdla
+in get_data_and_header_for_survey
+in get_data_and_header_for_survey
+getting answers for how hungry am I
+found 2 questions for this survey
+getting answers for how hungry am I
+found 2 questions for this survey
+getting answers for how hungry am I
+found 2 questions for this survey
+getting questions and answers for how hungry am I
+found 2 questions for this survey
+adding header for how hungry am I[1]=>are you hungry
+adding header for how hungry am I[2]=>favourite foods
+getting questions and answers for how hungry am I
+found 2 questions for this survey
+adding header for how hungry am I[1]=>are you hungry
+q ui: radio
+adding header for how hungry am I[2]=>favourite foods
+q ui: check
+getting questions and answers for how hungry am I
+found 2 questions for this survey
+adding headers for how hungry am I[1]=>are you hungry
+getting questions and answers for how hungry am I
+found 2 questions for this survey
+adding headers for how hungry am I[1]=>are you hungry
+q ui: radio
+creating one column for question
+getting questions and answers for how hungry am I
+found 2 questions for this survey
+adding headers for how hungry am I[1]=>are you hungry
+q ui: radio
+creating one column for question
+adding headers for how hungry am I[2]=>favourite foods
+q ui: check
+getting questions and answers for how hungry am I
+found 2 questions for this survey
+adding headers for how hungry am I[1]=>are you hungry
+q ui: radio
+creating one column for question
+adding headers for how hungry am I[2]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+completed header: ['Resp', 'Subj', 'Date', <Survey_Question: how hungry am I[1]=>are you hungry>, (<Survey_Question: how hungry am I[2]=>favourite foods>, <Choice: fruit>), (<Survey_Question: how hungry am I[2]=>favourite foods>, <Choice: boogers>)]
+getting questions and answers for how hungry am I
+found 2 questions for this survey
+adding headers for how hungry am I[1]=>are you hungry
+q ui: radio
+creating one column for question
+adding headers for how hungry am I[2]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+completed header: ['Resp', 'Subj', 'Date', <Survey_Question: how hungry am I[1]=>are you hungry>, (<Survey_Question: how hungry am I[2]=>favourite foods>, <Choice: fruit>), (<Survey_Question: how hungry am I[2]=>favourite foods>, <Choice: boogers>)]
+cleaning answer 1 [test[2]=>how is your day=well]
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<type 'datetime.date'>
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<type 'datetime.date'>
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<type 'datetime.date'>
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<type 'datetime.date'>
+False
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<type 'datetime.date'>
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<type 'datetime.date'>
+False
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<type 'datetime.date'>
+<type 'method_descriptor'>
+False
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<type 'datetime.date'>
+<type 'type'>
+True
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<type 'datetime.date'>
+<type 'type'>
+True
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': 'Resp', 'secondary': None}, {'primary': 'Subj', 'secondary': None}, {'primary': 'Date', 'secondary': None}, {'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: fruit>), 'secondary': None}, {'primary': (<Survey_Question: test[3]=>favourite foods>, <Choice: boogers>), 'secondary': None}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<class 'db.view_utils.table'>
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+headers: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]body: {(<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1)): [u'', <Answer: 1 [test[2]=>how is your day=well]>, u'None Selected', u'None Selected', u'']}
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+<bound method table.header of <db.view_utils.table object at 0x0000000004263BE0>>
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+found 1 answers
+[{'primary': <Survey_Question: test[1]=>what did you last dream about?>, 'secondary': None}, {'primary': <Survey_Question: test[2]=>how is your day>, 'secondary': None}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: fruit>}, {'primary': <Survey_Question: test[3]=>favourite foods>, 'secondary': <Choice: boogers>}, {'primary': <Survey_Question: test[4]=>describe your day>, 'secondary': None}]
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+[{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers:
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers:
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows:
+	[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers:
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows:
+	[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	8:[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: None>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: None>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+adding 1 [test[2]=>how is your day=well] to <db.view_utils.col object at 0x0000000004109F60>
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+adding 1 [test[2]=>how is your day=well] to {'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+getting test[2]=>how is your day None from [<db.view_utils.col object at 0x0000000004250CC0>, <db.view_utils.col object at 0x00000000042AF5C0>, <db.view_utils.col object at 0x00000000042AFF98>, <db.view_utils.col object at 0x00000000042AF470>, <db.view_utils.col object at 0x00000000042BC160>]
+returning {'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+adding 1 [test[2]=>how is your day=well] to {'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+getting test[2]=>how is your day None from :
+	-what did you last dream about?
+	-how is your day
+	-favourite foods
+	-favourite foods
+	-describe your day
+returning what did you last dream about?
+adding 1 [test[2]=>how is your day=well] to what did you last dream about?
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+getting test[2]=>how is your day None from :
+asdffasfsdafsda
+	-what did you last dream about?
+	-how is your day
+	-favourite foods
+	-favourite foods
+	-describe your day
+returning what did you last dream about?
+adding 1 [test[2]=>how is your day=well] to what did you last dream about?
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+getting test[2]=>how is your day None from :
+	-what did you last dream about?
+	-how is your day
+	-favourite foods
+	-favourite foods
+	-describe your day
+returning what did you last dream about? without choice
+adding 1 [test[2]=>how is your day=well] to what did you last dream about?
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+getting test[2]=>how is your day None from :
+	-what did you last dream about?
+	-how is your day
+	-favourite foods
+	-favourite foods
+	-describe your day
+test[2]=>how is your day == test[1]=>what did you last dream about?? False
+returning what did you last dream about? without choice
+adding 1 [test[2]=>how is your day=well] to what did you last dream about?
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), <Answer: 1 [test[2]=>how is your day=well]>, 999L, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+getting test[2]=>how is your day None from :
+	-what did you last dream about?
+	-how is your day
+	-favourite foods
+	-favourite foods
+	-describe your day
+test[2]=>how is your day == test[1]=>what did you last dream about?? False
+test[2]=>how is your day == test[2]=>how is your day? True
+returning how is your day without choice
+adding 1 [test[2]=>how is your day=well] to how is your day
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), u'', <Answer: 1 [test[2]=>how is your day=well]>, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+getting test[2]=>how is your day None from :
+	-what did you last dream about?
+	-how is your day
+	-favourite foods
+	-favourite foods
+	-describe your day
+test[2]=>how is your day == test[1]=>what did you last dream about?? False
+test[2]=>how is your day == test[2]=>how is your day? True
+returning how is your day without choice
+adding 1 [test[2]=>how is your day=well] to how is your day
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), u'', <Answer: 1 [test[2]=>how is your day=well]>, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer 1 [test[2]=>how is your day=well]
+adding 1 [test[2]=>how is your day=well] to how is your day
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), u'', <Answer: 1 [test[2]=>how is your day=well]>, u'None Selected', u'None Selected', u'']
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding boogers to header
+adding fruit to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 1 answers
+adding answer None
+adding None to how is your day
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 1), u'', <Answer: None>, u'None Selected', u'None Selected', u'']
+cleaning answer 1
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer booges
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer blaaaaaaaaaahhhhhh
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer froot
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer blah
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1
+saving ans 1
+booges
+saving ans booges
+blaaaaaaaaaahhhhhh
+saving ans blaaaaaaaaaahhhhhh
+froot
+saving ans froot
+blah
+saving ans blah
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 5 answers
+adding answer blah
+adding blah to what did you last dream about?
+adding answer 1
+adding 1 to how is your day
+adding answer booges
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 5 answers
+adding answer blah
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 5 answers
+adding answer blah
+adding blah to what did you last dream about?
+adding answer 1
+adding 1 to how is your day
+adding answer booges
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 5 answers
+adding answer blah
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 5 answers
+adding answer blah
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 5 answers
+adding answer blah
+adding blah to what did you last dream about?
+adding answer 1
+adding 1 to how is your day
+adding answer booges
+adding booges to favourite foods
+adding answer froot
+adding froot to favourite foods
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: blah>, <Answer: 1>, u'froot', u'booges', <Answer: blaaaaaaaaaahhhhhh>]
+cleaning answer booges
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer blaaaaaaaaaahhhhhh
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer blah
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 2
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+booges
+saving ans booges
+blaaaaaaaaaahhhhhh
+saving ans blaaaaaaaaaahhhhhh
+blah
+saving ans blah
+2
+saving ans 2
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 9 answers
+adding answer blah
+adding blah to what did you last dream about?
+adding answer blah
+adding blah to what did you last dream about?
+adding answer 1
+adding 1 to how is your day
+adding answer 2
+adding 2 to how is your day
+adding answer booges
+adding booges to favourite foods
+adding answer froot
+adding froot to favourite foods
+adding answer booges
+adding booges to favourite foods
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (2 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: blah>, <Answer: 1>, u'froot', u'booges', <Answer: blaaaaaaaaaahhhhhh>]
+	(8 col wide):[<Person: 2>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: blah>, <Answer: 2>, u'None Selected', u'booges', <Answer: blaaaaaaaaaahhhhhh>]
+cleaning answer booges
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer blaaaaaaaaaahhhhhh
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer blah
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 2
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+booges
+saving ans booges
+blaaaaaaaaaahhhhhh
+saving ans blaaaaaaaaaahhhhhh
+blah
+saving ans blah
+2
+saving ans 2
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 13 answers
+adding answer blah
+adding blah to what did you last dream about?
+adding answer blah
+adding blah to what did you last dream about?
+adding answer blah
+adding blah to what did you last dream about?
+adding answer 1
+adding 1 to how is your day
+adding answer 2
+adding 2 to how is your day
+adding answer 2
+adding 2 to how is your day
+adding answer booges
+adding booges to favourite foods
+adding answer froot
+adding froot to favourite foods
+adding answer booges
+adding booges to favourite foods
+adding answer booges
+adding booges to favourite foods
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (3 rows):
+	(8 col wide):[<Person: 2>, <Person: 2>, datetime.date(2016, 11, 2), <Answer: blah>, <Answer: 2>, u'None Selected', u'booges', <Answer: blaaaaaaaaaahhhhhh>]
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: blah>, <Answer: 1>, u'froot', u'booges', <Answer: blaaaaaaaaaahhhhhh>]
+	(8 col wide):[<Person: 2>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: blah>, <Answer: 2>, u'None Selected', u'booges', <Answer: blaaaaaaaaaahhhhhh>]
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 0 answers
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (0 rows):
+cleaning answer 1
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer blaaaaaaaaaahhhhhh
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer jZKHjdksfhas
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1
+saving ans 1
+blaaaaaaaaaahhhhhh
+saving ans blaaaaaaaaaahhhhhh
+jZKHjdksfhas
+saving ans jZKHjdksfhas
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 3 answers
+adding answer 1
+adding 1 to how is your day
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+adding answer jZKHjdksfhas
+adding jZKHjdksfhas to what did you last dream about?
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: jZKHjdksfhas>, <Answer: 1>, u'None Selected', u'None Selected', <Answer: blaaaaaaaaaahhhhhh>]
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 3 answers
+adding answer 1
+adding 1 to how is your day
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+adding answer jZKHjdksfhas
+adding jZKHjdksfhas to what did you last dream about?
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: jZKHjdksfhas>, <Answer: 1>, u'999', u'999', <Answer: blaaaaaaaaaahhhhhh>]
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 3 answers
+adding answer 1
+adding 1 to how is your day
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+adding answer jZKHjdksfhas
+adding jZKHjdksfhas to what did you last dream about?
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: jZKHjdksfhas>, <Answer: 1>, u'999', u'999', <Answer: blaaaaaaaaaahhhhhh>]

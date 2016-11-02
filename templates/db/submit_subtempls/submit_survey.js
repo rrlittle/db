@@ -135,7 +135,7 @@ $(document).on('submit', '#post_survey', function(e){
 					string+= item + '\n\t'
 				})
 				alert(string);
-				// window.location = '{% url "db:survey" survey.id%}'
+				window.location = '{% url "db:survey" survey.id%}'
 			}
 			else{
 				$.each(Object.keys(data), function(index,key){

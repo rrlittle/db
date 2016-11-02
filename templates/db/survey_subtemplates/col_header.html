@@ -1,0 +1,11 @@
+<th>
+	{% if "key" in header %}
+		{{ header.key }}	
+	{% elif "question" in header %}
+		{{header.question.title }}
+	{% endif %}
+	
+	{% if "choice" in header %}
+		{{ header.choice }}
+	{% endif %}
+</th>

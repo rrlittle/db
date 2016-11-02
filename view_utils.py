@@ -1,7 +1,7 @@
 import models
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-from django.core.exceptions import MultipleObjectsReturned
-from datetime import datetime
+# from django.core.exceptions import MultipleObjectsReturned
+import datetime
 
 
 import logging
@@ -9,170 +9,211 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def handle_quest_for_survey_view(survquest):
-    ''' handles getting all the responses to a single survey question
-        if this question allows multiple responses then it will
-        produce mutiple columns. i.e one for each choice
-        this returns a list of header strings
-        and a dictionary of person: answer list where the answer list is 
-        aligned with the header
+class table(object):
+    ''' defines a table object for use in structuring_survey_view '''
 
-        throws 404 if there are no choices available  
-            if question allows muslitple
-    '''
-    logger.info('in handle_quest_for_survey_view for survquest %s'%survquest)
-    headers = [] # to hold header strings
-    rows = {} # to hold respomses 
-    # using people as keys with header aligned lists as value
-    question = survquest.question
-    q_missing_val = question.get_missing_value() # save question missing value
-
-    if question.allow_multiple_responses: # one column per possible responses
-        logger.info(('this question allows multiple responses, '
-            'making a column for each choice'))
-        # then we need to create headers for each viable option
-        choice_grp = question.choice_group
-        # get all the choices for this question
-        choices = get_list_or_404(
-            models.Choice.objects.order_by('order'),
-            group_id=choice_grp.id
-        )
-        logger.info( 'found these choices %s'%choices)
-        for choice_num, choice in enumerate(choices):
-            logger.info('\thandling choice %s'%choice)
-            # save the header for this choice
-            headers.append('%s (%s)'%(question.title, choice.name))
-            # get all the answers to this responses 
-            # to this choice for this question in this survey
-            answers_for_this_choice = models.Answer.objects.filter(
-                answer_id=choice.id,
-                survey_question_id = survquest.id
-            )
-            logger.info('\tfound these answers %s'%answers_for_this_choice)
-            # BUG: multiple responses from the same person for the same person 
-            # will break this. they will add more than one column to this row
-            # hopefully the database will be kept clean
-            people_responded = []
-            for ans in answers_for_this_choice:
-                logger.info( '\t\thandling this answer %s'%ans)
-                # save everyone that responded
-                people_responded.append(ans.respondent) 
-                
-                # if they aren't already in rows, add them, 
-                # be sure to pad with missing vals
-                if ans.respondent not in rows:
-                    logger.info (('\t\tnew respondent found. initializing '
-                              'their row to %s')%([q_missing_val] * (choice_num)))
-                    rows[ans.respondent] = [q_missing_val] * (choice_num)
-                # put the value of their response in the data output
-                rows[ans.respondent].append(
-                    ans.answer.get_value(choice_grp.datatype)
-                )
-            # if people didn't respond we need to pad with missing values
-            for no_response in [r for r in rows if r not in people_responded]:
-                logger.info ('\t\tperson %s did not respond. adding %s to row'%(no_response, q_missing_val))
-                rows[r].append(q_missing_val)
-    else: # only one column 
-        headers.append(question.title)
-        logger.info( ('this question does not allow multiple responses',
-                    'making only one column'))
-        answers_to_this_quest = models.Answer.objects.filter(
-            survey_question_id=survquest.id
-        )
-        for ans in answers_to_this_quest:
-            logger.info( '\thandling this answer %s'%ans)
-            if ans.respondent not in rows:
-                logger.info (('\t\t new respondent found. '
-                            'initializing their row to %s')%([]))
-                rows[ans.respondent] = [] 
-            
-            rows[ans.respondent].append(ans.get_value())
-                
-
-    return headers, rows
-
-
-def get_data_and_header_for_survey(survey):
-    ''' turns the database representation of a survey into two lists
-        the first is a list of header strings for the survey template
-        the second is a list of data elements to fill the data table
-
-        returns 404 if no Questions found for the survey
-    '''
-    logger.info('in get_data_and_header_for_survey')
-    headers = ['Resp']  # define keys for all tables
-    if survey.type == 'observational': headers.append('Subj')
-    headers.append('Date Completed')
+    # defines the keys for this table
+    rowkeys = [
+        ('Resp', models.Person),
+        ('Subj', models.Person), 
+        ('Date', datetime.date),
+    ]
     
-    rows = {}  # keys will be individuals, each respondent gets their own row
-    
-    # get all the questions in this survey in the correct order
-    survquests = get_list_or_404(
-        models.Survey_Question.objects.order_by('question_order'),
-        survey_id=survey.id,
-    )    
-    logger.info('going through survquests %s'%survquests)
+    class col(object):
+        '''defines a single column in the table'''
 
-    # go through all the questions in the survey
-    for survquest in survquests:
-        question = survquest.question # get the actual question
-        # get the headers and data columns for this question
-        logger.info( 'handling %s'%survquest)
-        headers_for_quest, \
-        responses = handle_quest_for_survey_view(survquest)
-        logger.info('got back %s %s'%(headers_for_quest, responses))
-        # headers_for_quest = the headers for the table associated with question
-        # columns_for_quest = the columns aligned with the headers
-
-        # get a list of all the people that are currently in rows, but not in 
-        # responses. i.e. they didn't provide an answer for these columns.
-        resps_didnt_answer = [r for r in rows if r not in responses]
-        for r in resps_didnt_answer:
-            # recall rows contains one list per respondent
-            rows[r] += [question.get_missing_value()]*len(headers_for_quest)
-            # add a missing value for each header added. so they'll all be the 
-            # same length always. 
-
-        # update rows without overwriting what's already there
-        for r in responses:
-            if r not in rows: # this is the first time we've seen this person
-                # initialize this respondent
-                rows[r] = ['miss']*(len(headers)-1)
-            rows[r] += responses[r] # add the current columns
-
-        # add the headers
-        headers += headers_for_quest
-
-    # after we've totally filled rows. we need to reformat it to a list of lists
-    # so that it's easier for the template
-    logger.info('returning from get_data_and_header_for_survey with %s %s'%(headers, rows))
-    return headers, rows
-
-
-def dict_rows_to_list_of_lists_for_survey(rows):
-    ''' get_data_and_header_for_survey returns a list of headers and 
-        a dictionary of rows using the respondent as a key. 
-        like so:
-        {
-            r1: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-            r2: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-            r3: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-            r4: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-
-        }
-
-        the template wants this a list of lists like so:
-        [[r1, ans1, ans2, ans3.1, ans3.2, ans3.3],
-         [r2, ans1, ans2, ans3.1, ans3.2, ans3.3],
-         [r3, ans1, ans2, ans3.1, ans3.2, ans3.3],
-         [r4, ans1, ans2, ans3.1, ans3.2, ans3.3],
+        # defines recognized header types 
+        h_types = [
+            tuple,  # allowed to provide (Survey_Question, Choice) sets
+            models.Survey_Question,  # allowed to just provide Survey_Question
         ]
-        this function does that
+        
+        def __init__(self, header):
+            self.rows = {}  # holds the rows for
+            if type(header) not in self.h_types: 
+                raise NotImplementedError('%s not recognized type' % header)
+
+            if type(header) is tuple:
+                assert (type(header[0]) is models.Survey_Question and
+                    type(header[1]) is models.Choice), ('set headers must be '
+                    '(Survey_Question, Choice)')
+                self.survey_question = header[0]
+                self.choice = header[1]
+                self.type_ = 'choicecolumn'
+                self.question = header[0].question
+            else:  # header must given as a survey_question
+                self.survey_question = header
+                self.question = header.question
+            self.header = {
+                'question': self.question,
+                'survey_question': self.survey_question
+            }
+            if hasattr(self, 'choice'):
+                self.header['choice'] = self.choice
+
+        def __setitem__(self, rowkey, answer):
+            ''' expects a tuple of keys, as specified by self.keys
+                as therow key, there should be one unique rowkey for
+                each row in the table'''
+            errstring = 'rowkey must be %s' % str(self.rowkeys) 
+            assert len(rowkey) == len(self.rowkeys), errstring + ': len'
+            assert type(rowkey) is tuple, errstring + ': type'
+            for i, k in enumerate(rowkey):
+                assert type(k) is self.rowkeys[i][1], errstring + ': %s' % k
+            logger.info('adding %s to %s' % (answer, self))
+            self.rows[rowkey] = answer
+        
+        def keys(self):
+            '''returns all the keys usd in this column'''
+            return set(self.rows.keys())
+        
+        def __contains__(self, key):
+            ''' does this row existin in this column?'''
+            return self.rows.__contains__(key)
+
+        def __getitem__(self, key):
+            '''gets a pointer to a cell using the rowkey provided'''
+            return self.rows[key]
+
+        def __str__(self):
+            return str(self.question)
+
+    # give both col and table the same rowkeys
+    col.rowkeys = rowkeys
+
+    def __init__(self):
+        # holds the columns of data
+        # keys are not included as columns. but done differently
+        self.columns = []
+        
+    def add_col(self, header):
+        ''' creates a column object in self.columns
+            accepts strings, Survey_Question and (Survey_Questions, Choice)'''
+        self.columns.append(self.col(header))
+
+    def __getitem__(self, survey_question, choice=None):
+        # import ipdb; ipdb.set_trace()
+        for c in self.columns:
+            # if we need to specify the choice
+            if survey_question == c.survey_question:
+                # if the survey_question matches
+                if hasattr(c, 'choice'):  # need to match choice as well
+                    if choice == c.choice: return c  # match both
+                else: return c  # match and no choice
+        raise KeyError('column %s %s not found in table' % (survey_question, 
+            choice))
+
+    def add_cols(self, *headers):
+        for h in headers:
+            self.add_col(h)
+
+    def header(self):
+        ''' returns the header of the table in its current state'''
+        return [c.header for c in self.columns] 
+
+    def body(self):
+        ''' returns the body of the table in it's current state'''
+        rows = {}
+        for k in self.keys():
+            rows[k] = []
+            for c in self.columns:
+                if k in c:
+                    rows[k].append(c[k])
+                else:
+                    missing_val = c.question.get_missing_value()
+                    rows[k].append(missing_val)
+        return rows
+
+    def keys(self):
+        '''returns the keys for the whole table'''
+        keys = set()
+        for c in self.columns:
+            keys |= c.keys()
+        return keys
+
+    def __str__(self):
+        ''' returns string representation of this'''
+        return (
+            'headers: ' + str(self.header()) + 
+            'body: ' + str(self.body())
+        ) 
+
+    def make_key_cols(self, key):
+        ''' key should be a key from the column or from self.body key
+            this splits them apart and returms them as a list
+            for use in compplete_table
+        '''
+        return list(key)
+
+    def key_headers(self):
+        ''' returms a list of the keys used by this table, 
+            for use in the header
+            where normal rows use question/choice as their dicts
+            this uses key
+            i.e. [{key: rowkey1}, {key: rowkey2},] 
+        '''
+        return [{'key': k[0]} for k in self.rowkeys]
+
+    def complete_table(self):
+        ''' returns the whole table including key columns. 
+            which are not internally represented. 
+            this returns two lists 
+            headers, a list of dicts
+            rows, a list of lists, each representing a row in the table
+        '''
+        headers = self.key_headers()  # create the headers for the column keys
+        headers += self.header()
+        rows = []
+        for k, row in self.body().items():
+            rows.append(self.make_key_cols(k) + row)
+
+        return headers, rows
+
+
+def structure_survey_view(survey):
+    ''' converts the database representation of a survey into something for the
+        template
     '''
-    ret_rows = []
-    for r in rows:
-        ret_rows.append([r] + rows[r])
-    return ret_rows
+    logger.info('getting questions and answers for %s' % survey)
+    # define the keys for the table
+    t = table()
+
+    # get the questions for this survey
+    surv_quests = models.Survey_Question.objects.filter(survey=survey)
+    logger.info('found %s questions for this survey' % len(surv_quests))
+    # add all the questions from this survey to the headers
+    for sq in surv_quests:
+        logger.info('adding headers for %s' % sq)
+        choice_group = sq.question.choice_group 
+        logger.info('q ui: %s' % choice_group.ui)
+        if choice_group.ui == 'check':
+            choices = choice_group.choices.order_by('order')
+            for c in choices:
+                logger.info('adding %s to header' % c)
+                t.add_col((sq, c))
+        else:
+            logger.info('creating one column for question')
+            t.add_col(sq)
+
+    logger.info('completed header: %s' % t.header())
+    # HEADER COMPLETED
+
+    # collect all the answers to this survey
+    answers = models.Answer.objects.filter(survey_question__survey=survey)
+    logger.info('found %s answers' % len(answers))
+
+    # fill table rows
+    for ans in answers:
+        logger.info('adding answer %s' % ans)
+        rowkey = (ans.respondent, ans.subject, ans.date_of_response)
+        if ans.survey_question.question.choice_group.ui == 'check':
+            col = t.__getitem__(ans.survey_question, ans.answer) 
+            col[rowkey] = ans.get_value()
+        else:
+            t[ans.survey_question][rowkey] = ans
+    # logger.info(t)
+
+    return t.complete_table()
 
 
 def submit_survey(request, surveyid):  # fill in a specific survey
@@ -279,7 +320,7 @@ def check_post_survey_request(request, DATE_FORMAT='%Y-%m-%d'):
             errors['err_%s_not_present' % k] = '%s is a required key' % k 
 
     try:
-        datetime.strptime(data['dateofresponse'], DATE_FORMAT)
+        datetime.datetime.strptime(data['dateofresponse'], DATE_FORMAT)
     except ValueError as e: 
         errors['err_bad_dateofresponse_format'] = e
 
@@ -295,8 +336,8 @@ def check_post_survey_request(request, DATE_FORMAT='%Y-%m-%d'):
 
 
 def create_answer_from_post(html_choiceid, value, 
-        date=None, respondent=None, subject=None,
-        survey=None):
+    date=None, respondent=None, subject=None,
+    survey=None):
     ''' html_choiceid is the string from the template:
             choice_choiceid_surveyquestionid
         value is the string passed in. if allow custom value is True, then use 

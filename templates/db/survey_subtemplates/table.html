@@ -1,0 +1,20 @@
+<table id="survey_table_{{survey.id}}" class="table table-bordered">
+  <thead>
+    <tr>
+      {%for header in headers %}
+        {% include "db/survey_subtemplates/col_header.html" %}
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in rows %}
+      <tr>
+        {% for cell in row %}
+          <td>
+            {% include "db/survey_subtemplates/cell.html" %}
+          </td>
+        {% endfor%}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

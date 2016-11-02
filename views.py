@@ -35,7 +35,6 @@ def respondent(request, respondentid):  # person details
 @login_required(login_url='/index')
 def surveys(request):  # list of all surveys
     '''view list of all surveys'''
-    logger.info('salfjsdlfjaslfjdla')
     surveys = models.Survey.objects.all()
     context = {'surveys': surveys}
     return render(request, 'db/surveys.html', context)
@@ -60,25 +59,16 @@ def survey(request, surveyid):  # details of a single survey
     '''
     survey = get_object_or_404(models.Survey, pk=surveyid)
     context = {'survey': survey}
-    headers, rows = view_utils.get_data_and_header_for_survey(survey)
-    # before: rows = {
-    #     r1: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-    #     r2: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-    #     r3: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-    #     r4: [ans1, ans2, ans3.1, ans3.2, ans3.3],
-    # }
-    rows = view_utils.dict_rows_to_list_of_lists_for_survey(rows)
-    context['rows'] = rows
-    # after: rows = [
-    #  [r1      ,   ans1,   ans2, ans3.1,   ans3.2,     ans3.3]
-    #  [r2      ,   ans1,   ans2, ans3.1,   ans3.2,     ans3.3]
-    #  [r3      ,   ans1,   ans2, ans3.1,   ans3.2,     ans3.3]
-    #  [r4      ,   ans1,   ans2, ans3.1,   ans3.2,     ans3.3]
-    # ]
-
+    headers, rows = view_utils.structure_survey_view(survey)
+    logger.info('creating view for %s' % survey)
+    
+    logger.info('headers (%s col wide):' % len(headers))
+    for h in headers: logger.info('\t' + str(h))
     context['headers'] = headers
-    # [respondent,  q1,     q2, q3 choice1, q3 choice2, q3 choice3]
 
+    logger.info('rows (%s rows):' % len(rows))
+    for r in rows: logger.info('\t(%s col wide):' % len(r) + str(r))
+    context['rows'] = rows
     return render(request, 'db/survey.html', context)
 
 
@@ -114,6 +104,15 @@ def submit_survey(request, surveyid):  # fill in a specific survey
     context['questions'] = surv_quests
 
     return render(request, 'db/submit_survey.html', context)
+
+
+@login_required(login_url='/index')
+def import_survey(request, surveyid):  # import a csv and create answers
+    survey = get_object_or_404(models.Survey, pk=surveyid)
+    context = {
+        'survey': survey
+    }
+    return render(request, 'db/import_survey.html', context)
 
 
 @login_required(login_url='/index')

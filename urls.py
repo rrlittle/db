@@ -12,6 +12,8 @@ urlpatterns = [
     url(r'^surveys/(?P<surveyid>[0-9]+)$', views.survey, name='survey'),
     url(r'^surveys/(?P<surveyid>[0-9]+)/submit$', views.submit_survey,
         name='submit'),
+    url(r'^surveys/(?P<surveyid>[0-9]+)/import$', views.import_survey,
+        name='import'),
     url(r'^surveys/post$', views.post_survey,
         name='post_survey'),
     url(r'^$', views.index, name='index'),

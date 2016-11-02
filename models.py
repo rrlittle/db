@@ -232,8 +232,7 @@ class Answer(models.Model):
 	boolean_response = models.NullBooleanField(blank=True, null=True)
 	text_response = models.CharField(max_length=60, blank=True, null=True)
 	
-	def __str__(self): return '%s [%s=%s]' % (
-		self.respondent, self.survey_question, self.answer)
+	def __str__(self): return str(self.get_value())
 
 	def clean(self):
 		''' used to validate Answer entries. 
@@ -284,7 +283,8 @@ class Answer(models.Model):
 			so we need to retrieve the value from the correct field.
 		'''
 		
-		datatype = self.answer.group.datatype  # get the datatype of ths answer
+		# get the datatype of ths answer
+		datatype = self.survey_question.question.choice_group.datatype  
 		if datatype == 'int': return self.int_response
 		elif datatype == 'float': return self.float_response
 		elif datatype == 'date': return self.date_response

@@ -1,15 +1,6 @@
 {% extends "db/base_template.html" %}
 {% block head %}
-  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-  <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-  <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+  {% include "db/survey_subtemplates/datatables_inlcude.html" %}
 {% endblock head %}
 
 {% block title %}
@@ -18,64 +9,39 @@
 
 {% block content %}
 
-
-{% if survey %}
-  <h1>
-    {{ survey.name }}
-  </h1>
-  <a href="{% url "db:submit" survey.id %}">
-    <button class="btn btn-default">submit an entry</button>
-  </a>
-  <i>
-    Survey ID: {{survey.id}} 
-  </i>  
+  {% if survey %}
+    <h1>
+      {{ survey.name }}
+    </h1>
+    <a href="{% url "db:submit" survey.id %}">
+      <button class="btn btn-default">submit an entry</button>
+    </a>
+    <a href="{% url "db:import" survey.id %}">
+      <button class="btn btn-default">import a csv</button>
+    </a>
+    <i>
+      Survey ID: {{survey.id}} 
+    </i>  
   
-  {% if headers %}
+    {% if headers %}
+      {% include "db/survey_subtemplates/table.html" %}
+
+      <script type="text/javascript">
+        {% include "db/survey_subtemplates/datatable.js" %}
+      </script>
+    
+    {% else %}
+      <br>
+      Survey has not been fully created. No questions could be found! 
+      <br>
+      Please contact lab administrator.
+    {% endif %}
   
-    <table id="survey_table_{{survey.id}}" class="table table-bordered">
-      <thead>
-        <tr>
-          {%for q_title in headers %}
-            <th>{{ q_title }}</th>
-          {% endfor %}
-        </tr>
-      </thead>
-      <tbody>
-        {% for row in rows %}
-          <tr>
-            {% for row_cell in row %}
-              <td>
-                {{row_cell}}
-              </td>
-            {% endfor%}
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-
-    <script type="text/javascript">
-      $(document).ready(
-        function() {
-          var table = $('#survey_table_{{survey.id}}').DataTable({
-             dom: 'Bfrtip',
-            buttons:['copy', 'csv', 'excel', 'pdf', 'print']
-          });
-        } 
-      );
-    </script>
-
   {% else %}
-    <br>
-    Survey has not been fully created. No questions could be found! 
-    <br>
-    Please contact lab administrator.
+    <h1> 
+      Survey Not found! <br>
+      Please contact the Lab administrator
+    </h1>
   {% endif %}
-
-{% else %}
-  <h1> 
-    Survey Not found! <br>
-    Please contact the Lab administrator
-  </h1>
-{% endif %}
-
+  
 {% endblock content %}
