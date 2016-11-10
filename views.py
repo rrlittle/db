@@ -194,12 +194,44 @@ def post_survey(request):
 
     for ans in answers_to_save:
         logger.info(ans)
-        logger.info('saving ans %s'%ans)
+        logger.info('saving ans %s' % ans)
         ans.save()
 
-    ans_created = {i : str(ans) for i, ans in enumerate(answers_to_save)}
+    ans_created = {i: str(ans) for i, ans in enumerate(answers_to_save)}
     return HttpResponse(json.dumps(ans_created), 
         content_type='application/json')
 
 
+@login_required(login_url='/index')
+def post_csv(request):
+    ''' this view is responsible for importing a csv provided by the user. 
+        it should create answers for all the responses in that file. 
 
+        from the request it gets the surveyid as well as the text from the csv. 
+        here we parse the csv into a csv.DictReader and parse it to create 
+        answer objects
+
+        this will return something for the ajax to process.
+        either a bunch of errors or successes perhaps a micture of both
+    '''
+
+    # check if it's got all the correct stuff and is a post
+    status = view_utils.check_post_csv_request(request)
+    if status is not None:
+        return HttpResponseBadRequest(json.dumps(status), 
+            content_type='application/json')
+        
+    data = request.POST
+
+    # get the survey and importsourceid we are to use. 
+    # survey = get_object_or_404(models.Survey, pk=data['surveyid'])
+    # importsourceid = get_object_or_404(models.importSource, 
+        # pk=data['importsourceid'])
+
+    # handle each row from the csv appropriately based on the importsource 
+    # specifications
+    status = view_utils.handle_import_csv(data['text'])
+
+    # return the status
+    return HttpResponse()  
+    

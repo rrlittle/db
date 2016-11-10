@@ -291,3 +291,41 @@ class Answer(models.Model):
 		elif datatype == 'bool': return self.boolean_response
 		elif datatype == 'text': return self.text_response
 		else: raise LookupError('%s not a recognised datatype' % datatype)
+
+
+class sourceChoices(models.Model):
+	'''a choice available for a csv cell'''
+	
+class sourceColumn(models.Model):
+	''' a single column from a csv that is used by a SourceQuetion to 
+		come up with the value for a real answer when we're importing from a 
+		csv
+	'''
+	column_header = models.CharField(max_length=200)
+	# what is the title for this column? if this csv just uses indexes as the 
+	# column id's i.e. 0 header lines and set number_header_lines to 0
+	# index the columns from 0 i.e. the first column is 0
+
+	valid_anwers = models.ManyToManyField(sourceChoices,
+		related_name='sourceColumns')
+	# define what the valid answers are for this column
+
+	missing_value = models.CharField(max_length=100, default='999', 
+		null=True, blank=True)
+	# if we run into an empty cell in this column. what to do with it.
+
+class SourceQuestion(models.Model):
+	''' a question equivalent that a sourcescheme can be used to
+		fill. 
+	''' 
+	question_equivalent = models.ForeignKey(Survey_Question)
+
+class SourceScheme_csv(models.Model):
+	''' this defines the schema of a csv that can be used to import bulk data 
+		for a specific survey
+	'''
+
+	survey = models.ForeignKey(Survey)  # what this schema can be used to fill
+	# i.e. metric wire csvs are used to fill the metricwire survey.
+
+	

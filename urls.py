@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 from django.contrib.auth import views as auth_views
+from django.views.generic.base import RedirectView
+
 
 urlpatterns = [
     url(r'^login/', auth_views.login, name='login'),
@@ -14,8 +16,10 @@ urlpatterns = [
         name='submit'),
     url(r'^surveys/(?P<surveyid>[0-9]+)/import$', views.import_survey,
         name='import'),
-    url(r'^surveys/post$', views.post_survey,
+    url(r'^surveys/post_survey$', views.post_survey,
         name='post_survey'),
+    url(r'^surveys/post_csv$', views.post_csv,
+        name='post_csv'),
     url(r'^$', views.index, name='index'),
     url(r'^index$', views.index),
 ]

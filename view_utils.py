@@ -2,8 +2,7 @@ import models
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 # from django.core.exceptions import MultipleObjectsReturned
 import datetime
-
-
+import csv
 import logging
 
 logger = logging.getLogger(__name__)
@@ -371,4 +370,38 @@ def create_answer_from_post(html_choiceid, value,
     return ans
     
 
+def handle_import_csv(text):  #, survey, importsource): 
+    ''' this does the actual parsing of the text based on importsource
+    '''
+    # parse the csv reader as csv dict... this should allow easy manipulation
+    reader = csv.DictReader(text.splitlines())
+    # logger.info('headers (%s) : %s' % (len(reader.fieldnames), 
+        # reader.fieldnames))
+    for i, row in enumerate(reader):
+        logger.info('row %s (%s): %s' % (i, len(row), row.values())) 
 
+
+def check_post_csv_request(request):
+    ''' checks that the post_csv request is a post and has all 
+        the required keys.
+        beyond that is someone else's responsibility
+    '''
+    if request.method != 'POST':
+        return {'err_bad_method': 'must be a post'}
+
+    errors = {}  # container for any errors that arise. 
+    data = request.POST  # get the data from the request
+
+    # these must be in the data
+    required_keys = [
+        'surveyid',
+        'importsourceid',
+        'text',
+    ]
+
+    for k in required_keys:
+        if k not in data:
+            errors['err_%s_not_present' % k] = '%s is a required key' % k 
+
+    if len(errors) > 0: return errors
+    else: return None 

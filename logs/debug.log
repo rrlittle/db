@@ -2848,3 +2848,187 @@ headers (8 col wide):
 	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
 rows (1 rows):
 	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: jZKHjdksfhas>, <Answer: 1>, u'999', u'999', <Answer: blaaaaaaaaaahhhhhh>]
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 3 answers
+adding answer 1
+adding 1 to how is your day
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+adding answer jZKHjdksfhas
+adding jZKHjdksfhas to what did you last dream about?
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (1 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: jZKHjdksfhas>, <Answer: 1>, u'999', u'999', <Answer: blaaaaaaaaaahhhhhh>]
+cleaning answer blaaaaaaaaaahhhhhh
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer blah
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer froot
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+cleaning answer 2
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+blaaaaaaaaaahhhhhh
+saving ans blaaaaaaaaaahhhhhh
+blah
+saving ans blah
+froot
+saving ans froot
+2
+saving ans 2
+getting questions and answers for test
+found 4 questions for this survey
+adding headers for test[1]=>what did you last dream about?
+q ui: box
+creating one column for question
+adding headers for test[2]=>how is your day
+q ui: radio
+creating one column for question
+adding headers for test[3]=>favourite foods
+q ui: check
+adding fruit to header
+adding boogers to header
+adding headers for test[4]=>describe your day
+q ui: bigbox
+creating one column for question
+completed header: [{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}, {'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}, {'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}, {'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}]
+found 7 answers
+adding answer jZKHjdksfhas
+adding jZKHjdksfhas to what did you last dream about?
+adding answer blah
+adding blah to what did you last dream about?
+adding answer 1
+adding 1 to how is your day
+adding answer 2
+adding 2 to how is your day
+adding answer froot
+adding froot to favourite foods
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+adding answer blaaaaaaaaaahhhhhh
+adding blaaaaaaaaaahhhhhh to describe your day
+creating view for test
+headers (8 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'survey_question': <Survey_Question: test[1]=>what did you last dream about?>, 'question': <Question: what did you last dream about?>}
+	{'survey_question': <Survey_Question: test[2]=>how is your day>, 'question': <Question: how is your day>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: fruit>}
+	{'survey_question': <Survey_Question: test[3]=>favourite foods>, 'question': <Question: favourite foods>, 'choice': <Choice: boogers>}
+	{'survey_question': <Survey_Question: test[4]=>describe your day>, 'question': <Question: describe your day>}
+rows (2 rows):
+	(8 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 11, 2), <Answer: jZKHjdksfhas>, <Answer: 1>, u'999', u'999', <Answer: blaaaaaaaaaahhhhhh>]
+	(8 col wide):[<Person: 2>, <Person: 1>, datetime.date(2016, 11, 7), <Answer: blah>, <Answer: 2>, u'froot', u'999', <Answer: blaaaaaaaaaahhhhhh>]
+<WSGIRequest: POST '/surveys/post_csv'>
+person,how are you,what are your favourit foods?
+sdkjhskfjsh,1,"froot, eggos"
+
+[u'person,how are you,what are your favourit foods?', u'sdkjhskfjsh,1,"froot, eggos"']
+['person', 'how are you', 'what are your favourit foods?']
+{'person': 'sdkjhskfjsh', 'what are your favourit foods?': 'froot, eggos', 'how are you': '1'}
+headers (3) : ['person', 'how are you', 'what are your favourit foods?']
+row 0 (3): ['sdkjhskfjsh', 'froot, eggos', '1']
+headers (453) : ['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8', 'V9', 'V10', 'SC0_0', 'SC0_1', 'SC0_2', 'p_subjectID_5_TEXT', 'p_informant', 'p_informant_TEXT', 'p_INST1', 'p_FQ1', 'p_FQ2', 'p_FQ3', 'p_FQ3_TEXT', 'p_FQ4', 'p_FQ4_TEXT', 'p_FQ5', 'p_FQ5_TEXT', 'p_FQ6', 'p_FQ6_TEXT', 'p_FQ7inst', 'p_FQ7a', 'p_FQ7b', 'p_FQ7c', 'p_FQ8', 'p_FQ9', 'p_FQ10', 'p_FQ11', 'p_FQ12inst', 'p_FQ12a', 'p_FQ12b', 'p_FQ12c', 'p_FQ12d', 'p_FQ13_1', 'p_FQ13_2', 'p_FQ13_3', 'p_FQ13_4', 'p_FQ13_5', 'p_FQ13_6', 'p_FQ13_7', 'p_FQ13_8', 'p_FQ13_9', 'p_FQ14_1', 'p_FQ14_2', 'p_FQ14_3', 'p_FQ14_4', 'p_FQ14_5', 'p_FQ14_6', 'p_FQ14_7', 'p_FQ14_8', 'p_FQ14_9', 'p_FQ15inst', 'p_FQ15a', 'p_FQ15b', 'p_FQ15c', 'p_FQ15d', 'p_FQ16inst', 'p_FQ16a', 'p_FQ16b', 'p_FQ16c', 'p_FQ16d', 'p_FQ16e', 'p_FQ16f', 'p_FQ16g', 'p_FQ16h', 'p_FQ16i', 'p_FQ16j', 'p_FQ17inst', 'p_FQ17a', 'p_FQ17b', 'p_FQ17c', 'p_FQ17d', 'p_FQ17e', 'p_FQ17f', 'p_FQ17g', 'p_FQ17h', 'p_FQ17i', 'p_FQ17j', 'p_FQ17k', 'p_FQ17l', 'p_FQ17m', 'p_FQ17n', 'p_FQ17o', 'p_FQ18inst', 'p_FQ18a', 'p_FQ18b', 'p_FQ18c', 'p_FQ18d', 'p_FQ18e', 'p_FQ18f', 'p_FQ18g', 'p_FQ18h', 'p_FQ18i', 'p_FQ18j', 'p_FQ18k', 'p_FQ18l', 'p_FQ18m', 'p_FQ18n', 'p_FQ18o', 'p_FQ18p', 'p_FQ18q', 'p_FQ18r', 'p_FQ19_1', 'p_FQ19_2', 'p_FQ19_3', 'p_FQ19_4', 'p_FQ19_5', 'p_FQ19_6', 'p_FQ19_7', 'p_FQ19_8', 'p_FQ19_9', 'p_FQ19_10', 'p_FQ19_11', 'p_FQ19_12', 'p_FQ19_13', 'p_FQ19_14', 'p_FQ19_15', 'p_FQ19_16', 'p_FQ19_17', 'p_FQ19_18', 'p_FQ19_19', 'p_FQ19_20', 'p_FQ19_21', 'p_FQ19_22', 'p_FQ19_23', 'p_FQ19_24', 'p_FQ19_25', 'p_FQ19_26', 'p_FQ19_27', 'p_FQ19_28', 'p_FQ19_29', 'p_FQ19_30', 'p_FQ19_31', 'p_FQ19_32', 'p_FQ19_33', 'p_FQ20inst', 'p_FQ20a', 'p_FQ20b', 'p_FQ20c', 'p_FQ21inst', 'p_FQ21a', 'p_FQ21b', 'p_FQ21c', 'p_FQ21d', 'p_FQ22', 'p_FQ23inst', 'p_FQ23a', 'p_FQ23b', 'p_FQ23c', 'p_FQ23d', 'p_FQ23e', 'p_FQ23f', 'p_FQ23g', 'p_FQ23h', 'p_FQ23i', 'p_FQ23j', 'p_FQ23k', 'p_FQ23l', 'p_FQ23m', 'p_FQ23n', 'p_FQ23o', 'p_FQ23p', 'p_FQ23q', 'p_FQ23r', 'p_FQ23s', 'p_FQ23t', 'p_FQ23u', 'p_FQ23v', 'p_FQ23w', 'p_FQ24', 'p_FQ25_1', 'p_FQ25_2', 'p_FQ25_3', 'p_FQ25_4', 'p_FQ25_5', 'p_FQ25_6', 'p_FQ25_7', 'p_FQ25_8', 'p_FQ25_9', 'p_FQ25_10', 'p_FQ25_11', 'p_FQ25_12', 'p_FQ25_13', 'p_FQ25_14', 'p_FQ25_15', 'p_FQ26inst', 'p_FQ26a', 'p_FQ26b', 'p_FQ26c', 'p_FQ26d', 'p_FQ26e', 'p_FQ26f', 'p_FQ26g', 'p_FQ26h', 'p_FQ27inst', 'p_FQ27a', 'p_FQ27b', 'p_FQ27c', 'p_FQ27d', 'p_FQ27e', 'p_FQ27f', 'p_FQ27g', 'p_FQ27h', 'p_FQ27i', 'p_FQ27j', 'p_FQ28inst', 'p_FQ28a', 'p_FQ28b', 'p_FQ28c', 'p_FQ28d', 'p_FQ28e', 'p_FQ28f', 'p_FQ28g', 'p_FQ28h', 'p_FQ28i', 'p_FQ28j', 'p_FQ29inst', 'p_FQ29inst1', 'p_FQ29a', 'p_FQ29b', 'p_FQ29c', 'p_FQ29d', 'p_FQ29e', 'p_FQ29f', 'p_FQ29g', 'p_FQ29h', 'p_FQ29i', 'p_FQ29j', 'p_FQ29k', 'p_FQ29l', 'p_FQ29m', 'p_FQ29n', 'p_FQ30', 'p_FQ31inst', 'p_FQ31a', 'p_FQ31b', 'p_FQ31c', 'p_FQ31d', 'p_FQ31e', 'p_FQ31f', 'p_FQ31g', 'p_FQ31h', 'p_FQ31i', 'p_FQ31j', 'p_FQ31k', 'p_FQ31l', 'p_FQ31m', 'p_FQ31n', 'p_FQ32inst', 'p_FQ32a', 'p_FQ32b', 'p_FQ32c', 'p_FQ32d', 'p_FQ32e', 'p_FQ32f', 'p_FQ32g', 'p_FQ32h', 'p_FQ32i', 'p_FQ32j', 'p_FQ32k', 'p_FQ32l', 'p_FQ32m', 'p_FQ32n', 'p_FQ32o', 'p_FQ33inst', 'p_FQ33a', 'p_FQ33b', 'p_FQ33c', 'p_FQ33d', 'p_FQ33e', 'p_FQ33f', 'p_FQ33g', 'p_FQ33h', 'p_FQ33i', 'p_FQ33j', 'p_FQ33k', 'p_FQ33l', 'p_FQ33m', 'p_FQ34inst', 'p_FQ34a', 'p_FQ34b', 'p_FQ34c', 'p_FQ34d', 'p_FQ34e', 'p_FQ34f', 'p_FQ34g', 'p_FQ34h', 'p_FQ34i', 'p_FQ34j', 'p_FQ34k', 'p_FQ34l', 'p_FQ34m', 'p_FQ35inst', 'p_FQ35a', 'p_FQ35b', 'p_FQ35c', 'p_FQ35d', 'p_FQ35e', 'p_FQ35f', 'p_FQ35g', 'p_FQ35h', 'p_FQ35i', 'p_FQ35j', 'p_FQ35k', 'p_FQ35l', 'p_FQ35m', 'p_FQ35n', 'p_FQ35o', 'p_FQ35p', 'p_FQ35q', 'p_FQ35r', 'p_FQ35s', 'p_FQ35t', 'p_FQ36', 'p_NQinst', 'p_NQ1a', 'p_NQ1b', 'p_NQ1c', 'p_NQ1d', 'p_NQ1e', 'p_NQ1f', 'p_DsupINST', 'p_Dsup1', 'p_Dsup2', 'p_Dsup3', 'p_Dsup4', 'p_Dsup5', 'p_Dsup6', 'p_Dsup7', 'p_Dsup8', 'p_Dsup9', 'p_Dsup10', 'p_Dsup11', 'p_Dsup12TEXT', 'p_DstrINST', 'p_Dstr1', 'p_Dstr2', 'p_Dstr3', 'p_Dstr4', 'p_Dstr5', 'p_Dstr6', 'p_Dstr7', 'p_Dstr8', 'p_Dstr9', 'p_Dstr10', 'p_Dstr11', 'p_Dstr12TEXT', 'p_PQinst1', 'p_PQinst2', 'p_PQ1', 'p_PQ1a_3_TEXT', 'p_PQ2_1_TEXT', 'p_PQ2_2_TEXT', 'p_PQ3_1_TEXT', 'p_PQ4_1', 'p_PQ4_2', 'p_PQ4_3', 'p_PQ4_4', 'p_PQ4_4_TEXT', 'p_PQ4_5', 'p_PQ5', 'p_PQinst3', 'p_PQ6_1', 'p_PQ6_2', 'p_PQ6_3', 'p_PQ6_4', 'p_PQ6_5', 'p_PQ6_6', 'p_PQ6_7', 'p_PQ6_8', 'p_PQ6_8_TEXT', 'p_PQ6_9', 'p_PQ6_9_TEXT', 'p_PQ7', 'p_PQ7aTEXT', 'p_PQ8', 'p_PQ9', 'p_PQ10', 'p_PQ11_1', 'p_PQ11_2', 'p_PQ11_3', 'p_PQ11_4', 'p_PQ11_5', 'p_PQ11_6', 'p_PQ11_7', 'p_PQ11_8', 'p_PQ11_9', 'p_PQ11_10', 'p_PQ11_11', 'p_PQ11_12', 'p_PQ11_13', 'p_PQ11_14', 'p_PQ11_15', 'p_PQ11_16', 'p_PQ11_17', 'p_PQ11_18', 'p_PQ11_19', 'p_PQ11_20', 'p_PQ11_21', 'p_PQ11_22', 'p_PQ11_23', 'p_PQ11_24', 'p_PQ11_25', 'p_PQ11_26', 'p_PQ11_27', 'p_PQ11_28', 'p_PQ11_29', 'p_PQ11_30', 'p_PQ11_31', 'p_PQ11_32', 'p_PQ11_33', 'p_PQ11_34', 'p_PQ11_35', 'p_PQ11_36', 'p_PQ11_37', 'p_PQ11_38', 'p_PQ11_39', 'p_PQ11_40', 'p_PQ11_41', 'p_PQ11_42', 'p_PQ11_43', 'p_PQinst4', 'p_PQ12_1', 'p_PQ12_2', 'p_PQ12_3', 'p_PQ13_1', 'p_PQ13_2', 'p_PQ13_3', 'p_PQ14_1', 'p_PQ14_2', 'p_PQ14_3', 'p_PQ15_1', 'p_PQ15_2', 'p_PQ15_3', 'p_PQ16_1', 'p_PQ16_2', 'p_PQ16_3', 'p_PQ17_1', 'p_PQ17_2', 'p_PQ17_3', 'p_PQ18_1', 'p_PQ18_2', 'p_PQ18_3', 'LocationLatitude', 'LocationLongitude', 'LocationAccuracy']
+row 0 (1): ['e']
+row 1 (1): ['r']
+row 2 (1): ['s']
+row 3 (1): ['o']
+row 4 (1): ['n']
+row 5 (2): ['', ['']]
+row 6 (1): ['h']
+row 7 (1): ['o']
+row 8 (1): ['w']
+row 9 (1): [' ']
+row 10 (1): ['a']
+row 11 (1): ['r']
+row 12 (1): ['e']
+row 13 (1): [' ']
+row 14 (1): ['y']
+row 15 (1): ['o']
+row 16 (1): ['u']
+row 17 (2): ['', ['']]
+row 18 (1): ['w']
+row 19 (1): ['h']
+row 20 (1): ['a']
+row 21 (1): ['t']
+row 22 (1): [' ']
+row 23 (1): ['a']
+row 24 (1): ['r']
+row 25 (1): ['e']
+row 26 (1): [' ']
+row 27 (1): ['y']
+row 28 (1): ['o']
+row 29 (1): ['u']
+row 30 (1): ['r']
+row 31 (1): [' ']
+row 32 (1): ['f']
+row 33 (1): ['a']
+row 34 (1): ['v']
+row 35 (1): ['o']
+row 36 (1): ['u']
+row 37 (1): ['r']
+row 38 (1): ['i']
+row 39 (1): ['t']
+row 40 (1): [' ']
+row 41 (1): ['f']
+row 42 (1): ['o']
+row 43 (1): ['o']
+row 44 (1): ['d']
+row 45 (1): ['s']
+row 46 (1): ['?']
+row 47 (1): ['s']
+row 48 (1): ['d']
+row 49 (1): ['k']
+row 50 (1): ['j']
+row 51 (1): ['h']
+row 52 (1): ['s']
+row 53 (1): ['k']
+row 54 (1): ['f']
+row 55 (1): ['j']
+row 56 (1): ['s']
+row 57 (1): ['h']
+row 58 (2): ['', ['']]
+row 59 (1): ['1']
+row 60 (2): ['', ['']]
+row 61 (1): ['froot, eggos']
+row 0 (3): ['sdkjhskfjsh', 'froot, eggos', '1']
+row 0 (3): ['sdkjhskfjsh', 'froot, eggos', '1']
+row 0 (3): ['sdkjhskfjsh', 'froot, eggos', '1']
+row 0 (3): ['sdkjhskfjsh', 'froot, eggos', '1']
+row 0 (3): ['sdkjhskfjsh', 'froot, eggos', '1']
