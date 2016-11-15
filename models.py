@@ -7,6 +7,15 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+class kwargs(models.Model):
+	"""this is a table for storing static arguments to use 
+		in analysis functions, key functions and the like
+	"""
+	name = models.CharField(max_length=20)  # name of kewword argument
+	value = models.CharField(max_length=20)  # value stored therin. 
+											 # cast it how you will
+
+
 
 class Person(models.Model):  # all people
 	''' a list of all the people participating in the study
@@ -294,8 +303,17 @@ class Answer(models.Model):
 
 
 class sourceChoices(models.Model):
-	'''a choice available for a csv cell'''
+	'''a choice available for a csv cell
+		
+		now all csvs use text so we only need to store that. 
+		this is basically an equivalency between the value provided
+		i.e. "1" and the models.Choice that corresponds to i.e. yes(1) 
+		or "froot" -> fruit(2)
+	'''
+	equivalent_choice = models.ForeignKey(Choice)
+	value = models.CharField(max_length=60) # length taken from models.Choice
 	
+
 class sourceColumn(models.Model):
 	''' a single column from a csv that is used by a SourceQuetion to 
 		come up with the value for a real answer when we're importing from a 
@@ -306,7 +324,7 @@ class sourceColumn(models.Model):
 	# column id's i.e. 0 header lines and set number_header_lines to 0
 	# index the columns from 0 i.e. the first column is 0
 
-	valid_anwers = models.ManyToManyField(sourceChoices,
+	valid_values = models.ManyToManyField(sourceChoices,
 		related_name='sourceColumns')
 	# define what the valid answers are for this column
 
@@ -314,13 +332,20 @@ class sourceColumn(models.Model):
 		null=True, blank=True)
 	# if we run into an empty cell in this column. what to do with it.
 
+
 class SourceQuestion(models.Model):
 	''' a question equivalent that a sourcescheme can be used to
 		fill. 
 	''' 
 	question_equivalent = models.ForeignKey(Survey_Question)
+	source_columns = models.ManyToManyField(sourceColumn, 
+		related_name='sourceQuestions')
 
-class SourceScheme_csv(models.Model):
+	analysis_func = models.CharField(max_length=80)
+	args = models.ManyToManyField(kwargs, related_name='SourceQuestions')
+
+
+class SourceScheme(models.Model):
 	''' this defines the schema of a csv that can be used to import bulk data 
 		for a specific survey
 	'''
@@ -328,4 +353,6 @@ class SourceScheme_csv(models.Model):
 	survey = models.ForeignKey(Survey)  # what this schema can be used to fill
 	# i.e. metric wire csvs are used to fill the metricwire survey.
 
+	sourceQuestions = models.ManyToManyField(SourceQuestion, 
+		related_name='sourceSchemes')
 	
