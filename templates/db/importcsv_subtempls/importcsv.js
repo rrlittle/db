@@ -54,6 +54,15 @@ function handleFileSelect(evt){
 		output.join('') + '</ul>';
 };
 
+
+$(document).on('change',':file', function(){
+var input = $(this),
+	numFiles = input.get(0).files? input.get(0).files.length:1,
+	label= input.val().replace(/\\/g,'/').replace(/.*\//, '');
+	console.log('....', input.get(0).files);
+input.trigger('fileselect',[numFiles, label]);
+});
+
 // when the files change
 document.getElementById('files').addEventListener('change',  // on change 
 	handleFileSelect,  // use this callback
@@ -88,6 +97,12 @@ $(document).on('submit', '#post_csv', function(e){
 	});
 });
 
+$(document).ready( function() {
+    $(':file').on('fileselect', function(event, numFiles, label) {
+        console.log(numFiles);
+        console.log(label);
+    });
+});
 
 
 

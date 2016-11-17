@@ -1,6 +1,6 @@
 import models
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-# from django.core.exceptions import MultipleObjectsReturned
+from django.http import Http404
 import datetime
 import csv
 import logging
@@ -23,8 +23,8 @@ class table(object):
 
         # defines recognized header types 
         h_types = [
-            tuple,  # allowed to provide (Survey_Question, Choice) sets
-            models.Survey_Question,  # allowed to just provide Survey_Question
+            tuple,  # allowed to provide (SurveyQuestion, Choice) sets
+            models.SurveyQuestion,  # allowed to just provide SurveyQuestion
         ]
         
         def __init__(self, header):
@@ -33,19 +33,19 @@ class table(object):
                 raise NotImplementedError('%s not recognized type' % header)
 
             if type(header) is tuple:
-                assert (type(header[0]) is models.Survey_Question and
+                assert (type(header[0]) is models.SurveyQuestion and
                     type(header[1]) is models.Choice), ('set headers must be '
-                    '(Survey_Question, Choice)')
-                self.survey_question = header[0]
+                    '(SurveyQuestion, Choice)')
+                self.surveyQuestion = header[0]
                 self.choice = header[1]
                 self.type_ = 'choicecolumn'
                 self.question = header[0].question
-            else:  # header must given as a survey_question
-                self.survey_question = header
+            else:  # header must given as a surveyQuestion
+                self.surveyQuestion = header
                 self.question = header.question
             self.header = {
                 'question': self.question,
-                'survey_question': self.survey_question
+                'surveyQuestion': self.surveyQuestion
             }
             if hasattr(self, 'choice'):
                 self.header['choice'] = self.choice
@@ -87,19 +87,19 @@ class table(object):
         
     def add_col(self, header):
         ''' creates a column object in self.columns
-            accepts strings, Survey_Question and (Survey_Questions, Choice)'''
+            accepts strings, SurveyQuestion and (SurveyQuestions, Choice)'''
         self.columns.append(self.col(header))
 
-    def __getitem__(self, survey_question, choice=None):
+    def __getitem__(self, surveyQuestion, choice=None):
         # import ipdb; ipdb.set_trace()
         for c in self.columns:
             # if we need to specify the choice
-            if survey_question == c.survey_question:
-                # if the survey_question matches
+            if surveyQuestion == c.surveyQuestion:
+                # if the surveyQuestion matches
                 if hasattr(c, 'choice'):  # need to match choice as well
                     if choice == c.choice: return c  # match both
                 else: return c  # match and no choice
-        raise KeyError('column %s %s not found in table' % (survey_question, 
+        raise KeyError('column %s %s not found in table' % (surveyQuestion, 
             choice))
 
     def add_cols(self, *headers):
@@ -178,15 +178,15 @@ def structure_survey_view(survey):
     t = table()
 
     # get the questions for this survey
-    surv_quests = models.Survey_Question.objects.filter(survey=survey)
+    surv_quests = models.SurveyQuestion.objects.filter(survey=survey)
     logger.info('found %s questions for this survey' % len(surv_quests))
     # add all the questions from this survey to the headers
     for sq in surv_quests:
         logger.info('adding headers for %s' % sq)
-        choice_group = sq.question.choice_group 
-        logger.info('q ui: %s' % choice_group.ui)
-        if choice_group.ui == 'check':
-            choices = choice_group.choices.order_by('order')
+        choiceGroup = sq.question.choiceGroup 
+        logger.info('q ui: %s' % choiceGroup.ui)
+        if choiceGroup.ui == 'check':
+            choices = choiceGroup.choices.order_by('order')
             for c in choices:
                 logger.info('adding %s to header' % c)
                 t.add_col((sq, c))
@@ -198,28 +198,28 @@ def structure_survey_view(survey):
     # HEADER COMPLETED
 
     # collect all the answers to this survey
-    answers = models.Answer.objects.filter(survey_question__survey=survey)
+    answers = models.Answer.objects.filter(surveyQuestion__survey=survey)
     logger.info('found %s answers' % len(answers))
 
     # fill table rows
     for ans in answers:
         logger.info('adding answer %s' % ans)
         rowkey = (ans.respondent, ans.subject, ans.date_of_response)
-        if ans.survey_question.question.choice_group.ui == 'check':
-            col = t.__getitem__(ans.survey_question, ans.answer) 
+        if ans.surveyQuestion.question.choiceGroup.ui == 'check':
+            col = t.__getitem__(ans.surveyQuestion, ans.answer) 
             col[rowkey] = ans.get_value()
         else:
-            t[ans.survey_question][rowkey] = ans
+            t[ans.surveyQuestion][rowkey] = ans
     # logger.info(t)
 
     return t.complete_table()
 
 
-def submit_survey(request, surveyid):  # fill in a specific survey
+def submit_survey(request, surveyid):  # fill in a specific sGvey
     '''view of a single survey that allows you to add answers for a single
         respondent. for the whole survey at once.
 
-        use the surveyid to get the survey_questions for the specific survey
+        use the surveyid to get the surveyQuestions for the specific survey
         - add the title of the survey to the context.
         - create a list of questions that make up the survey.
             each question needs to be defined.  
@@ -248,7 +248,7 @@ def submit_survey(request, surveyid):  # fill in a specific survey
         
     try:
         surv_quest_objs = get_list_or_404(
-            models.Survey_Question.objects.order_by('question_order'),
+            models.SurveyQuestion.objects.order_by('question_order'),
             survey_id=surveyid)  # in order by appearance in the survey
 
         questions = []
@@ -258,35 +258,35 @@ def submit_survey(request, surveyid):  # fill in a specific survey
             question_dict['surveyquestionid'] = surv_quest.id
             question_dict['title'] = quest.title
             question_dict['prompt'] = quest.prompt
-            question_dict['handlingflag'] = quest.choice_group.ui
+            question_dict['handlingflag'] = quest.choiceGroup.ui
             # get all the choices associated with this question
-            choice_group = quest.choice_group
+            choiceGroup = quest.choiceGroup
             choices = []
             try:
                 # get all the choices for this question
                 choice_objs = get_list_or_404(
                     models.Choice.objects.order_by('order'), 
-                    group_id=choice_group.id)
+                    group_id=choiceGroup.id)
                 for choice in choice_objs:
                     # get the description and type for each choice
                     choice_dict = {
                         'description': choice.name,
-                        'ui': choice_group.ui,
+                        'ui': choiceGroup.ui,
                         'id': choice.id,
-                        'defaultvalue': choice.get_value(choice_group.datatype)
+                        'defaultvalue': choice.get_value(choiceGroup.datatype)
                     } 
                     # add the correct default value based on the datatype
 
                     choices.append(choice_dict)
 
             except Http404 as e: 
-                logger.info( 'No choices found for question %s: %s' % (quest, e))
+                logger.info('No choices found for question %s: %s' % (quest, e))
 
             question_dict['choices'] = choices
             questions.append(question_dict)
         survey_dict['questions'] = questions
     except Http404 as e:
-        logger.info( 'No Questions associated with survey %s: %s' % (survey, e))
+        logger.info('No Questions associated with survey %s: %s' % (survey, e))
 
     context['survey'] = survey_dict 
     return render(request, 'db/submit_survey.html', context)
@@ -348,9 +348,9 @@ def create_answer_from_post(html_choiceid, value,
     surveyquestid = html_choiceid_split[2]
 
     choice = get_object_or_404(models.Choice, pk=choiceid)
-    surveyquestion = get_object_or_404(models.Survey_Question, 
+    surveyquestion = get_object_or_404(models.SurveyQuestion, 
         pk=surveyquestid)
-    datatype = surveyquestion.question.choice_group.datatype
+    datatype = surveyquestion.question.choiceGroup.datatype
 
     val_to_save = None
     if choice.allow_custom_responses: val_to_save = value
@@ -362,7 +362,7 @@ def create_answer_from_post(html_choiceid, value,
         respondent=respondent, 
         subject=subject,
         date_of_response=date,
-        survey_question=surveyquestion,
+        surveyQuestion=surveyquestion,
         answer=choice,
         **{datatype + '_response': val_to_save}
     )

@@ -4,6 +4,8 @@
 {% endblock title %}
 
 {% block content %}
+
+
 <script type="text/javascript">
 	// Check for the various File API support.
 	if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -13,10 +15,48 @@
 	}
 </script>
 
+<h1 style="text-align:center">
+	Import Data into {{survey.name}}
+</h1>
+
 {# ACTUAL HTML #}
 <form id="post_csv">
 	{% csrf_token %}
+	
+	{# source scheme #}
+	<div class="well form-group">
+  	<label for="importsource">Select Source Scheme:</label>
+  		<select class="form-control" id="importsource">
+  			{% for source in  schemes %}
+  				<option value="{{ source.id }}">{{ source }}</option>
+  			{% endfor %}
+  		</select>
+  		<span class="help-block">
+			Select the scheme to use while parsing the csv
+		</span>
+	</div>
+	
+	{# source data #}
+	<div class="well">
+		<div class="input-group">
+			<label class="input-group-btn">
+				<span class="btn btn-primary">
+					Browse&hellip; 
+					<input type="file" style="display: none;">
+				</span>
+			</label>
+			<input id="sel_display" type="text" class="form-control" readonly>
+		</div>
+		<span class="help-block">
+			Select the source file matching the indicated scheme
+		</span>
+	</div>
+
+
+	{# working file selector #}
 	<input type="file" id="files" name="files[]"/>
+
+	{# submit button #}
 	<button class=' submit btn btn-primary center-block' 
 		style="width:80%" 
 		id="submit_button" 
@@ -24,7 +64,6 @@
 		Submit
 	</button>
 </form>
-<output id="list"></output>
 
 {# SCRIPT #}
 <script type="text/javascript">

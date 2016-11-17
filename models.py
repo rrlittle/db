@@ -86,7 +86,7 @@ class Choice(models.Model):
 		else: raise LookupError('%s not a recognised datatype' % datatype)
 
 
-class Choice_Group(models.Model):  # 
+class ChoiceGroup(models.Model):  # 
 	''' questions often have multiple possible responses. yes/no, 1-5 etc
 		this allows multiple questions to point to one group, which contains 
 		multiple allowable choices.
@@ -113,7 +113,7 @@ class Choice_Group(models.Model):  #
 			('text', 'text')])
 	)
 
-	choices = models.ManyToManyField(Choice, related_name='choice_groups')
+	choices = models.ManyToManyField(Choice, related_name='choiceGroups')
 	
 	def __str__(self): return self.name
 
@@ -161,7 +161,7 @@ class Question(models.Model):
 	''' 
 	title = models.CharField(max_length=60)
 	prompt = models.CharField(max_length=200)
-	choice_group = models.ForeignKey(Choice_Group)
+	choiceGroup = models.ForeignKey(ChoiceGroup)
 	allow_multiple_responses = models.BooleanField()
 	
 	# if you are missing an answer to this question display it like so
@@ -174,7 +174,7 @@ class Question(models.Model):
 	def __str__(self): return self.prompt
 
 	def get_missing_value(self):
-		datatype = self.choice_group.datatype
+		datatype = self.choiceGroup.datatype
 		if datatype == 'int': return self.missing_value_int
 		elif datatype == 'float': return self.missing_value_float
 		elif datatype == 'bool': return self.missing_value_boolean
@@ -194,7 +194,7 @@ class Survey(models.Model):
 	def __str__(self): return self.name
 
 
-class Survey_Question(models.Model):
+class SurveyQuestion(models.Model):
 	''' this maps specific questions to specific surveys. that way individual 
 		questions can belong to multiple surveys.
 	'''
@@ -226,7 +226,7 @@ class Answer(models.Model):
 
 	answer = models.ForeignKey(Choice) 
 	# one of the possible choices they went with 
-	survey_question = models.ForeignKey(Survey_Question) 
+	surveyQuestion = models.ForeignKey(SurveyQuestion) 
 	# what survey and question this answer belongs to. 
 	date_of_response = models.DateField(default=datetime.now)
 
@@ -245,12 +245,12 @@ class Answer(models.Model):
 
 	def clean(self):
 		''' used to validate Answer entries. 
-			self.answer must belong to the the choice_group
-			in the self.survey_question.question.choice_group
+			self.answer must belong to the the choiceGroup
+			in the self.surveyQuestion.question.choiceGroup
 
 			also not allowed to save duplicate entries
 			duplicate meaning same
-			respondent, subject, survey_question
+			respondent, subject, surveyQuestion
 			if question.allow_multiple_responses is False:
 				date_of_response also must be unique 
 		'''
@@ -261,9 +261,9 @@ class Answer(models.Model):
 		matching_answers = Answer.objects.filter(
 			respondent=self.respondent,
 			subject=self.subject,
-			survey_question=self.survey_question,
+			surveyQuestion=self.surveyQuestion,
 		)
-		if self.survey_question.question.allow_multiple_responses:
+		if self.surveyQuestion.question.allow_multiple_responses:
 			matching_answers = matching_answers.filter(
 				date_of_response=self.date_of_response)
 
@@ -274,9 +274,9 @@ class Answer(models.Model):
 				'this does not allow duplicates') % matching_answers)
 
 		logger.info('checking answer validity')
-		# check answer is valid. i.e. it is in the questions choice_group
-		choice_group = self.survey_question.question.choice_group
-		possible_choices = choice_group.choices.all()
+		# check answer is valid. i.e. it is in the questions choiceGroup
+		choiceGroup = self.surveyQuestion.question.choiceGroup
+		possible_choices = choiceGroup.choices.all()
 		if self.answer not in possible_choices:
 			logger.info('bad choice selected')
 			raise ValidationError('%s not in %s. bad choice selected' % (
@@ -287,13 +287,13 @@ class Answer(models.Model):
 
 	def get_value(self):
 		'''
-			depending on the choice_group this choice is a part of
+			depending on the choiceGroup this choice is a part of
 			the value of this answer will be stored in one of several fields. 
 			so we need to retrieve the value from the correct field.
 		'''
 		
 		# get the datatype of ths answer
-		datatype = self.survey_question.question.choice_group.datatype  
+		datatype = self.surveyQuestion.question.choiceGroup.datatype  
 		if datatype == 'int': return self.int_response
 		elif datatype == 'float': return self.float_response
 		elif datatype == 'date': return self.date_response
@@ -302,7 +302,7 @@ class Answer(models.Model):
 		else: raise LookupError('%s not a recognised datatype' % datatype)
 
 
-class sourceChoices(models.Model):
+class sourceChoice(models.Model):
 	'''a choice available for a csv cell
 		
 		now all csvs use text so we only need to store that. 
@@ -324,7 +324,7 @@ class sourceColumn(models.Model):
 	# column id's i.e. 0 header lines and set number_header_lines to 0
 	# index the columns from 0 i.e. the first column is 0
 
-	valid_values = models.ManyToManyField(sourceChoices,
+	valid_values = models.ManyToManyField(sourceChoice,
 		related_name='sourceColumns')
 	# define what the valid answers are for this column
 
@@ -332,17 +332,22 @@ class sourceColumn(models.Model):
 		null=True, blank=True)
 	# if we run into an empty cell in this column. what to do with it.
 
+	def __str__(self): return self.column_header
+
 
 class SourceQuestion(models.Model):
 	''' a question equivalent that a sourcescheme can be used to
 		fill. 
 	''' 
-	question_equivalent = models.ForeignKey(Survey_Question)
+	question_equivalent = models.ForeignKey(Question)
 	source_columns = models.ManyToManyField(sourceColumn, 
 		related_name='sourceQuestions')
 
-	analysis_func = models.CharField(max_length=80)
-	args = models.ManyToManyField(kwargs, related_name='SourceQuestions')
+	analysis_func = models.CharField(max_length=80, blank=True, null=True)
+	args = models.ManyToManyField(kwargs, related_name='SourceQuestions', 
+		blank=True)
+
+	def __str__(self): return 'src to %s' % str(self.question_equivalent)
 
 
 class SourceScheme(models.Model):
@@ -350,9 +355,11 @@ class SourceScheme(models.Model):
 		for a specific survey
 	'''
 
+	name = models.CharField(max_length=20)  # e.g. metric wire to survey1
 	survey = models.ForeignKey(Survey)  # what this schema can be used to fill
 	# i.e. metric wire csvs are used to fill the metricwire survey.
 
 	sourceQuestions = models.ManyToManyField(SourceQuestion, 
 		related_name='sourceSchemes')
 	
+	def __str__(self): return self.name

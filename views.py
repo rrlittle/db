@@ -98,7 +98,7 @@ def submit_survey(request, surveyid):  # fill in a specific survey
     # respondents section of template
 
     # get the questions in this survey. by ordering the questions
-    surv_quests = models.Survey_Question.objects.order_by('question_order')
+    surv_quests = models.SurveyQuestion.objects.order_by('question_order')
     # then filtering out ones not related to this survey
     surv_quests = surv_quests.filter(survey_id=surveyid)
     context['questions'] = surv_quests
@@ -109,8 +109,10 @@ def submit_survey(request, surveyid):  # fill in a specific survey
 @login_required(login_url='/index')
 def import_survey(request, surveyid):  # import a csv and create answers
     survey = get_object_or_404(models.Survey, pk=surveyid)
+    schemes = get_list_or_404(models.SourceScheme, survey=survey)
     context = {
-        'survey': survey
+        'survey': survey,
+        'schemes': schemes,
     }
     return render(request, 'db/import_survey.html', context)
 
