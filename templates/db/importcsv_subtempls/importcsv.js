@@ -10,35 +10,51 @@ this page has 2 funcitonalities.
 	- then handles the return value 
 **/
 
-var files = []; // save the files
+var files = null; // save the files
 var filetext = null; // save the text of the file
+var lastmodified = null; // save when file last modified as mm/dd/YYYY
+// todays date for use if the file doesn't have a date
+var today = new Date(Date.now()).toLocaleString(); 
 
-// save the files and print the to the screen
-function handleFileSelect(evt){
-	files = evt.target.files; // FileList object
+
+///////////////////////////////////
+// Get files from user
+///////////////////////////////////
+
+
+// on change of the file selection. update the text box
+$(document).on('change',':file', function(){
+	// retrieve the files
+	var input = $(this).get(0); // get input node
+	files = input.files // get the files
+	if (files == null){return} // break. no files selected
+	// else continue
 	
-	// files is a FileList of File objects. List some properties.
-	var output = [];
-	// add the files with properties to output list
+	// update the feedback box
+	var output = []; // container to hold file names
 	for (var i = 0, f; f = files[i]; i++) {
-		output.push('<li><strong>', 
-			escape(f.name), 
-			'</strong> (', 
-			f.type || 'n/a', ') - ',
-			f.size, 
-			' bytes, last modified: ',
-			f.lastModifiedDate ? 
-				f.lastModifiedDate.toLocaleDateString() : 'n/a',
-			'</li>'
+		console.log(f.name, f.type);
+		output.push( 
+			'<label id="sel_disp', i, '" class="form-control">',
+				escape(f.name), '\t\t',
+			'(', f.type || 'n/a', ')',
+			'<span style="float:right">', f.size, ' bytes, last modified: ',
+			f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+			'</span></label>' 
 		);
 	}
+	$('#selected_files')[0].innerHTML = output.join('');
 
-	// read the file and save it's text to filetext
+	// actually read the files
 	var f = new FileReader();
 	f.onload = function(thefile){
 		// runs when the file is loaded after read
 
+
 		filetext = thefile.srcElement.result
+		// save the filetext as a string
+		lastmodified = f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : new Date(Date.now()).toLocaleString();
+		// save the last moified date if available or todays date as a backup.
 
 		if (filetext != null){
 			$('#submit_button').prop('disabled',false);
@@ -48,30 +64,15 @@ function handleFileSelect(evt){
 		}
 	};
 	f.readAsText(files[0]);
-	// read happens asynchonously. 
+	
 
-	document.getElementById('list').innerHTML = '<ul>' + 
-		output.join('') + '</ul>';
-};
-
-
-$(document).on('change',':file', function(){
-var input = $(this),
-	numFiles = input.get(0).files? input.get(0).files.length:1,
-	label= input.val().replace(/\\/g,'/').replace(/.*\//, '');
-	console.log('....', input.get(0).files);
-input.trigger('fileselect',[numFiles, label]);
 });
 
-// when the files change
-document.getElementById('files').addEventListener('change',  // on change 
-	handleFileSelect,  // use this callback
-	false  // at most once
-); 
 
 ///////////////////////////////////
 // do upload and handle response
 ///////////////////////////////////
+
 // when ajax finishes
 function handle_ajax_complete(resp, status){
 	console.log(status, resp);
@@ -84,8 +85,8 @@ $(document).on('submit', '#post_csv', function(e){
 	console.log('sending ', filetext);
 	data = {
 		text: filetext,
-		surveyid: 1,
-		importsourceid: 1,
+		surveyid: $('input[name=surveyid]').val(),
+		importsourceid: $('#importsource')[0].value,
 		csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
 	};
 
@@ -97,12 +98,7 @@ $(document).on('submit', '#post_csv', function(e){
 	});
 });
 
-$(document).ready( function() {
-    $(':file').on('fileselect', function(event, numFiles, label) {
-        console.log(numFiles);
-        console.log(label);
-    });
-});
+
 
 
 

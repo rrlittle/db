@@ -226,13 +226,13 @@ def post_csv(request):
     data = request.POST
 
     # get the survey and importsourceid we are to use. 
-    # survey = get_object_or_404(models.Survey, pk=data['surveyid'])
-    # importsourceid = get_object_or_404(models.importSource, 
-        # pk=data['importsourceid'])
+    sourceScheme = get_object_or_404(models.SourceScheme, 
+        pk=data['importsourceid'])
 
     # handle each row from the csv appropriately based on the importsource 
     # specifications
-    status = view_utils.handle_import_csv(data['text'])
+    status = view_utils.handle_import_csv(data['text'], sourceScheme,
+        data['file_last_modified_date'])
 
     # return the status
     return HttpResponse()  

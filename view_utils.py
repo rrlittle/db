@@ -369,16 +369,32 @@ def create_answer_from_post(html_choiceid, value,
     ans.clean()
     return ans
     
+def parse_csv_row(row, importsource, last_modified):
+    ''' this parses a single row from a csv. which involves 
+        finding the keys used to create answers and computing all the values for
+        the questions we're importing.
 
-def handle_import_csv(text):  #, survey, importsource): 
+        returns a list of dicts that can easily be turned into answer objects. 
+    '''
+    # get the keys
+    # 
+
+def handle_import_csv(text, importsource, file_last_modified_date): 
     ''' this does the actual parsing of the text based on importsource
     '''
+    last_modified = datetime.datetime.strptime(file_last_modified_date)
+    # only used when the sourceScheme doesn't provide a dateOfrresponse key
+
+    # logger.info('importing a csv from raw: %s' % text)
+
     # parse the csv reader as csv dict... this should allow easy manipulation
     reader = csv.DictReader(text.splitlines())
     # logger.info('headers (%s) : %s' % (len(reader.fieldnames), 
-        # reader.fieldnames))
+    #     reader.fieldnames))
     for i, row in enumerate(reader):
-        logger.info('row %s (%s): %s' % (i, len(row), row.values())) 
+        # logger.info('row %s (%s): %s' % (i, len(row), 
+        #     [row[h] for h in reader.fieldnames])) 
+        row_parsed = parse_csv_row(row, importsource)
 
 
 def check_post_csv_request(request):
@@ -397,11 +413,16 @@ def check_post_csv_request(request):
         'surveyid',
         'importsourceid',
         'text',
+        'file_last_modified_date'
     ]
 
     for k in required_keys:
         if k not in data:
             errors['err_%s_not_present' % k] = '%s is a required key' % k 
+    try:
+        datetime.datetime.strptime(data['file_last_modified_date'], '%m/%d/%Y')
+    except ValueError as e:
+        errors['bad_file_last_modified_date'] = e + '. Should be mm/dd/yyyy'
 
     if len(errors) > 0: return errors
     else: return None 

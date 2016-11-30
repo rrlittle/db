@@ -21,6 +21,7 @@
 
 {# ACTUAL HTML #}
 <form id="post_csv">
+	<input type="hidden" name="surveyid" value="{{ survey.id }}">
 	{% csrf_token %}
 	
 	{# source scheme #}
@@ -42,10 +43,12 @@
 			<label class="input-group-btn">
 				<span class="btn btn-primary">
 					Browse&hellip; 
-					<input type="file" style="display: none;">
+					<input id="files" type="file" style="display: none;">
 				</span>
 			</label>
-			<input id="sel_display" type="text" class="form-control" readonly>
+			<div id='selected_files'>
+				<label id="sel_disp0" class="form-control">...</label>
+			</div>
 		</div>
 		<span class="help-block">
 			Select the source file matching the indicated scheme
@@ -54,7 +57,7 @@
 
 
 	{# working file selector #}
-	<input type="file" id="files" name="files[]"/>
+	{# <input type="file" id="filesold" name="files[]"/> #}
 
 	{# submit button #}
 	<button class=' submit btn btn-primary center-block' 

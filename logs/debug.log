@@ -76,3 +76,115 @@ headers (5 col wide):
 rows (1 rows):
 	(5 col wide):[<Person: 3>, <Person: 3>, datetime.date(2016, 11, 15), 1L, 999L]
 row 0 (2): ['well', 'sdkjhskfjsh']
+getting questions and answers for test
+found 1 questions for this survey
+adding headers for test[0]=>How is Your day?
+q ui: check
+adding good to header
+adding not good to header
+completed header: [{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}, {'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}]
+found 1 answers
+adding answer 1
+adding 1 to How is Your day?
+creating view for test
+headers (5 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}
+rows (1 rows):
+	(5 col wide):[<Person: 3>, <Person: 3>, datetime.date(2016, 11, 15), 1L, 999L]
+getting questions and answers for test
+found 1 questions for this survey
+adding headers for test[0]=>How is Your day?
+q ui: check
+adding good to header
+adding not good to header
+completed header: [{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}, {'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}]
+found 1 answers
+adding answer 1
+adding 1 to How is Your day?
+creating view for test
+headers (5 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}
+rows (1 rows):
+	(5 col wide):[<Person: 3>, <Person: 3>, datetime.date(2016, 11, 15), 1L, 999L]
+row 0 (3): ['sdkjhskfjsh', 'froot, eggos', '1']
+row 0 (2): ['well', 'a']
+row 1 (2): ['not well', 'b']
+row 2 (2): ['', 'c']
+row 3 (2): ['well', 'd']
+row 4 (2): ['well', 'e']
+row 5 (2): ['not well', 'f']
+row 6 (2): ['', 'g']
+importing a csv from raw: person,q1
+a,well
+b,not well
+c,
+d,well
+e,well
+f,not well
+g,
+
+row 0 (2): ['well', 'a']
+row 1 (2): ['not well', 'b']
+row 2 (2): ['', 'c']
+row 3 (2): ['well', 'd']
+row 4 (2): ['well', 'e']
+row 5 (2): ['not well', 'f']
+row 6 (2): ['', 'g']
+importing a csv from raw: person,q1
+a,well
+b,not well
+c,
+d,well
+e,well
+f,not well
+g,
+
+row 0 (2): ['well', 'a']
+row 1 (2): ['not well', 'b']
+row 2 (2): ['', 'c']
+row 3 (2): ['well', 'd']
+row 4 (2): ['well', 'e']
+row 5 (2): ['not well', 'f']
+row 6 (2): ['', 'g']
+importing a csv from raw: person,q1
+a,well
+b,not well
+c,
+d,well
+e,well
+f,not well
+g,
+
+headers (2) : ['person', 'q1']
+row 0 (2): ['well', 'a']
+row 1 (2): ['not well', 'b']
+row 2 (2): ['', 'c']
+row 3 (2): ['well', 'd']
+row 4 (2): ['well', 'e']
+row 5 (2): ['not well', 'f']
+row 6 (2): ['', 'g']
+importing a csv from raw: person,q1
+a,well
+b,not well
+c,
+d,well
+e,well
+f,not well
+g,
+
+headers (2) : ['person', 'q1']
+row 0 (2): ['a', 'well']
+row 1 (2): ['b', 'not well']
+row 2 (2): ['c', '']
+row 3 (2): ['d', 'well']
+row 4 (2): ['e', 'well']
+row 5 (2): ['f', 'not well']
+row 6 (2): ['g', '']

@@ -313,6 +313,7 @@ class sourceChoice(models.Model):
 	equivalent_choice = models.ForeignKey(Choice)
 	value = models.CharField(max_length=60) # length taken from models.Choice
 	
+	def __str__(self): return self.value + ' = ' + str(self.equivalent_choice)
 
 class sourceColumn(models.Model):
 	''' a single column from a csv that is used by a SourceQuetion to 
@@ -331,6 +332,8 @@ class sourceColumn(models.Model):
 	missing_value = models.CharField(max_length=100, default='999', 
 		null=True, blank=True)
 	# if we run into an empty cell in this column. what to do with it.
+
+	key = models.BooleanField(default=False) # is this column a key?
 
 	def __str__(self): return self.column_header
 
@@ -361,5 +364,16 @@ class SourceScheme(models.Model):
 
 	sourceQuestions = models.ManyToManyField(SourceQuestion, 
 		related_name='sourceSchemes')
+
+	# these are the possible keys for an answer, so some or all of them must be 
+	# present 
+	respondent_col_header = models.CharField(max_length=60)
+	subject_col_header = models.CharField(max_length=60)
+	date_of_response_col_header = models.CharField(max_length=60, 
+		null=True, blank=True)
+	#  if date of response isn't present, then we will record the last modified
+	#  from the file itself
 	
 	def __str__(self): return self.name
+
+
