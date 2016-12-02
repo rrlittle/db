@@ -188,3 +188,177 @@ row 3 (2): ['d', 'well']
 row 4 (2): ['e', 'well']
 row 5 (2): ['f', 'not well']
 row 6 (2): ['g', '']
+getting questions and answers for test
+found 1 questions for this survey
+adding headers for test[0]=>How is Your day?
+q ui: check
+adding good to header
+adding not good to header
+completed header: [{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}, {'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}]
+found 1 answers
+adding answer 1
+adding 1 to How is Your day?
+creating view for test
+headers (5 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}
+rows (1 rows):
+	(5 col wide):[<Person: 3>, <Person: 3>, datetime.date(2016, 11, 15), 1L, 999L]
+getting questions and answers for test
+found 1 questions for this survey
+adding headers for test[0]=>How is Your day?
+q ui: check
+adding good to header
+adding not good to header
+completed header: [{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}, {'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}]
+found 1 answers
+adding answer 1
+adding 1 to How is Your day?
+creating view for test
+headers (5 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}
+rows (1 rows):
+	(5 col wide):[<Person: 3>, <Person: 3>, datetime.date(2016, 11, 15), 1L, 999L]
+cleaning answer 1
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1
+saving ans 1
+getting questions and answers for test
+found 1 questions for this survey
+adding headers for test[0]=>How is Your day?
+q ui: check
+adding good to header
+adding not good to header
+completed header: [{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}, {'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}]
+found 2 answers
+adding answer 1
+adding 1 to How is Your day?
+adding answer 1
+adding 1 to How is Your day?
+creating view for test
+headers (5 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}
+rows (2 rows):
+	(5 col wide):[<Person: 3>, <Person: 3>, datetime.date(2016, 11, 15), 1L, 999L]
+	(5 col wide):[<Person: 2>, <Person: 2>, datetime.date(2016, 12, 2), 1L, 999L]
+getting questions and answers for test
+found 1 questions for this survey
+adding headers for test[0]=>How is Your day?
+q ui: check
+adding good to header
+adding not good to header
+completed header: [{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}, {'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}]
+found 2 answers
+adding answer 1
+adding 1 to How is Your day?
+adding answer 1
+adding 1 to How is Your day?
+creating view for test
+headers (5 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}
+rows (2 rows):
+	(5 col wide):[<Person: 3>, <Person: 3>, datetime.date(2016, 11, 15), 1L, 999L]
+	(5 col wide):[<Person: 2>, <Person: 2>, datetime.date(2016, 12, 2), 1L, 999L]
+getting questions and answers for test
+found 1 questions for this survey
+adding headers for test[0]=>How is Your day?
+q ui: check
+adding good to header
+adding not good to header
+completed header: [{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}, {'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}]
+found 2 answers
+adding answer 1
+adding 1 to How is Your day?
+adding answer 1
+adding 1 to How is Your day?
+creating view for test
+headers (5 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: good>}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>, 'choice': <Choice: not good>}
+rows (2 rows):
+	(5 col wide):[<Person: 3>, <Person: 3>, datetime.date(2016, 11, 15), 1L, 999L]
+	(5 col wide):[<Person: 2>, <Person: 2>, datetime.date(2016, 12, 2), 1L, 999L]
+cleaning answer 1
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+1
+saving ans 1
+getting questions and answers for test
+found 1 questions for this survey
+adding headers for test[0]=>How is Your day?
+q ui: radio
+creating one column for question
+completed header: [{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>}]
+found 3 answers
+adding answer 1
+adding 1 to How is Your day?
+adding answer 1
+adding 1 to How is Your day?
+adding answer 1
+adding 1 to How is Your day?
+creating view for test
+headers (4 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>}
+rows (3 rows):
+	(4 col wide):[<Person: 3>, <Person: 3>, datetime.date(2016, 11, 15), <Answer: 1>]
+	(4 col wide):[<Person: 4>, <Person: 4>, datetime.date(2016, 12, 2), <Answer: 1>]
+	(4 col wide):[<Person: 2>, <Person: 2>, datetime.date(2016, 12, 2), <Answer: 1>]
+cleaning answer -1
+checking answer uniqueness
+looking fro matches in <QuerySet []>
+checking answer validity
+answer is clean
+-1
+saving ans -1
+getting questions and answers for test
+found 1 questions for this survey
+adding headers for test[0]=>How is Your day?
+q ui: radio
+creating one column for question
+completed header: [{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>}]
+found 4 answers
+adding answer 1
+adding 1 to How is Your day?
+adding answer 1
+adding 1 to How is Your day?
+adding answer 1
+adding 1 to How is Your day?
+adding answer -1
+adding -1 to How is Your day?
+creating view for test
+headers (4 col wide):
+	{'key': 'Resp'}
+	{'key': 'Subj'}
+	{'key': 'Date'}
+	{'surveyQuestion': <SurveyQuestion: test[0]=>How is Your day?>, 'question': <Question: How is Your day?>}
+rows (4 rows):
+	(4 col wide):[<Person: 3>, <Person: 3>, datetime.date(2016, 11, 15), <Answer: 1>]
+	(4 col wide):[<Person: 4>, <Person: 4>, datetime.date(2016, 12, 2), <Answer: 1>]
+	(4 col wide):[<Person: 2>, <Person: 2>, datetime.date(2016, 12, 2), <Answer: 1>]
+	(4 col wide):[<Person: 1>, <Person: 1>, datetime.date(2016, 12, 2), <Answer: -1>]

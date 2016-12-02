@@ -13,8 +13,17 @@ class kwargs(models.Model):
 	"""
 	name = models.CharField(max_length=20)  # name of kewword argument
 	value = models.CharField(max_length=20)  # value stored therin. 
-											 # cast it how you will
+		# cast it how you will
 
+
+class External_Study(models.Model):  # a list of all the extra studys we pull data from
+	''' the name of studies we are pulling data from. 
+		if it uses a unique ID field, then then it's a new study. 
+		this is useful for importing data from other studies
+	'''
+	study_name = models.CharField(max_length=60)  # the name of the study  
+
+	def __str__(self): return self.study_name
 
 
 class Person(models.Model):  # all people
@@ -24,9 +33,22 @@ class Person(models.Model):  # all people
 	firstName = models.CharField(max_length=60)
 	lastName = models.CharField(max_length=60)
 	birthdate = models.DateField()
-	studyid = models.IntegerField(unique=True)
+	studyid = models.IntegerField(unique=True)  # for the primary study
 	
 	def __str__(self): return str(self.studyid)
+
+
+class External_ID(models.Model):  # study Id's for other data sources
+	"""a table to store person Id's from external data sources
+		e.g. person 1 (in the primary study) is called person a in a csv 
+		this table stores that connection
+	"""
+	person_object = models.ForeignKey(Person, related_name='person_id')
+	study_name = models.ForeignKey(External_Study, related_name='study_id')
+	study_id = models.CharField(max_length=60)
+
+	def __str__(self): return "%s[%s]=%s" % (str(self.person_object), 
+		self.study_name, self.study_id) 
 
 
 class Relation(models.Model):  # relationships between people
@@ -315,6 +337,7 @@ class sourceChoice(models.Model):
 	
 	def __str__(self): return self.value + ' = ' + str(self.equivalent_choice)
 
+
 class sourceColumn(models.Model):
 	''' a single column from a csv that is used by a SourceQuetion to 
 		come up with the value for a real answer when we're importing from a 
@@ -358,6 +381,10 @@ class SourceScheme(models.Model):
 		for a specific survey
 	'''
 
+	study = models.ForeignKey(External_Study, related_name='study', 
+		null=True, blank=True)  
+		# this uses ID's from this study 
+		# if blank then it uses the primary studies ID
 	name = models.CharField(max_length=20)  # e.g. metric wire to survey1
 	survey = models.ForeignKey(Survey)  # what this schema can be used to fill
 	# i.e. metric wire csvs are used to fill the metricwire survey.
